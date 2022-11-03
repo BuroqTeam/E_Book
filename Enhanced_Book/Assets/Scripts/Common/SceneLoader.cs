@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
    
-    [Scene]
-    public string SceneTobeLoaded;   
+   
 
-    public void LoadDesiredScene()
+
+    public void LoadSceneByName(string name)
     {
-        SceneManager.LoadScene(SceneTobeLoaded, LoadSceneMode.Single);
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
     }
 
 
