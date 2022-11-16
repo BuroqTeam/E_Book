@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class SizeFitter : MonoBehaviour
 {
+    private bool running;
     [ContextMenu("Resize")]
     public void Resize()
     {
-        this.Invoke(() =>
-        {
+        if(running) return;
+        running = true;
+      
             float a = 0;
             foreach (Transform VARIABLE in transform)
 
@@ -23,9 +25,14 @@ public class SizeFitter : MonoBehaviour
 
             a += 50;
 
-            GetComponent<RectTransform>().DOSizeDelta(new Vector2(280, a), 1.5f).SetEase(Ease.OutElastic);
+            GetComponent<RectTransform>().DOSizeDelta(new Vector2(280, a), 1.5f).SetEase(Ease.OutElastic).OnComplete(
+                () =>
+                {
 
-        }, 0.2f);
+                    running = false;
+                });
+
+       
     }
 
     // Update is called once per frame
