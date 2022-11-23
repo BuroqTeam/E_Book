@@ -8,12 +8,13 @@ namespace FathullohExample
 {
     public class ChapterElement : MonoBehaviour
     {
+        public GameObject MainPanel;
         public List<GameObject> Topics;
         public List<GameObject> ReverseTopics;
         public Sprite OpenArrow, CloseArrow;
         public bool _IsOpen;
 
-        const float switchDuration = 0.08f;
+        const float switchDuration = 0.06f;
         Button button;
 
         
@@ -28,19 +29,19 @@ namespace FathullohExample
 
         public void SpriteChange()
         {
+            MainPanel.GetComponent<BookContent>().CloseAllChapters(gameObject.transform.position);
+
             if (_IsOpen)
             {
                 _IsOpen = false;
                 gameObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = CloseArrow;
                 StartCoroutine(SwitchOnTopics(true));
-                //Debug.Log("Open Arrow.");
             }
             else if(!_IsOpen)
             {
                 _IsOpen = true;
                 gameObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = OpenArrow;
                 StartCoroutine(SwitchOffTopics(false));
-                //Debug.Log("Close Arrow.");
             }
         }
 
@@ -65,10 +66,30 @@ namespace FathullohExample
                 ReverseTopics[i].SetActive(_isTrue);
             }
             yield return new WaitForSeconds(switchDuration - 0.01f);
+
+            TopicsOff();
+        }
+
+                
+        public void TopicsOff()
+        {
+            for (int i = 0; i < Topics.Count; i++)
+            {
+                Topics[i].GetComponent<TopicElement>().WhenOffClicked();
+            }
         }
 
 
-        
+        public void TurnOffChapter(Vector3 objPos)
+        {
+            if (!_IsOpen && (gameObject.transform.position != objPos) )
+            {
+                //Debug.Log("11 11 11 11");
+                _IsOpen = true;
+                gameObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = OpenArrow;
+                StartCoroutine(SwitchOffTopics(false));
+            }
+        }
 
 
 

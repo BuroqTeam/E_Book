@@ -1,6 +1,3 @@
-using DG.Tweening;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,10 +13,12 @@ namespace FathullohExample
         public GameObject PinkLinePrefab;
 
         public string[][] Mavzular = new string[][]
-        { new string[]{ "I Bob", "1. Natural sonlar va nol", "2. Sodda geometrik shakllar", "3. Shkalalar va sonlar nuri", "4. Natural sonlarni yaxlitlash" },
-        new string[]{ "II Bob", "1. Natural sonlarni ko'paytirish", "2. Natural sonlarni bo'lish", "3. Qoldiqli bo'lish" },
+        { new string[]{ "I Bob", "1. Natural sonlar va nol", "2. Sodda geometrik shakllar", "3. Shkalalar va sonlar nuri",
+            "4. Natural sonlarni taqqoslash. Katta va kichik", "5. Natural sonlarni yaxlitlash", "6. Natural sonlarni qo‘shish", 
+            "7. Natural sonlarni yaxlitlash" },
+        new string[]{ "II Bob", "1. Natural sonlarni ko‘paytirish", "2. Natural sonlarni bo‘lish", "3. Qoldiqli bo‘lish" },
         new string[]{ "III Bob", "1. Matnli masalalar", "2. Harakatga doir masalalar", "3. Ikki jism harakatiga doir masalalar", "4. Iqtisodiy mazmundagi masalalar" },
-        new string[]{ "IV Bob", "1. Burchaklar", "2. Paralel va perpendikular to'g'ri chiziqlar", "3. Kordinatalar burchagi", "4. Ko'pburchak", "5. To'g'ri to'rtburchak va kvadratning yuzi" }};
+        new string[]{ "IV Bob", "1. Burchaklar", "2. Paralel va perpendikular to‘g‘ri chiziqlar", "3. Kordinatalar burchagi", "4. Ko‘pburchak", "5. To‘g‘ri to‘rtburchak va kvadratning yuzi" }};
 
 
         public List<GameObject> Chapters, Topics;
@@ -49,7 +48,9 @@ namespace FathullohExample
                         GameObject newTopic = Instantiate(TopicPrefab, this.transform);
                         newTopic.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = Mavzular[i][j];
                         newTopic.transform.SetParent(ParentObject.transform);
+                        newTopic.GetComponent<TopicElement>().ChapterObj = Chapters[i];
                         Chapters[i].GetComponent<ChapterElement>().Topics.Add(newTopic);
+                        Chapters[i].GetComponent<ChapterElement>().MainPanel = gameObject;
 
                         Topics.Add(newTopic);
                     }                    
@@ -60,8 +61,13 @@ namespace FathullohExample
         }
 
 
-
-
+        public void CloseAllChapters(Vector3 currentPos)
+        {
+            for (int i = 0; i < Chapters.Count; i++)
+            {
+                Chapters[i].GetComponent<ChapterElement>().TurnOffChapter(currentPos);
+            }
+        }
 
 
     }

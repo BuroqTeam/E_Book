@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,15 +22,13 @@ namespace FathullohExample
             {
                 _IsClicked = true;
                 TextSearch.SetActive(false);
-                gameObject.GetComponent<Image>().sprite = AfterClickingSprite;
-                Debug.Log(0);
+                gameObject.GetComponent<Image>().sprite = AfterClickingSprite;                
             }
             else if (_IsClicked)
             {
                 _IsClicked = false;
                 TextSearch.SetActive(true);
                 gameObject.GetComponent<Image>().sprite = InitialSprite;
-                Debug.Log(1);
             }
         }
 

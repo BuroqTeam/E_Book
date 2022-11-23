@@ -1,6 +1,4 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,11 +31,7 @@ namespace FathullohExample
 
 
         public void PanelMoveToLeft()
-        {
-            //Debug.Log(-MundarijaPanel.GetComponent<RectTransform>().sizeDelta.x);
-            //Debug.Log(MundarijaPanel.GetComponent<RectTransform>().position);
-            //Debug.Log(MundarijaPanel.GetComponent<RectTransform>().localPosition);
-            //Debug.Log(MundarijaPanel.GetComponent<RectTransform>().anchoredPosition);                        
+        {                                  
 
             if (_IsCenter)
             {
