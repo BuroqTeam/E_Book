@@ -1,0 +1,66 @@
+using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace FathullohExample
+{
+    public class OpenCloseButton : MonoBehaviour
+    {
+        public GameObject MundarijaPanel;
+        public Ease MovementEase;
+        public float MoveDuration;
+        public bool _IsCenter = true;
+        float panelPosition;
+
+        public Sprite ToRightSprite, ToLeftSprite;
+
+        
+        void Start()
+        {
+
+            TakeDate();
+        }
+
+
+
+        void TakeDate()
+        {
+            panelPosition = MundarijaPanel.GetComponent<RectTransform>().anchoredPosition.x;            
+        }
+
+
+
+        public void PanelMoveToLeft()
+        {
+            //Debug.Log(-MundarijaPanel.GetComponent<RectTransform>().sizeDelta.x);
+            //Debug.Log(MundarijaPanel.GetComponent<RectTransform>().position);
+            //Debug.Log(MundarijaPanel.GetComponent<RectTransform>().localPosition);
+            //Debug.Log(MundarijaPanel.GetComponent<RectTransform>().anchoredPosition);                        
+
+            if (_IsCenter)
+            {
+                MundarijaPanel.GetComponent<RectTransform>()
+                    .DOAnchorPosX(-MundarijaPanel.GetComponent<RectTransform>().sizeDelta.x / 4, MoveDuration)
+                    .SetEase(MovementEase);
+                _IsCenter = false;
+                transform.GetChild(1).GetComponent<Image>().sprite = ToRightSprite;
+            }
+            else if (!_IsCenter)
+            {
+                MundarijaPanel.GetComponent<RectTransform>()
+                    .DOAnchorPosX(panelPosition, MoveDuration)
+                    .SetEase(MovementEase);
+                _IsCenter = true;
+                transform.GetChild(1).GetComponent<Image>().sprite = ToLeftSprite;
+            }
+
+        }
+
+
+
+
+
+    }
+}
