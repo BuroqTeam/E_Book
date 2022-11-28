@@ -9,6 +9,9 @@ public class Pattern_2 : MonoBehaviour
     public GameObject ButtonPrefab;
     public TMP_Text LevelId;
     public TMP_Text Question;
+    public GameObject ResultPanel;
+    public GameObject CorrectIcon;
+    public GameObject WrongIcon;
     public List<string> Answers = new();
     public List<string> Answer1 = new();
     public List<bool> Result = new();
@@ -67,12 +70,10 @@ public class Pattern_2 : MonoBehaviour
         if (a == b)
         {
             Result[t - 1] = true;
-            Debug.Log("True");
         }
         else
         {
-            Result[t - 1] = false;
-            Debug.Log("False");
+            Result[t - 1] = false; 
         }
     }
 
@@ -85,7 +86,7 @@ public class Pattern_2 : MonoBehaviour
             Destroy(transform.GetChild(0).GetChild(i).gameObject);
             Buttons.Clear();
         }
-        if (Convert.ToInt32(LevelId)<6)
+        if (t-1<Answers.Count)
         {
             LevelId.SetText((t).ToString());
             if (Question.GetComponent<TMP_Text>().text.Contains(Answers[t-2]))
@@ -94,7 +95,37 @@ public class Pattern_2 : MonoBehaviour
             }
             CreatePttern();
         }
+        else
+        {
+            ResultPanelControl();
+        }
+    }
 
-        
+    public void ResultPanelControl()
+    {
+        int correct = 0;
+        int wrong = 0;
+        ResultPanel.SetActive(true);
+        for (int i = 0; i < Result.Count; i++)
+        {
+            if (Result[i])
+            {
+                correct++;
+                Instantiate(CorrectIcon, ResultPanel.GetComponent<ResultController>().LevelIcons.transform);
+            }
+            else
+            {
+                wrong++;
+                Instantiate(WrongIcon, ResultPanel.GetComponent<ResultController>().LevelIcons.transform);
+            }
+        }
+        ResultPanel.GetComponent<ResultController>().CorrectNumber.SetText((correct).ToString());
+        ResultPanel.GetComponent<ResultController>().WrongNumber.SetText((wrong).ToString());
+        ResultPanel.GetComponent<ResultController>().Percentage.SetText((correct*100/Answers.Count).ToString());
+    }
+
+    public void LoadLocalScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Quiz");
     }
 }
