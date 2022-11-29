@@ -325,7 +325,7 @@ public class BigNumberManager : MonoBehaviour
         Sinflar.transform.GetChild(2).transform.GetChild(3).transform.GetComponent<Image>().DOFade(0, 0);
         Sinflar.transform.GetChild(1).transform.GetChild(2).transform.GetComponent<Image>().DOFade(0, 0);
         Sinflar.transform.GetChild(0).transform.GetChild(3).transform.GetComponent<Image>().DOFade(0, 0);
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(6); 
         PlaySound();
         yield return new WaitForSeconds(1);
         Sinflar.transform.GetChild(0).transform.GetChild(4).transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 1, 2, 1);
