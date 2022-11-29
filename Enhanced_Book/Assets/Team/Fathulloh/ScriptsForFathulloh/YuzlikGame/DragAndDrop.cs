@@ -3,14 +3,15 @@ using UnityEngine.EventSystems;
 
 namespace YuzlikFathulloh
 {
-    public class DiscNumber : MonoBehaviour, /*IPointerDownHandler,*/ IDragHandler, IBeginDragHandler, IEndDragHandler
+    public class DragAndDrop : MonoBehaviour, /*IPointerDownHandler,*/ IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         public enum TypeNumber { Ones, Tens, Hundreds, Thousands, TenThousands, HundredThousands }
         public TypeNumber CurrentTypeNumber;
 
-        public Vector3 _initialPos, _lastPos;
+        public Vector3 InitialPos, LastPos;
 
-        private RectTransform _rectTransform;
+        private RectTransform rectTransform;
+        private CanvasGroup canvasGroup;
         bool _IsTrue = true;
 
 
@@ -22,11 +23,11 @@ namespace YuzlikFathulloh
 
         void TakePositions()
         {
-            _rectTransform = GetComponent<RectTransform>();
-
+            rectTransform = GetComponent<RectTransform>();
+            canvasGroup = GetComponent<CanvasGroup>();
             if (_IsTrue)            {
                 _IsTrue = false;
-                _initialPos = gameObject.transform.position;
+                InitialPos = gameObject.transform.position;
             }
 
         }
@@ -35,8 +36,9 @@ namespace YuzlikFathulloh
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _lastPos = gameObject.transform.position;
+            LastPos = gameObject.transform.position;
 
+            canvasGroup.blocksRaycasts = false;
         }
 
 
@@ -44,21 +46,23 @@ namespace YuzlikFathulloh
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(pos.x, pos.y, 0);
-            _rectTransform.anchoredPosition3D = new Vector3(_rectTransform.anchoredPosition3D.x, _rectTransform.anchoredPosition3D.y, 0);
+            rectTransform.anchoredPosition3D = new Vector3(rectTransform.anchoredPosition3D.x, rectTransform.anchoredPosition3D.y, 0);
 
-            //_rectTransform.anchoredPosition += eventData.delta;
+            
         }
-
 
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            
+            canvasGroup.blocksRaycasts = true;
         }
+
 
         //public void OnPointerDown(PointerEventData eventData)
         //{
         //    throw new System.NotImplementedException();
         //}
+
+
     }
 }

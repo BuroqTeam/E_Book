@@ -27,7 +27,6 @@ namespace YuzlikFathulloh
 
         public void CreateColumns()
         {
-            Debug.Log("XonalarSoni = " + XonalarSoni);
             for (int i = 0; i < XonalarSoni; i++)
             {
                 GameObject newObj = Instantiate( ColumnPrefab, this.transform );
@@ -38,7 +37,7 @@ namespace YuzlikFathulloh
                 NumberColumns.Add(newObj);
             }
 
-            //WriteNumberName();
+
         }
 
 
