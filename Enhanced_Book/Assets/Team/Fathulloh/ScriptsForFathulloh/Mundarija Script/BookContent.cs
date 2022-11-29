@@ -25,7 +25,7 @@ namespace FathullohExample
 
 
         void Start()
-        {
+        {           
             WorkingWithArray();
         }
 

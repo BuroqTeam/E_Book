@@ -35,8 +35,9 @@ namespace FathullohExample
 
             if (_IsCenter)
             {
+                //Debug.Log(-MundarijaPanel.GetComponent<RectTransform>().sizeDelta.x / 3.7f);
                 MundarijaPanel.GetComponent<RectTransform>()
-                    .DOAnchorPosX(-MundarijaPanel.GetComponent<RectTransform>().sizeDelta.x / 4, MoveDuration)
+                    .DOAnchorPosX(-MundarijaPanel.GetComponent<RectTransform>().sizeDelta.x / 3.65f, MoveDuration)
                     .SetEase(MovementEase);
                 _IsCenter = false;
                 transform.GetChild(1).GetComponent<Image>().sprite = ToRightSprite;
