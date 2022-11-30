@@ -25,7 +25,11 @@ namespace YuzlikFathulloh
         {
             if (stopWatchActive)
             {
-                currentTime = currentTime + Time.deltaTime;                
+                currentTime += Time.deltaTime;
+
+                if (CurrentTimeText.text.Length == 7)                {
+                    stopWatchActive = false;
+                }
             }
 
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
@@ -42,6 +46,12 @@ namespace YuzlikFathulloh
         public void StopStopWatch()
         {
             stopWatchActive = false;
+        }
+
+
+        public void RestartButton()
+        {
+            currentTime = 0;
         }
 
 

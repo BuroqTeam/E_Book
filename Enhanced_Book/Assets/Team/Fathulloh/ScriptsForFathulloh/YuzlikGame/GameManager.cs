@@ -18,6 +18,8 @@ namespace YuzlikFathulloh
         public GameObject ColumnPrefab;
         public GameObject ParentObj;
 
+        public bool IsArea;
+        public GameObject CurrentClickedObj;
 
         void Start()
         {
@@ -30,10 +32,13 @@ namespace YuzlikFathulloh
             for (int i = 0; i < XonalarSoni; i++)
             {
                 GameObject newObj = Instantiate( ColumnPrefab, this.transform );
+
                 newObj.GetComponent<Image>().color = PrefabColors[i];
+                newObj.GetComponent<ColumnScript>().Gmanager = this;
                 newObj.transform.GetChild(0).GetComponent<Image>().color = ChildColor[i];
                 newObj.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = XonalarNomi[i];
                 newObj.transform.SetParent(ParentObj.transform);
+
                 NumberColumns.Add(newObj);
             }
 

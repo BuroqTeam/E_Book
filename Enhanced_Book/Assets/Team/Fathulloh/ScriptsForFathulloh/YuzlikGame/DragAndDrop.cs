@@ -9,6 +9,7 @@ namespace YuzlikFathulloh
         public TypeNumber CurrentTypeNumber;
 
         public Vector3 InitialPos, LastPos;
+        public GameManager Gmanager;
 
         private RectTransform rectTransform;
         private CanvasGroup canvasGroup;
@@ -37,7 +38,7 @@ namespace YuzlikFathulloh
         public void OnBeginDrag(PointerEventData eventData)
         {
             LastPos = gameObject.transform.position;
-
+            Gmanager.CurrentClickedObj = gameObject;
             canvasGroup.blocksRaycasts = false;
         }
 
@@ -55,6 +56,16 @@ namespace YuzlikFathulloh
         public void OnEndDrag(PointerEventData eventData)
         {
             canvasGroup.blocksRaycasts = true;
+            Debug.Log(Gmanager.IsArea);
+        }
+
+
+        public void SetInParent()
+        {
+            //if ()
+            //{
+
+            //}
         }
 
 

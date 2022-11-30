@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace FathullohExample
+namespace YuzlikFathulloh
 {
     public class ColumnScript : MonoBehaviour, IDropHandler
     {
         public enum TypeNumber { Ones, Tens, Hundreds, Thousands, TenThousands, HundredThousands }
         public TypeNumber CurrentTypeNumber;
         public int TypeNumberInt;
+        public GameManager Gmanager;
+
 
         void Start()
         {
@@ -37,6 +39,7 @@ namespace FathullohExample
         public void OnDrop(PointerEventData eventData)
         {
             Debug.Log("Item Dropped! CurrentTypeNumber = " + CurrentTypeNumber + " " + gameObject.name);
+            Gmanager.IsArea = true;
         }
 
 
