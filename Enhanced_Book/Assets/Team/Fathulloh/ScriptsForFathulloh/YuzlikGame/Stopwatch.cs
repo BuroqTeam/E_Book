@@ -1,13 +1,14 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 namespace YuzlikFathulloh
 {
-
-    public class Timer : MonoBehaviour
+    public class Stopwatch : MonoBehaviour
     {
-        bool timerActive = false;
+        bool stopWatchActive = false;
         float currentTime;
         public int StartMinutes;
         public TMP_Text CurrentTimeText;
@@ -15,17 +16,16 @@ namespace YuzlikFathulloh
 
         void Start()
         {
-            currentTime = StartMinutes * 60;
-
-            StartTimer();
+            currentTime = 0;
+            StartStopWatch();
         }
 
-
+        
         void Update()
         {
-            if (timerActive)
+            if (stopWatchActive)
             {
-                currentTime -= Time.deltaTime;
+                currentTime = currentTime + Time.deltaTime;                
             }
 
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
@@ -33,15 +33,15 @@ namespace YuzlikFathulloh
         }
 
 
-        public void StartTimer()
+        public void StartStopWatch()
         {
-            timerActive = true;
+            stopWatchActive = true;
         }
 
 
-        public void StopTimer()
+        public void StopStopWatch()
         {
-            timerActive = false;
+            stopWatchActive = false;
         }
 
 
