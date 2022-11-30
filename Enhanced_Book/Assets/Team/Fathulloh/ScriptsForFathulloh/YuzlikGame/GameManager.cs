@@ -46,13 +46,13 @@ namespace YuzlikFathulloh
         }
 
 
-        void WriteNumberName()
-        {
-            for (int i = 0; i < XonalarNomi.Count; i++)
-            {
-                NumberColumns[i].transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = XonalarNomi[i];
-            }            
-        }
+        //void WriteNumberName()
+        //{
+        //    for (int i = 0; i < XonalarNomi.Count; i++)
+        //    {
+        //        NumberColumns[i].transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = XonalarNomi[i];
+        //    }            
+        //}
 
 
         

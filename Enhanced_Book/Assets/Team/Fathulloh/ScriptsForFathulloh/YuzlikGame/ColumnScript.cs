@@ -38,7 +38,7 @@ namespace YuzlikFathulloh
 
         public void OnDrop(PointerEventData eventData)
         {
-            Debug.Log("Item Dropped! CurrentTypeNumber = " + CurrentTypeNumber + " " + gameObject.name);
+            //Debug.Log("Item Dropped! CurrentTypeNumber = " + CurrentTypeNumber + " " + gameObject.name);
             Gmanager.IsArea = true;
         }
 
