@@ -37,14 +37,14 @@ public class ScaleableButton : MonoBehaviour, IPointerExitHandler, IPointerEnter
     {
         SetOn();
         StartCoroutine(ScaleAnim());
-        _title.DOAnchorPosX(-27, 0.4f);
+        _title.DOAnchorPosX(-25, 0.4f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         SetOff();
         StartCoroutine(ScaleAnim());
-        _title.DOAnchorPosX(0, 0.4f);
+        _title.DOAnchorPosX(4, 0.4f);
     }
 
    
