@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,17 +12,24 @@ public class ScaleableButton : MonoBehaviour, IPointerExitHandler, IPointerEnter
 
     public Sprite On;
     public Sprite Off;
+    RectTransform _title;
+
+
+    private void Awake()
+    {
+        _title = transform.GetChild(0).GetComponent<RectTransform>();
+    }
 
     public void SetOn()
     {
-        transform.GetChild(0).GetComponent<Image>().sprite = On;
+        transform.GetChild(1).GetComponent<Image>().sprite = On;
         
     }
 
 
     public void SetOff()
     {
-        transform.GetChild(0).GetComponent<Image>().sprite = Off;
+        transform.GetChild(1).GetComponent<Image>().sprite = Off;
         
     }
 
@@ -29,12 +37,14 @@ public class ScaleableButton : MonoBehaviour, IPointerExitHandler, IPointerEnter
     {
         SetOn();
         StartCoroutine(ScaleAnim());
+        _title.DOAnchorPosX(-27, 0.4f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         SetOff();
         StartCoroutine(ScaleAnim());
+        _title.DOAnchorPosX(0, 0.4f);
     }
 
    
@@ -46,9 +56,9 @@ public class ScaleableButton : MonoBehaviour, IPointerExitHandler, IPointerEnter
 
     IEnumerator ScaleAnim()
     {
-        transform.GetChild(0).transform.DOScale(0.7f, 0.2f);
+        transform.GetChild(1).transform.DOScale(0.5f, 0.2f);        
         yield return new WaitForSeconds(0.2f);
-        transform.GetChild(0).transform.DOScale(1, 0.2f);
+        transform.GetChild(1).transform.DOScale(1, 0.2f);
         yield return new WaitForSeconds(0.2f);
 
     }
