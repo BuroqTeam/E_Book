@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 namespace YuzlikFathulloh
 {
+    /// <summary>
+    /// Rangli ustunlarga biriktirilgan script
+    /// </summary>
     public class ColumnScript : MonoBehaviour, IDropHandler
     {
         public enum TypeNumber { Ones, Tens, Hundreds, Thousands, TenThousands, HundredThousands }
@@ -39,6 +42,7 @@ namespace YuzlikFathulloh
         public void OnDrop(PointerEventData eventData)
         {
             //Debug.Log("Item Dropped! CurrentTypeNumber = " + CurrentTypeNumber + " " + gameObject.name);
+            Debug.Log(1);
             Gmanager.IsArea = true;
         }
 

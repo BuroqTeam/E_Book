@@ -1,23 +1,28 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 namespace YuzlikFathulloh
 {
+    /// <summary>
+    /// Raqamlar yozilgan disklarga birlashtirilgan script.
+    /// </summary>
     public class DragAndDrop : MonoBehaviour, /*IPointerDownHandler,*/ IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         public enum TypeNumber { Ones, Tens, Hundreds, Thousands, TenThousands, HundredThousands }
         public TypeNumber CurrentTypeNumber;
 
-        public Vector3 InitialPos, LastPos;
+        public Vector3 InitialPos, LastPos, InitialPos2;
         public GameObject ObjGameManager;
-        public GameObject ParentObj;
+        public GameObject InitialParentObj;
 
 
         private RectTransform rectTransform;
         private CanvasGroup canvasGroup;
         bool _IsTrue = true;
-        bool _IsParentColumn = false;
+        //bool _IsParentColumn = false;
 
 
         void Start()
@@ -30,11 +35,13 @@ namespace YuzlikFathulloh
         {
             rectTransform = GetComponent<RectTransform>();
             canvasGroup = GetComponent<CanvasGroup>();
-            ParentObj = gameObject.transform.parent.gameObject;
+
+            InitialParentObj = gameObject.transform.parent.gameObject;
 
             if (_IsTrue)            {
                 _IsTrue = false;
                 InitialPos = gameObject.transform.localPosition;
+                InitialPos2 = gameObject.GetComponent<RectTransform>().localPosition;
             }
         }
 
@@ -42,6 +49,7 @@ namespace YuzlikFathulloh
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            gameObject.transform.SetParent(ObjGameManager.transform);
             LastPos = gameObject.transform.localPosition /*gameObject.transform.position*/;
             
             ObjGameManager.GetComponent<GameManager>().CurrentClickedObj = gameObject;
@@ -56,9 +64,7 @@ namespace YuzlikFathulloh
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(pos.x, pos.y, 0);
-            rectTransform.anchoredPosition3D = new Vector3(rectTransform.anchoredPosition3D.x, rectTransform.anchoredPosition3D.y, 0);
-
-            
+            rectTransform.anchoredPosition3D = new Vector3(rectTransform.anchoredPosition3D.x, rectTransform.anchoredPosition3D.y, 0);            
         }
 
 
@@ -66,18 +72,21 @@ namespace YuzlikFathulloh
         {
             canvasGroup.blocksRaycasts = true;
 
-            if (ObjGameManager.GetComponent<GameManager>().IsArea)            {
-                //Debug.Log(ObjGameManager.GetComponent<GameManager>().IsArea);
-                if (!_IsParentColumn)                
-                    ChangeParent();                
-                else if (_IsParentColumn)
-                    gameObject.transform.localPosition = LastPos;
+            if (ObjGameManager.GetComponent<GameManager>().IsArea)     {
+                Debug.Log(ObjGameManager.GetComponent<GameManager>().IsArea);
+                ChangeParent();
+                //if (!_IsParentColumn)                
+                //    ChangeParent();                
+                //else if (_IsParentColumn)
+                //    gameObject.transform.localPosition = LastPos;
             }
-            else            {
-                Debug.Log(111);
-                _IsParentColumn = false;
-                gameObject.transform.SetParent(ParentObj.transform);
-                gameObject.transform.localPosition = InitialPos;                
+            else    {
+                //_IsParentColumn = false;
+                gameObject.transform.SetParent(InitialParentObj.transform);
+                                
+                //gameObject.transform.localPosition = InitialPos;
+                //gameObject.GetComponent<RectTransform>().DOAnchorPos(InitialPos, 0.2f);
+                gameObject.transform.DOLocalMove(InitialPos, 0.2f);
             }
         }
 
@@ -99,35 +108,53 @@ namespace YuzlikFathulloh
 
         void NewParent(GameObject obj)
         {
-            _IsParentColumn = true;
+            //////_IsParentColumn = true;
             gameObject.transform.SetParent(obj.transform.GetChild(1).gameObject.transform);
         }
 
 
-        //public void TypeOfTakePosition()
-        //{
-        //    Debug.Log(gameObject.transform.position  + "  gameObject.transform.position " );
-        //    Debug.Log(gameObject.transform.localPosition + "  gameObject.transform.localPosition " );
+        public void ReturnInitialPos()
+        {
+            //_IsParentColumn = false;
+            gameObject.transform.SetParent(InitialParentObj.transform);
 
-        //    Debug.Log(gameObject.GetComponent<RectTransform>().position + "  gameObject.GetComponent<RectTransform>().position " );
-        //    Debug.Log(gameObject.GetComponent<RectTransform>().transform.position + "  gameObject.GetComponent<RectTransform>().transform.position");
+            gameObject.transform.DOLocalMove(InitialPos, 0.2f);
 
-        //    Debug.Log(gameObject.GetComponent<RectTransform>().localPosition + "  gameObject.GetComponent<RectTransform>().localPosition");
-        //    Debug.Log(gameObject.GetComponent<RectTransform>().transform.localPosition + "  gameObject.GetComponent<RectTransform>().transform.localPosition" );
+            //gameObject.GetComponent<RectTransform>().DOAnchorPos(InitialPos, 0.2f);            
+        }
 
-        //    Debug.Log(gameObject.GetComponent<RectTransform>().rect + "  gameObject.GetComponent<RectTransform>().rect");
-        //    Debug.Log(gameObject.GetComponent<RectTransform>().rect.position + "  gameObject.GetComponent<RectTransform>().rect.position");
 
-        //    Debug.Log(gameObject.GetComponent<RectTransform>().anchoredPosition + "  gameObject.GetComponent<RectTransform>().anchoredPosition" );
-            
-        //    Debug.Log(gameObject.GetComponent<Transform>().position + "  gameObject.GetComponent<Transform>().position ");
-        //    Debug.Log(gameObject.GetComponent<Transform>().transform.position + "  gameObject.GetComponent<Transform>().transform.position ");
-
-        //    Debug.Log(gameObject.GetComponent<Transform>().localPosition + "  gameObject.GetComponent<Transform>().localPosition");
-        //    Debug.Log(gameObject.GetComponent<Transform>().transform.localPosition + "  gameObject.GetComponent<Transform>().transform.localPosition" );
-        //}
+        
 
 
 
     }
 }
+
+
+
+//float flo1 = Vector3.Distance(gameObject.transform.localPosition, InitialPos);
+
+
+//public void TypeOfTakePosition()
+//{
+//    Debug.Log(gameObject.transform.position  + "  gameObject.transform.position " );
+//    Debug.Log(gameObject.transform.localPosition + "  gameObject.transform.localPosition " );
+
+//    Debug.Log(gameObject.GetComponent<RectTransform>().position + "  gameObject.GetComponent<RectTransform>().position " );
+//    Debug.Log(gameObject.GetComponent<RectTransform>().transform.position + "  gameObject.GetComponent<RectTransform>().transform.position");
+
+//    Debug.Log(gameObject.GetComponent<RectTransform>().localPosition + "  gameObject.GetComponent<RectTransform>().localPosition");
+//    Debug.Log(gameObject.GetComponent<RectTransform>().transform.localPosition + "  gameObject.GetComponent<RectTransform>().transform.localPosition" );
+
+//    Debug.Log(gameObject.GetComponent<RectTransform>().rect + "  gameObject.GetComponent<RectTransform>().rect");
+//    Debug.Log(gameObject.GetComponent<RectTransform>().rect.position + "  gameObject.GetComponent<RectTransform>().rect.position");
+
+//    Debug.Log(gameObject.GetComponent<RectTransform>().anchoredPosition + "  gameObject.GetComponent<RectTransform>().anchoredPosition" );
+
+//    Debug.Log(gameObject.GetComponent<Transform>().position + "  gameObject.GetComponent<Transform>().position ");
+//    Debug.Log(gameObject.GetComponent<Transform>().transform.position + "  gameObject.GetComponent<Transform>().transform.position ");
+
+//    Debug.Log(gameObject.GetComponent<Transform>().localPosition + "  gameObject.GetComponent<Transform>().localPosition");
+//    Debug.Log(gameObject.GetComponent<Transform>().transform.localPosition + "  gameObject.GetComponent<Transform>().transform.localPosition" );
+//}

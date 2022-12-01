@@ -10,7 +10,8 @@ namespace YuzlikFathulloh
     {
         public int XonalarSoni = 6;
         public List<GameObject> NumberColumns;
-        public List<string> XonalarNomi = new List<string> { "Birlik", "O‘nlik", "Yuzlik", "Minglik", "O‘n Minglik", "Yuz Minglik" };
+        //public List<GameObject> Columns;
+        public List<string> XonalarNomi = new() { "Birlik", "O‘nlik", "Yuzlik", "Minglik", "O‘n Minglik", "Yuz Minglik" };
         
 
         public List<Color> PrefabColors = new() { new(0.82f, 0.92f, 0.98f), new(0.99f, 0.90f, 0.83f),  new(0.97f, 0.86f, 0.90f), new(0.87f, 0.93f, 0.88f), new(0.69f, 0.56f, 0.75f), new(0.93f, 0.75f, 0.65f) };
@@ -32,17 +33,16 @@ namespace YuzlikFathulloh
             for (int i = 0; i < XonalarSoni; i++)
             {
                 GameObject newObj = Instantiate( ColumnPrefab, this.transform );
-
+                                
                 newObj.GetComponent<Image>().color = PrefabColors[i];
                 newObj.GetComponent<ColumnScript>().Gmanager = this;
+                newObj.GetComponent<ColumnScript>().TypeNumberInt = i;
                 newObj.transform.GetChild(0).GetComponent<Image>().color = ChildColor[i];
                 newObj.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = XonalarNomi[i];
                 newObj.transform.SetParent(ParentObj.transform);
-
+                                
                 NumberColumns.Add(newObj);
             }
-
-
         }
 
 
