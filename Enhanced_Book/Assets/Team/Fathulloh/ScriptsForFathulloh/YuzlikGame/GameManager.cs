@@ -10,7 +10,6 @@ namespace YuzlikFathulloh
     {
         public int XonalarSoni = 6;
         public List<GameObject> NumberColumns;
-        //public List<GameObject> Columns;
         public List<string> XonalarNomi = new() { "Birlik", "O‘nlik", "Yuzlik", "Minglik", "O‘n Minglik", "Yuz Minglik" };
         
 
@@ -21,6 +20,7 @@ namespace YuzlikFathulloh
 
         public bool IsArea;
         public GameObject CurrentClickedObj;
+
 
         void Start()
         {

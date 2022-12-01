@@ -111,6 +111,7 @@ MonoBehaviour:
   CurrentTypeNumber: 0
   InitialPos: {x: 0, y: 0, z: 0}
   LastPos: {x: 0, y: 0, z: 0}
+  InitialPos2: {x: 0, y: 0, z: 0}
   ObjGameManager: {fileID: 0}
   InitialParentObj: {fileID: 0}
 --- !u!225 &8389582893792327550
@@ -218,8 +219,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 8
