@@ -13,6 +13,8 @@ public class ScaleableButton : MonoBehaviour, IPointerExitHandler, IPointerEnter
     public Sprite On;
     public Sprite Off;
     RectTransform _title;
+    public float ToXPos;
+    public float InitialPos;
 
 
     private void Awake()
@@ -37,14 +39,20 @@ public class ScaleableButton : MonoBehaviour, IPointerExitHandler, IPointerEnter
     {
         SetOn();
         StartCoroutine(ScaleAnim());
-        _title.DOAnchorPosX(-25, 0.4f);
+        _title.gameObject.SetActive(true);
+        _title.DOAnchorPosX(ToXPos, 0.4f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         SetOff();
         StartCoroutine(ScaleAnim());
-        _title.DOAnchorPosX(4, 0.4f);
+        _title.DOAnchorPosX(InitialPos, 0.4f).OnComplete(DeactivateTitle);
+    }
+
+    void DeactivateTitle()
+    {
+        _title.gameObject.SetActive(false);
     }
 
    
