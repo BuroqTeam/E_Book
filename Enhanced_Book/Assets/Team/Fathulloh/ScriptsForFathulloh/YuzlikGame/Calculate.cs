@@ -17,7 +17,7 @@ namespace YuzlikFathulloh
         public List<int> Digits;
         public int number;
         //public List<bool> CoulmnStatus;
-        public int CorrectColumns = 0;
+        public int CorrectColumns;
 
         public UnityEvent NextTaskEvent;
         public UnityEvent WrongEvent;
@@ -31,6 +31,9 @@ namespace YuzlikFathulloh
         
         public void CheckAnswer()
         {
+            Digits.Clear();
+            CorrectColumns = 0;
+
             CurrentTaskNum = Tmaker.CurrentTask;
             number = CurrentTaskNum;
             while (number >= 1)
@@ -56,9 +59,16 @@ namespace YuzlikFathulloh
 
 
             if (CorrectColumns == Gmanager.XonalarSoni)
-                NextTaskEvent.Invoke();
+            {
+                Debug.Log(" + ");
+                NextTaskEvent.Invoke();                
+            }
             else
-                WrongEvent.Invoke();
+            {
+                Debug.Log(" - ");
+                WrongEvent.Invoke();                
+            }
+                
 
         }
 

@@ -73,7 +73,6 @@ namespace YuzlikFathulloh
             canvasGroup.blocksRaycasts = true;
 
             if (ObjGameManager.GetComponent<GameManager>().IsArea)     {
-                Debug.Log(ObjGameManager.GetComponent<GameManager>().IsArea);
                 ChangeParent();
                 //if (!_IsParentColumn)                
                 //    ChangeParent();                
