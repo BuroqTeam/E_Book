@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,20 +7,43 @@ namespace YuzlikFathulloh
 
     public class Timer : MonoBehaviour
     {
-        bool stopwatchActive = false;
+        bool timerActive = false;
         float currentTime;
-        public TMP_Text TextTimer;
+        public int StartMinutes;
+        public TMP_Text CurrentTimeText;
 
 
         void Start()
         {
-            //TextTimer.text = 
+            currentTime = StartMinutes * 60;
+
+            StartTimer();
         }
 
-        
+
         void Update()
         {
+            if (timerActive)
+            {
+                currentTime -= Time.deltaTime;
+            }
 
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            CurrentTimeText.text = time.Minutes.ToString() + " : " + time.Seconds.ToString();
         }
+
+
+        public void StartTimer()
+        {
+            timerActive = true;
+        }
+
+
+        public void StopTimer()
+        {
+            timerActive = false;
+        }
+
+
     }
 }

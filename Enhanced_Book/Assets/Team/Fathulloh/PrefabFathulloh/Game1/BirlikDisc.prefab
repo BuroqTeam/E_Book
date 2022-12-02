@@ -111,6 +111,9 @@ MonoBehaviour:
   CurrentTypeNumber: 0
   InitialPos: {x: 0, y: 0, z: 0}
   LastPos: {x: 0, y: 0, z: 0}
+  InitialPos2: {x: 0, y: 0, z: 0}
+  ObjGameManager: {fileID: 0}
+  InitialParentObj: {fileID: 0}
 --- !u!225 &8389582893792327550
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -191,8 +194,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a77a35d28d40d546afb80546824c2ff, type: 2}
+  m_sharedMaterial: {fileID: 8207788966920542828, guid: 4a77a35d28d40d546afb80546824c2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -216,8 +219,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 8
