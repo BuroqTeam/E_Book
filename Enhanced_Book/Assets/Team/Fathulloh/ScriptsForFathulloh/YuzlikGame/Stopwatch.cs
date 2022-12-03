@@ -53,5 +53,12 @@ namespace YuzlikFathulloh
         }
 
 
+        public void WriteTimeToObject(GameObject gObj)
+        {
+            gObj.GetComponent<TMP_Text>().text = CurrentTimeText.ToString();
+        }
+
+
+
     }
 }
