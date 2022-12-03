@@ -8,7 +8,7 @@ namespace YuzlikFathulloh
 {
     public class TaskMaker : MonoBehaviour
     {
-        public int HowManyQuestion = 4;
+        int HowManyQuestion = 10;
         public int CurrentQuestionIndex = 0;
 
         public GameObject QuestionTablo;
