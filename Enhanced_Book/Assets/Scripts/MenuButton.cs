@@ -13,6 +13,7 @@ public class MenuButton : MonoBehaviour
         {
             _buttons.Add(transform.GetChild(i).gameObject);
         }
+        ClickMenuButton(transform.GetChild(0).gameObject);
     }
 
     public void ClickMenuButton(GameObject clickedObj)
