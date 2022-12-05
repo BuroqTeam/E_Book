@@ -44,12 +44,12 @@ public class Pattern_1 : MonoBehaviour
     {
         int a = 0;
         int b = 0;
-        for (int i = 0; i < 2; i++)
-        {
-            ButtonsPrefabs.transform.GetChild(i).
+        //for (int i = 0; i < 2; i++)
+        //{
+        //    //ButtonsPrefabs.transform.GetChild(i).
 
 
-        }
+        //}
         if (a == b)
         {
             Result[t - 1] = true;
