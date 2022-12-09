@@ -38,15 +38,15 @@ public class Hide : MonoBehaviour
         {
             transform.GetChild(0).GetComponent<Image>().sprite = MarkedSp;
             ShowEvent.Invoke();
-            Book.DOAnchorPosY(-40, 0);
-            Book.DOSizeDelta(new Vector2(594.6f, 424.7f), 0.2f);
+            Book.DOAnchorPosY(-20, 0);
+            Book.DOSizeDelta(new Vector2(612, 400), 0.2f);
         }
         else
         {
             transform.GetChild(0).GetComponent<Image>().sprite = UnMurkedSp;
             HideEvent.Invoke();
             Book.DOAnchorPosY(0, 0);
-            Book.DOSizeDelta(new Vector2(755, 515), 0.2f);
+            Book.DOSizeDelta(new Vector2(670, 440), 0.2f);
         }
         
 
