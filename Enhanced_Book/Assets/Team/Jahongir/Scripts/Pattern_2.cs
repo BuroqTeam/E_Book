@@ -3,15 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pattern_2 : MonoBehaviour
 {
     public GameObject ButtonPrefab;
+    public GameObject LevelConroller;
+    public GameObject NextButton;
     public TMP_Text LevelId;
     public TMP_Text Question;
     public GameObject ResultPanel;
     public GameObject CorrectIcon;
     public GameObject WrongIcon;
+    public Sprite Badge1;
+    public Sprite Badge2;
+    public Sprite Badge3;
+    public Sprite Lose;
+    public Sprite FinishButton;
     public List<string> Answers = new();
     public List<string> Answer1 = new();
     public List<bool> Result = new();
@@ -20,17 +28,17 @@ public class Pattern_2 : MonoBehaviour
     private void Start()
     {
         t = Convert.ToInt32(LevelId);
-        CreatePttern();
+        CreatePattern();
     }
 
 
-    public void CreatePttern()
+    public void CreatePattern()
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < 8; i++)
         {
             GameObject button = Instantiate(ButtonPrefab, transform.GetChild(0).transform);
             button.GetComponent<ButtonControl_P2>().Pattern2 = this;
-            button.transform.GetChild(0).GetComponent<TMP_Text>().text = Answer1[(t - 1) * 12 + i];
+            button.transform.GetChild(0).GetComponent<TMP_Text>().text = Answer1[(t - 1) * 8 + i];
             Buttons.Add(button);
         }
     }
@@ -93,7 +101,14 @@ public class Pattern_2 : MonoBehaviour
             {
                 Question.GetComponent<TMP_Text>().text = Question.GetComponent<TMP_Text>().text.Replace(Answers[t - 2], Answers[t-1]);
             }
-            CreatePttern();
+            if (t == 6)
+            {
+                NextButton.GetComponent<Image>().sprite = FinishButton;
+                NextButton.transform.GetChild(0).GetComponent<TMP_Text>().text = "Yakunlash";
+            }
+            LevelConroller.GetComponent<LevelController>().ChangeCircle();
+            CreatePattern();
+            
         }
         else
         {
@@ -121,11 +136,29 @@ public class Pattern_2 : MonoBehaviour
         }
         ResultPanel.GetComponent<ResultController>().CorrectNumber.SetText((correct).ToString());
         ResultPanel.GetComponent<ResultController>().WrongNumber.SetText((wrong).ToString());
-        ResultPanel.GetComponent<ResultController>().Percentage.SetText((correct*100/Answers.Count).ToString());
+        if (correct * 100/6 >= 90 && correct * 100 / 6 <= 100)
+        {
+            ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge1;
+            Debug.Log("3");
+        }
+        else if (correct * 100 / 6 >= 70 && correct * 100 / 6 < 90)
+        {
+            ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge2;
+            Debug.Log("2");
+        }
+        else if(correct * 100 / 6 >= 50 && correct * 100 / 6 < 70)
+        {
+            ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge1;
+            Debug.Log("1");
+        }
+        else
+        {
+            ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Lose;
+        }
     }
 
     public void LoadLocalScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Quiz");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Quiz 2");
     }
 }
