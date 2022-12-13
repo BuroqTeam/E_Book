@@ -143,7 +143,7 @@ public class Pattern_3 : MonoBehaviour
         }
         else if (correct * 100 / 6 >= 50 && correct * 100 / 6 < 70)
         {
-            ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge1;
+            ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge3;
             Debug.Log("1");
         }
         else
