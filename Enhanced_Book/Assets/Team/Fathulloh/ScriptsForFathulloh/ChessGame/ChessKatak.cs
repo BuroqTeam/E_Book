@@ -1,48 +1,48 @@
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace ChessGameFathulloh
 {
-    public class ChessSquare : MonoBehaviour/*, IPointerClickHandler*/
-    {
+    public class ChessKatak : MonoBehaviour, IPointerClickHandler
+    {        
         public SavolTablo Savoltablo;
         public GameManager GManager;
 
         public Sprite oqSprite, qoraSprite;
         public int squareIndex;
-        public int level;
+        //public int level;
         public Color initialColor;
         public Vector3 initialScale;
         public int initialOrderInLayer;
 
-        public Color yangiRang = new Color(0.8f, 0.3f, 0.3f, 1);
+        public Color yangiRang = new(0.8f, 0.3f, 0.3f, 1);
 
+        public int harfRaqam;
 
 
         void Start()
         {
-            initialColor = GetComponent<Image>().color;
+            initialColor = GetComponent<SpriteRenderer>().color;
             initialScale = transform.localScale;
-            //initialOrderInLayer = GetComponent<SpriteRenderer>().sortingOrder; // Buyerda SetIndexga o'xshash narsa bo'ladi.
-            qoraSprite = GetComponent<Image>().sprite;            
+            initialOrderInLayer = GetComponent<SpriteRenderer>().sortingOrder;
+            qoraSprite = GetComponent<SpriteRenderer>().sprite;
         }
 
 
-        //public void OnPointerClick(PointerEventData eventData)
-        //{
-        //    //Savoltablo.fingerCursor.GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), 0.8f);
-        //    //GetComponent<SpriteRenderer>().sortingOrder = 7;
-        //    CheckClickedAnswer();
-        //}
 
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 7;
+            CheckClickedAnswer();
+        }
 
-        private int harfRaqam;
+        
 
         public void CheckClickedAnswer()
         {
-            Debug.Log("Clicked");
             int sonSavol = Savoltablo.sonSavol;
             int boardSize = Savoltablo.BoardSize;
             char harfSavol = Savoltablo.harfSavol;
@@ -86,8 +86,9 @@ namespace ChessGameFathulloh
                 StartCoroutine(ErrorPainting());
                 GManager.errorEvent.Invoke();
             }
-            
+
         }
+
 
 
         public IEnumerator Painting()
@@ -98,9 +99,7 @@ namespace ChessGameFathulloh
             yield return new WaitForSeconds(0.3f);
 
             GetComponent<Transform>().DOScale(initialScale, 0.3f);
-            yield return new WaitForSeconds(0.5f);
-
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.8f);
             GetComponent<SpriteRenderer>().sprite = qoraSprite;
             GetComponent<SpriteRenderer>().color = initialColor;
             GetComponent<SpriteRenderer>().sortingOrder = initialOrderInLayer;
@@ -115,7 +114,10 @@ namespace ChessGameFathulloh
             GetComponent<SpriteRenderer>().sprite = qoraSprite;
             GetComponent<SpriteRenderer>().color = initialColor;
             GetComponent<SpriteRenderer>().sortingOrder = initialOrderInLayer;
+
         }
+
+
 
 
     }
