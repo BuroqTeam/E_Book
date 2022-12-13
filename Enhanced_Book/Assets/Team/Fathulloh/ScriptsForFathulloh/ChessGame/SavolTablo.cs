@@ -9,8 +9,8 @@ namespace ChessGameFathulloh
     {
         public GameManager Gmanager;
 
-        const int taskCount = 8;
-        private int totalTaskCount = 0;
+        public const int TotalTaskCount = 8;
+        private int CurrentTaskIndex = 0;
 
         public int BoardSize;
         public int ChessLevel;
@@ -24,7 +24,7 @@ namespace ChessGameFathulloh
         public int harfIndex;
         public char harfSavol;
 
-        public GameObject fingerCursor;
+        //public GameObject fingerCursor;
 
 
 
@@ -65,14 +65,14 @@ namespace ChessGameFathulloh
 
         public void TaskMaker()
         {
-            totalTaskCount += 1;
+            CurrentTaskIndex += 1;
             harfIndex = Random.Range(0, BoardSize);
             harfSavol = Harflar[harfIndex];
             sonSavol = Random.Range(1, BoardSize + 1);
 
             //Debug.Log("harfSavol = " + harfSavol + " sonSavol = " + sonSavol);
             SavolBoardText.text = harfSavol.ToString() + sonSavol.ToString();
-            TaskCountText.text = totalTaskCount.ToString() + "/" + taskCount.ToString();            
+            TaskCountText.text = CurrentTaskIndex.ToString() + "/" + TotalTaskCount.ToString();            
         }
 
 
@@ -85,13 +85,13 @@ namespace ChessGameFathulloh
         {
             yield return new WaitForSeconds(0.8f);
 
-            if (totalTaskCount != 8)
+            if (CurrentTaskIndex != TotalTaskCount)
             {
                 StartCoroutine(Gmanager.MoveChessBoard());
                 yield return new WaitForSeconds(0.2f);
                 TaskMaker();
             }
-            else if (totalTaskCount == 8)
+            else if (CurrentTaskIndex == TotalTaskCount)
             {
                 yield return new WaitForSeconds(0.5f);
                 Gmanager.finishEvent.Invoke();
