@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281871640
-  m_fontColor: {r: 0.09411766, g: 0.1764706, b: 0.21960786, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b6a90f7c7a78b14d8313007ad97fcbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b214ecebb701984cb87913b9026937c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
