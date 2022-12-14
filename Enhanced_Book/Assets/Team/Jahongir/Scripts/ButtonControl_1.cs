@@ -30,6 +30,7 @@ public class ButtonControl_1 : MonoBehaviour
                 NextButton.transform.GetChild(0).GetComponent<TMP_Text>().color = new Color32(50, 50, 50, 255);
                 NextButton.GetComponent<ButtonControl_1>().Select = false;
             }
+            Pattern1.NextButton.gameObject.SetActive(true);
         }
         //Pattern1.Check();
     }

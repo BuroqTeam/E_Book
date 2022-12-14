@@ -34,6 +34,7 @@ public class Pattern_2 : MonoBehaviour
 
     public void CreatePattern()
     {
+        NextButton.gameObject.SetActive(false);
         for (int i = 0; i < 8; i++)
         {
             GameObject button = Instantiate(ButtonPrefab, transform.GetChild(0).transform);
@@ -139,21 +140,22 @@ public class Pattern_2 : MonoBehaviour
         if (correct * 100/6 >= 90 && correct * 100 / 6 <= 100)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge1;
-            Debug.Log("3");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else if (correct * 100 / 6 >= 70 && correct * 100 / 6 < 90)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge2;
-            Debug.Log("2");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else if(correct * 100 / 6 >= 50 && correct * 100 / 6 < 70)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge3;
-            Debug.Log("1");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Lose;
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().GameOverClip);
         }
     }
 

@@ -47,6 +47,7 @@ public class Pattern_1 : MonoBehaviour
         {
             button.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = Answers[t - 1];
         }
+        NextButton.gameObject.SetActive(false);
     }
 
     public void ResultControl()
@@ -115,21 +116,22 @@ public class Pattern_1 : MonoBehaviour
         if (correct * 100 / 6 >= 90 && correct * 100 / 6 <= 100)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge1;
-            Debug.Log("3");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else if (correct * 100 / 6 >= 70 && correct * 100 / 6 < 90)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge2;
-            Debug.Log("2");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else if (correct * 100 / 6 >= 50 && correct * 100 / 6 < 70)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge3;
-            Debug.Log("1");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Lose;
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().GameOverClip);
         }
     }
 
