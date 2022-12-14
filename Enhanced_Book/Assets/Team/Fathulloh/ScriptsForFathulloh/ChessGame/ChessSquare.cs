@@ -1,13 +1,11 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace ChessGameFathulloh
 {
-    public class ChessSquare : MonoBehaviour, IPointerClickHandler
+    public class ChessSquare : MonoBehaviour/*, IPointerClickHandler*/
     {
         public SavolTablo Savoltablo;
         public GameManager GManager;
@@ -23,28 +21,28 @@ namespace ChessGameFathulloh
 
 
 
-
         void Start()
         {
             initialColor = GetComponent<Image>().color;
             initialScale = transform.localScale;
-            //initialOrderInLayer = GetComponent<SpriteRenderer>().sortingOrder; // Buyerda Seindexga o'xshash narsa bo'ladi.
-            qoraSprite = GetComponent<Image>().sprite;
+            //initialOrderInLayer = GetComponent<SpriteRenderer>().sortingOrder; // Buyerda SetIndexga o'xshash narsa bo'ladi.
+            qoraSprite = GetComponent<Image>().sprite;            
         }
 
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            Savoltablo.fingerCursor.GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), 0.8f);
-            GetComponent<SpriteRenderer>().sortingOrder = 7;
-            CheckClickedAnswer();
-        }
+        //public void OnPointerClick(PointerEventData eventData)
+        //{
+        //    //Savoltablo.fingerCursor.GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), 0.8f);
+        //    //GetComponent<SpriteRenderer>().sortingOrder = 7;
+        //    CheckClickedAnswer();
+        //}
 
 
         private int harfRaqam;
 
         public void CheckClickedAnswer()
         {
+            Debug.Log("Clicked");
             int sonSavol = Savoltablo.sonSavol;
             int boardSize = Savoltablo.BoardSize;
             char harfSavol = Savoltablo.harfSavol;
@@ -80,19 +78,15 @@ namespace ChessGameFathulloh
             }
 
 
-            if (((harfRaqam - 1) * boardSize + sonSavol - 1) == squareIndex)
-            {
+            if (((harfRaqam - 1) * boardSize + sonSavol - 1) == squareIndex)            {
                 StartCoroutine(Painting());
                 GManager.correctEvent.Invoke();
             }
-            if (((harfRaqam - 1) * boardSize + sonSavol - 1) != squareIndex)
-            {
+            if (((harfRaqam - 1) * boardSize + sonSavol - 1) != squareIndex)            {
                 StartCoroutine(ErrorPainting());
                 GManager.errorEvent.Invoke();
             }
-            //bool bolean1 = ((harfRaqam - 1) * boardSize + sonSavol - 1) == squareIndex;
-            //bool bolean2 = ((harfRaqam - 1) * boardSize + sonSavol - 1) != squareIndex;
-            //Debug.Log("bolean1 = " + bolean1 + "    bolean2 = " + bolean2);
+            
         }
 
 

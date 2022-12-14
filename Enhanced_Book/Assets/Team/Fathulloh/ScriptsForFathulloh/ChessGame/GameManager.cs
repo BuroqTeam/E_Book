@@ -20,7 +20,7 @@ namespace ChessGameFathulloh
         public Ease easeForBoard;
 
 
-        public GameObject square4x4, square6x6, square8x8;
+        public GameObject Square8x8;
         public List<GameObject> squares;
 
 
@@ -31,8 +31,7 @@ namespace ChessGameFathulloh
 
         private void Awake()
         {
-            //SavolTablo.GetComponent<RectTransform>().DOAnchorPosY(outPos.y, 0f); //++
-            
+            //SavolTablo.GetComponent<RectTransform>().DOAnchorPosY(outPos.y, 0f); //++            
             SavolTablo.GetComponent<SavolTablo>().ChessLevel = Level;
         }
 
@@ -46,21 +45,8 @@ namespace ChessGameFathulloh
 
 
         public void CheckLevel()
-        {
-            //if (Level == 1)    //4 ga 4
-            //{
-            //    chessBoardAlphabet = Instantiate(square4x4, new Vector3(0, -0.1f, 0), Quaternion.identity);
-            //}
-            //else if (Level == 2)        // 5 ga 5  
-            //{
-            //    chessBoardAlphabet = Instantiate(square6x6, new Vector3(0, -0.1f, 0), Quaternion.identity);
-            //}
-            //else if (Level == 3)        // 6 ga 6         
-            //{
-            //    chessBoardAlphabet = Instantiate(square8x8, new Vector3(0, -0.1f, 0), Quaternion.identity);
-            //}
+        {            
             chessBoard = chessBoardAlphabet.transform.GetChild(0).gameObject;
-
 
             initialPosChessBoard = chessBoardAlphabet.transform.position.y;     // ChessBoard animatsiyasi uchun ishlangan kod.
             //chessBoardAlphabet.transform.DOMoveY(-11, 0);
@@ -71,15 +57,25 @@ namespace ChessGameFathulloh
 
         void TakeChilds()
         {
-            for (int i = 0; i < chessBoard.transform.childCount; i++)
+            //for (int i = 0; i < chessBoard.transform.childCount; i++)
+            //{
+            //    chessBoard.transform.GetChild(i).GetComponent<ChessSquare>().Savoltablo = SavolTablo.GetComponent<SavolTablo>();
+            //    chessBoard.transform.GetChild(i).GetComponent<ChessSquare>().squareIndex = i;
+            //    chessBoard.transform.GetChild(i).GetComponent<ChessSquare>().GManager = this;
+            //    chessBoard.transform.GetChild(i).GetComponent<ChessSquare>().oqSprite = oqSprite;
+            //    squares.Add(chessBoard.transform.GetChild(i).gameObject);
+            //}
+
+
+            for (int i = 0; i < Square8x8.transform.childCount; i++)
             {
-                chessBoard.transform.GetChild(i).GetComponent<ChessSquare>().Savoltablo = SavolTablo.GetComponent<SavolTablo>();
-                chessBoard.transform.GetChild(i).GetComponent<ChessSquare>().squareIndex = i;
-                chessBoard.transform.GetChild(i).GetComponent<ChessSquare>().GManager = this;
-                chessBoard.transform.GetChild(i).GetComponent<ChessSquare>().oqSprite = oqSprite;
+                Square8x8.transform.GetChild(i).GetComponent<ChessKatak>().Savoltablo = SavolTablo.GetComponent<SavolTablo>();
+                Square8x8.transform.GetChild(i).GetComponent<ChessKatak>().squareIndex = i;
+                Square8x8.transform.GetChild(i).GetComponent<ChessKatak>().GManager = this;
+                Square8x8.transform.GetChild(i).GetComponent<ChessKatak>().oqSprite = oqSprite;
                 squares.Add(chessBoard.transform.GetChild(i).gameObject);
             }
-            //StartCoroutine(chessTablo.FingerAnim());
+
         }
 
 
@@ -98,15 +94,15 @@ namespace ChessGameFathulloh
 
         public IEnumerator MoveChessBoard()
         {
-            if (bl == 0) // ChessBoard animatsiyasi uchun ishlangan kod.
-            {
-                chessBoardAlphabet.transform
-                    .DOMoveY(initialPosChessBoard, 0.8f)
-                    .SetEase(easeForBoard);
-                bl += 1;
-            }
+            //if (bl == 0) // ChessBoard animatsiyasi uchun ishlangan kod.
+            //{
+            //    chessBoardAlphabet.transform
+            //        .DOMoveY(initialPosChessBoard, 0.8f)
+            //        .SetEase(easeForBoard);
+            //    bl += 1;
+            //}
 
-            if (nl != 0)
+            if (nl != 0 || bl == 0)
             {
                 SwitchingBoxCollider(false);
                 SavolTablo.GetComponent<RectTransform>().DOAnchorPosY(outPos.y, 0.5f);
