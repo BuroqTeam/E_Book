@@ -6,7 +6,7 @@ namespace YuzlikFathulloh
 {
     public class TaskMaker : MonoBehaviour
     {
-        int HowManyQuestion = 10;
+        public int HowManyQuestion = 10;
         public int CurrentQuestionIndex = 0;
 
         public GameObject QuestionTablo;
@@ -30,8 +30,9 @@ namespace YuzlikFathulloh
         {
             if (HowManyQuestion != CurrentQuestionIndex)   {
                 CurrentTask = Random.Range(100000, 1000000);
-                
-                string str0 = (CurrentTask / 1000).ToString() + " " + (CurrentTask % 1000).ToString();
+                string str0 = (CurrentTask / 1000).ToString() + " " + ((CurrentTask.ToString()).Substring(3));
+                //Debug.Log(" (CurrentTask.ToString()).Substring(3)  = " + ((CurrentTask.ToString()).Substring(3)) );
+
                 string QuestionStr1 = QuestionStr.Replace("*n", str0.ToString());
                 TaskObj.GetComponent<TMP_Text>().text = QuestionStr1.ToString();
                 ShowQuestionIndex();
@@ -53,6 +54,12 @@ namespace YuzlikFathulloh
         {
             Debug.Log("Increase Index");
             CurrentQuestionIndex += 1;
+        }
+
+
+        public void TimeEnd()
+        {
+            FinishEvent.Invoke();
         }
 
 
