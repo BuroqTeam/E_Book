@@ -8,7 +8,6 @@ public class PageController : MonoBehaviour
 {
 
     public List<Sprite> Pages;
-
     RectTransform _rect;
     Image _image;
     int _pageIndex;
@@ -16,8 +15,8 @@ public class PageController : MonoBehaviour
 
     private void Awake()
     {
-        _rect = GetComponent<RectTransform>();
-        _image = GetComponent<Image>();
+        _rect = transform.GetChild(0).GetComponent<RectTransform>();
+        _image = transform.GetChild(0).GetComponent<Image>();
     }
 
     public void RightClick()
@@ -39,9 +38,7 @@ public class PageController : MonoBehaviour
             _rect.DOAnchorPosX(-710, 0.3f);
             yield return new WaitForSeconds(0.3f);
             _rect.DOAnchorPosX(0, 0);
-        }
-        
-        
+        }         
     }
 
     IEnumerator MoveLeft()
@@ -53,8 +50,7 @@ public class PageController : MonoBehaviour
             _rect.DOAnchorPosX(710, 0.3f);
             yield return new WaitForSeconds(0.3f);
             _rect.DOAnchorPosX(0, 0);
-        }
-       
+        }       
     }
 
    
