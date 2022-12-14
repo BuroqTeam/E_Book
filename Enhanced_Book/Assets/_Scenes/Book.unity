@@ -21221,7 +21221,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c176b0a8c0dbd7249af404787590d38a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0355f0d6bd503244ba2c15766ec4d856, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21252,7 +21252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pages:
-  - {fileID: 21300000, guid: c176b0a8c0dbd7249af404787590d38a, type: 3}
+  - {fileID: 21300000, guid: 0355f0d6bd503244ba2c15766ec4d856, type: 3}
   - {fileID: 21300000, guid: af13101c69482304cab4b4f7e60918b3, type: 3}
   - {fileID: 21300000, guid: 443d02ad598a3e4468ba4adcb6ffb4ad, type: 3}
   - {fileID: 21300000, guid: 18daf5c9adbaea44bb702d2d47335f06, type: 3}

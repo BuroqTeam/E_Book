@@ -32,39 +32,31 @@ public class PageController : MonoBehaviour
 
     IEnumerator MoveRight()
     {
-        _rect.DOAnchorPosX(-710, 0.5f);
-        yield return new WaitForSeconds(0.5f);
-        _rect.DOAnchorPosX(0, 0);
-        IncrementPageIndex();
-    }
-
-    IEnumerator MoveLeft()
-    {
-        _rect.DOAnchorPosX(710, 0.5f);
-        yield return new WaitForSeconds(0.5f);
-        _rect.DOAnchorPosX(0, 0);
-        DecrementPageIndex();
-    }
-
-    void IncrementPageIndex()
-    {
         if (_pageIndex < Pages.Count - 1)
         {
             _pageIndex++;
             _image.sprite = Pages[_pageIndex];
-        }        
+            _rect.DOAnchorPosX(-710, 0.3f);
+            yield return new WaitForSeconds(0.3f);
+            _rect.DOAnchorPosX(0, 0);
+        }
+        
+        
     }
 
-
-    void DecrementPageIndex()
+    IEnumerator MoveLeft()
     {
         if (_pageIndex > 0)
         {
             _pageIndex--;
             _image.sprite = Pages[_pageIndex];
+            _rect.DOAnchorPosX(710, 0.3f);
+            yield return new WaitForSeconds(0.3f);
+            _rect.DOAnchorPosX(0, 0);
         }
-
+       
     }
 
+   
 
 }
