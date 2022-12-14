@@ -5,10 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public List<string> GameScenes;
-    public List<string> QuizScenes;
-    public List<string> MediaScenes;
-
+   
     public static GameManager Instance;
 
 
