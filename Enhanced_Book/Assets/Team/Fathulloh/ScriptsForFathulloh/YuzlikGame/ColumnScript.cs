@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 namespace YuzlikFathulloh
 {
     /// <summary>
-    /// Rangli ustunlarga biriktirilgan script
+    /// Rangli ustunlarga biriktirilgan script. Ustun qanday sonlar uchun mo'ljallanganini aniqlaydi.
     /// </summary>
     public class ColumnScript : MonoBehaviour, IDropHandler
     {

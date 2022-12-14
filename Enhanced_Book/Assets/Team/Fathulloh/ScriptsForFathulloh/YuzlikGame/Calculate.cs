@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,9 @@ namespace YuzlikFathulloh
         public int number;
         //public List<bool> CoulmnStatus;
         public int CorrectColumns;
+
+        public float WaitTime = 0.75f;
+        public float MaxScaleSize = 1;
 
         public UnityEvent NextTaskEvent;
         public UnityEvent WrongEvent;
@@ -58,18 +62,45 @@ namespace YuzlikFathulloh
             }
 
 
-            if (CorrectColumns == Gmanager.XonalarSoni)
-            {
-                Debug.Log(" + ");
+            if (CorrectColumns == Gmanager.XonalarSoni)        {
                 NextTaskEvent.Invoke();                
             }
-            else
-            {
-                Debug.Log(" - ");
+            else            {
                 WrongEvent.Invoke();                
-            }
-                
+            }      
 
+        }
+
+
+        public GameObject Xobject;
+        public bool _IsTrueWrongAnim = true;
+
+
+        public void WrongAnim()
+        {
+            if (_IsTrueWrongAnim)
+            {
+                _IsTrueWrongAnim = false;
+                StartCoroutine(WrongAnimation());
+            }    
+
+        }
+
+
+        IEnumerator WrongAnimation()
+        {
+            Vector3 initialScale = Xobject.transform.localScale;
+            Xobject.SetActive(true);
+            Xobject.transform.DOScale(MaxScaleSize, WaitTime);
+            yield return new WaitForSeconds(WaitTime/5);
+            Xobject.GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), WaitTime);
+            yield return new WaitForSeconds(WaitTime);
+
+            Xobject.SetActive(false);
+            Xobject.transform.DOScale(initialScale, 0);
+            Xobject.GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 1), 0);
+
+            _IsTrueWrongAnim = true;
         }
 
 

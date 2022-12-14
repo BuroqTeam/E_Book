@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,15 +38,12 @@ namespace YuzlikFathulloh
             }
             else if (HowManyQuestion == CurrentQuestionIndex)    {
                 FinishEvent.Invoke();
-            }
-
-                        
+            }                        
         }
 
 
         public void ShowQuestionIndex()
-        {
-            Debug.Log("MakeQuestion() ");
+        {            
             string str = CurrentQuestionIndex.ToString() + " / " + HowManyQuestion.ToString();
             QuestionTablo.transform.GetChild(0).GetComponent<TMP_Text>().text = str;
         }
