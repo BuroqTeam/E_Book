@@ -10,9 +10,10 @@ namespace Game2_Fathulloh
         [SerializeField] private LineManager LineM;
 
 
-        [SerializeField]
+        
         private void Start()
         {
+            Debug.Log(gameObject.name);
             LineM.SetUpLine(Points);
         }
 

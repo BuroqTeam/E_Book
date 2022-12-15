@@ -12,12 +12,22 @@ namespace Game2_Fathulloh
     {
         private RectTransform rectTransform;
 
-        public Vector3 InitialPos;
+        public GameObject BoardObj;
+        public Vector3 InitialPos, CurrentPos;
+        public List<GameObject> ListHooks;
+
+        public int HookNumbers = 0;
 
 
         void Start()
         {
+            TakeList();
+        }
 
+
+        void TakeList()
+        {
+            ListHooks = BoardObj.GetComponent<Board>().Hooks;
         }
 
 
@@ -37,11 +47,33 @@ namespace Game2_Fathulloh
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            
+            CheckOnHook();
         }
 
-        
-        
+
+        void CheckOnHook()
+        {
+            for (int i = 0; i < ListHooks.Count; i++)
+            {
+                if ((Vector3.Distance(transform.position, ListHooks[i].transform.position) < 0.35f))
+                {
+                    CurrentPos = ListHooks[i].transform.position;
+                    HookNumbers++;
+                }
+            }
+
+            if (HookNumbers >= 1)       {
+                HookNumbers = 0;
+                transform.position = CurrentPos;
+            }
+            else if (HookNumbers == 0)         {
+                transform.position = CurrentPos;
+            }
+
+
+
+            
+        }
 
 
 
