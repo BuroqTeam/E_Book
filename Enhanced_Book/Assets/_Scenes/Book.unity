@@ -27184,7 +27184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Izoh
+  m_text: Qayd
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a28db713a465594db416a710a973193, type: 2}
   m_sharedMaterial: {fileID: -7801446643192849594, guid: 2a28db713a465594db416a710a973193, type: 2}
