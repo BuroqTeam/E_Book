@@ -10,6 +10,8 @@ public class ResultController : MonoBehaviour
     public GameObject Badge;
     public TMP_Text CorrectNumber;
     public TMP_Text WrongNumber;
+    public AudioClip WinClip;
+    public AudioClip GameOverClip;
     private void Start()
     {
         StartCoroutine(ResultAnimation());

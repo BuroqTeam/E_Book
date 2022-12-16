@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace YuzlikFathulloh
 {
+    /// <summary>
+    /// Vaqtni ortirib boradigan script.
+    /// </summary>
     public class Stopwatch : MonoBehaviour
     {
         bool stopWatchActive = false;
@@ -25,7 +28,7 @@ namespace YuzlikFathulloh
             {
                 currentTime += Time.deltaTime;
 
-                if (CurrentTimeText.text.Length == 7)                {
+                if (CurrentTimeText.text.Length == 7)     {
                     stopWatchActive = false;
                 }
             }

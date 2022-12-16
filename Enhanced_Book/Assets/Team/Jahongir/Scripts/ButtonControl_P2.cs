@@ -20,6 +20,8 @@ public class ButtonControl_P2 : MonoBehaviour
 
     public void OnClick()
     {
+        int q = 0;
+        Pattern2.NextButton.gameObject.SetActive(true);
         if (Select)
         {
             transform.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
@@ -31,6 +33,17 @@ public class ButtonControl_P2 : MonoBehaviour
             transform.GetComponent<Image>().color = new Color32(0, 148, 255, 255);
             transform.GetChild(0).GetComponent<TMP_Text>().color = new Color32(255, 255, 255, 255);
             Select = true;
+        }
+        for (int i = 0; i < Pattern2.Buttons.Count; i++)
+        {
+            if (Pattern2.Buttons[i].GetComponent<ButtonControl_P2>().Select)
+            {
+                q++;
+            }
+        }
+        if (q==0)
+        {
+            Pattern2.NextButton.gameObject.SetActive(false);
         }
         Pattern2.Check();
     }
