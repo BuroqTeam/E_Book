@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a457e3704fd15774dace5d171da29c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitialDots: []
   BoardObj: {fileID: 0}
   InitialPos: {x: 0, y: 0, z: 0}
   CurrentPos: {x: 0, y: 0, z: 0}

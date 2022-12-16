@@ -11,7 +11,7 @@ namespace Game2_Fathulloh
     public class DragDropDot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         private RectTransform rectTransform;
-
+        public List<GameObject> InitialDots;
         public GameObject BoardObj;
         public Vector3 InitialPos, CurrentPos;
         public List<GameObject> ListHooks;
