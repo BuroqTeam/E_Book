@@ -664,8 +664,10 @@ MonoBehaviour:
   QuestionText: {fileID: 992329610}
   GeoBoardFigures:
   - {fileID: 750845706}
+  - {fileID: 1488857667}
   LineManagers:
   - {fileID: 113001103}
+  - {fileID: 738280878}
   CurrentTask: 0
   TotalTask: 0
 --- !u!1 &164651864

@@ -64,7 +64,7 @@ namespace Game2_Fathulloh
 
             for (int i = 0; i < GeoBoardFigures.Count; i++)
             {
-                if (i == CurrentTask)
+                if (i == 1/*CurrentTask*/)
                 {                    
                     GeoBoardFigures[i].SetActive(true);
                     LineManagers[i].SetActive(true);
@@ -80,10 +80,19 @@ namespace Game2_Fathulloh
         public void ChangePosition()
         {
             List<GameObject> Hooks = BoardOfHooks.Hooks;
-
+            //  GeoBoardFigures[0] Make Right Triangle
             GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[25]);
             GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[30]);
             GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[31]);
+
+            //  GeoBoardFigures[1] Make Square
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[23]);
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[25]);
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[32]);
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[30]);
+
+
+
         }
 
 
