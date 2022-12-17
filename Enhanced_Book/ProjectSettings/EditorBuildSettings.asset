@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Team/Jahongir/Scenes/Quiz 3.unity
     guid: 3cc2a8fe78185f145b676e33df4bdba9
+  - enabled: 1
+    path: Assets/Team/Fathulloh/Game 2.unity
+    guid: a1d6f1c88ce5c2149b7ea031a1498e21
   m_configObjects: {}
