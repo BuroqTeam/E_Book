@@ -1,11 +1,14 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Marked : MonoBehaviour
 {
+   
+
     public Sprite MarkedSp;
     public Sprite UnMurkedSp;
 
@@ -31,12 +34,19 @@ public class Marked : MonoBehaviour
         if (_count % 2 == 0)
         {
             GetComponent<Image>().sprite = MarkedSp;
+         
         }
         else
         {
             GetComponent<Image>().sprite = UnMurkedSp;
+           
         }
         _count++;
 
     }
+
+
+
+
+
 }
