@@ -73,6 +73,15 @@ public class P3_Puzzle1 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
             Pattern3.SelectedPuzles.Remove(gameObject);
         }
         _selectedAnswerId = -1;
+        if (Pattern3.SelectedPuzles.Count>0)
+        {
+            Pattern3.NextButton.SetActive(true);
+        }
+        else
+        {
+            Pattern3.NextButton.SetActive(false);
+        }
+
         transform.SetSiblingIndex(siblingIndexObj);
         //Pattern3.CheckButton();
         //Pattern3.Check();

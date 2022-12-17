@@ -37,6 +37,7 @@ public class Pattern_3 : MonoBehaviour
 
     public void CreatePrefabs()
     {
+        NextButton.SetActive(false);
         for (int i = 0; i < 3; i++)
         {
             if (!transform.GetChild(0).GetComponent<VerticalLayoutGroup>().enabled)
