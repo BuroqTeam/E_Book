@@ -9,10 +9,15 @@ namespace Game2_Fathulloh
     /// </summary>
     public class Board : MonoBehaviour
     {
-        public List<GameObject> Hooks;
+        public GameObject ParentForLines;
         public GameObject HookPrefab;
+        public GameObject LinePrefabVertical;
+        public GameObject LinePrefabHorizontal;
         public int GridX, GridY;
         public float Xdistance, Ydistance;
+
+        public List<GameObject> Hooks;
+        public List<GameObject> Lines;
 
 
         void Start()
@@ -39,10 +44,23 @@ namespace Game2_Fathulloh
                 }
             }
 
+            //MakeLines();
         }
 
 
-
+        void MakeLines()
+        {
+            //for (int i = 0; i < Hooks.Count; i++)
+            //{
+            //    for (int j = 0; j < Hooks.Count; j++)
+            //    {
+            //        if (i != j) 
+            //        {
+            //            if
+            //        }
+            //    }
+            //}
+        }
 
 
     }

@@ -57,7 +57,8 @@ namespace YuzlikFathulloh
 
         public void RestartButton()
         {
-            currentTime = 0;
+            //currentTime = 0;
+            currentTime = StartMinutes * 60;
         }
 
 

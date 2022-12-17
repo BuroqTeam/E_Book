@@ -70,7 +70,7 @@ namespace Game2_Fathulloh
                 transform.position = CurrentPos;
             }
 
-
+            gameObject.transform.parent.GetComponent<GeoFigure>().CheckFigure();
 
             
         }
