@@ -558,7 +558,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -7, y: 0, z: 0}
-  - {x: -7, y: 1, z: 1}
+  - {x: -7, y: 0.5, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -614,6 +614,62 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 1
+--- !u!1 &149875689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 149875690}
+  - component: {fileID: 149875691}
+  m_Layer: 0
+  m_Name: GameControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &149875690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149875689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548411336}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149875691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149875689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841e91cc173f7e24a8789d2b7ebf7e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _IsCheck: 1
+  CountGeoboardFigures: 0
+  BoardOfHooks: {fileID: 1078087870}
+  QuestionText: {fileID: 992329610}
+  GeoBoardFigures:
+  - {fileID: 750845706}
+  - {fileID: 1488857667}
+  LineManagers:
+  - {fileID: 113001103}
+  - {fileID: 738280878}
+  CurrentTask: 0
+  TotalTask: 0
 --- !u!1 &164651864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2555,7 @@ Transform:
   - {fileID: 851005526}
   - {fileID: 113001104}
   - {fileID: 738280879}
+  - {fileID: 149875690}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3965,8 +4022,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -1, y: 0, z: 0}
-  - {x: -1, y: 1, z: 1}
+  - {x: -6, y: 0, z: 0}
+  - {x: -6, y: 1, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4032,6 +4089,7 @@ GameObject:
   m_Component:
   - component: {fileID: 750845707}
   - component: {fileID: 750845708}
+  - component: {fileID: 750845709}
   m_Layer: 0
   m_Name: TriangleFigure
   m_TagString: Untagged
@@ -4069,11 +4127,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb988cfa89b86d34981f3b9cd50cfd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsFinished: 0
   Points:
   - {fileID: 1167802204}
   - {fileID: 426910912}
   - {fileID: 1214815936}
   LineM: {fileID: 113001105}
+--- !u!114 &750845709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750845706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774a5cf098d8df54eb80db44bf9da394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialDots: []
 --- !u!1001 &755293669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4903,7 +4975,7 @@ RectTransform:
   m_Children:
   - {fileID: 549910346}
   m_Father: {fileID: 949656365}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5722,6 +5794,7 @@ RectTransform:
   - {fileID: 1264701539}
   - {fileID: 1473331187}
   - {fileID: 1770391245}
+  - {fileID: 992329609}
   - {fileID: 1473565095}
   - {fileID: 883486015}
   m_Father: {fileID: 0}
@@ -5863,17 +5936,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992329608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1473565095}
-  m_RootOrder: 1
+  m_Father: {fileID: 949656365}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -73, y: 100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -28.399994}
   m_SizeDelta: {x: 400, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992329610
@@ -5896,7 +5969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Raqamli disklar yordamida 489 879 sonini ko\u2018rsating."
+  m_text: Keltirilgan shaklni yasang.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a77a35d28d40d546afb80546824c2ff, type: 2}
   m_sharedMaterial: {fileID: 8207788966920542828, guid: 4a77a35d28d40d546afb80546824c2ff, type: 2}
@@ -5923,8 +5996,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7229,7 +7302,7 @@ RectTransform:
   - {fileID: 608464994}
   - {fileID: 1344975289}
   m_Father: {fileID: 1473565095}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -8340,10 +8413,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2117500203}
-  - {fileID: 992329609}
   - {fileID: 1276525281}
   m_Father: {fileID: 949656365}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8399,6 +8471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1488857668}
   - component: {fileID: 1488857669}
+  - component: {fileID: 1488857670}
   m_Layer: 0
   m_Name: RectangleFigure
   m_TagString: Untagged
@@ -8437,12 +8510,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb988cfa89b86d34981f3b9cd50cfd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsFinished: 0
   Points:
   - {fileID: 2100176442}
   - {fileID: 1363055173}
   - {fileID: 694415876}
   - {fileID: 2114302324}
   LineM: {fileID: 738280880}
+--- !u!114 &1488857670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488857667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774a5cf098d8df54eb80db44bf9da394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialDots: []
 --- !u!1001 &1526944698
 PrefabInstance:
   m_ObjectHideFlags: 0

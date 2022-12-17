@@ -26,7 +26,6 @@ namespace Game2_Fathulloh
             float xInitial = -(float)GridX / 2 * Xdistance + (float)Xdistance / 2;
             float yInitial = -(float)GridY / 2 * Ydistance + (float)Ydistance / 2;
 
-
             for (int i = 0; i < GridX; i++)
             {
                 float xPos = xInitial + i * Xdistance;

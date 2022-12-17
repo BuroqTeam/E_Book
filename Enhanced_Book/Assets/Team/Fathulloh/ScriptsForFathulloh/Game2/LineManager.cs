@@ -35,6 +35,8 @@ namespace Game2_Fathulloh
             }
         }
 
+
+
         //private LineRenderer LineR;
         //private Transform[] Points;
 
@@ -57,10 +59,6 @@ namespace Game2_Fathulloh
         //    for (int i = 0; i < Points.Length; i++)            
         //        LineR.SetPosition(i, Points[i].position);            
         //}
-
-
-
-
 
     }
 }
