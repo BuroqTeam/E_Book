@@ -40,16 +40,16 @@ public class Pattern_3 : MonoBehaviour
         NextButton.SetActive(false);
         for (int i = 0; i < 3; i++)
         {
-            if (!transform.GetChild(0).GetComponent<VerticalLayoutGroup>().enabled)
+            if (!transform.GetChild(1).GetComponent<VerticalLayoutGroup>().enabled)
             {
-                transform.GetChild(0).GetComponent<VerticalLayoutGroup>().enabled = true;
+                transform.GetChild(1).GetComponent<VerticalLayoutGroup>().enabled = true;
             }
-            GameObject puzzle = Instantiate(PuzzleQuestion, transform.GetChild(0));
+            GameObject puzzle = Instantiate(PuzzleQuestion, transform.GetChild(1));
             puzzle.GetComponent<P3_Puzzle1>().QuestionId = Question[(t - 1) * 3 + i].Remove(3, Question[(t - 1) * 3 + i].Length - 3);
             puzzle.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = Question[(t - 1) * 3 + i].Remove(0, 3);
             puzzle.GetComponent<P3_Puzzle1>().Pattern3 = this;
             QuestionPuzles.Add(puzzle);
-            GameObject puzzle1 = Instantiate(PuzzleAnswer, transform.GetChild(1));
+            GameObject puzzle1 = Instantiate(PuzzleAnswer, transform.GetChild(0));
             puzzle1.GetComponent<P3_Puzzle2>().AnswerId = Answer[(t - 1) * 3 + i].Remove(3, Answer[(t - 1) * 3 + i].Length - 3);
             puzzle1.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Answer[(t - 1) * 3 + i].Remove(0, 3);
             AnswerPuzles.Add(puzzle1);
@@ -135,21 +135,22 @@ public class Pattern_3 : MonoBehaviour
         if (correct * 100 / 6 >= 90 && correct * 100 / 6 <= 100)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge1;
-            Debug.Log("3");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else if (correct * 100 / 6 >= 70 && correct * 100 / 6 < 90)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge2;
-            Debug.Log("2");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else if (correct * 100 / 6 >= 50 && correct * 100 / 6 < 70)
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Badge3;
-            Debug.Log("1");
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().WinClip);
         }
         else
         {
             ResultPanel.GetComponent<ResultController>().Badge.GetComponent<Image>().sprite = Lose;
+            ResultPanel.GetComponent<AudioSource>().PlayOneShot(ResultPanel.GetComponent<ResultController>().GameOverClip);
         }
     }
     public void LoadLocalScene()

@@ -288,7 +288,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1870986188}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1939,8 +1939,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.38, y: -2.18}
-  m_SizeDelta: {x: 129.4, y: 30}
+  m_AnchoredPosition: {x: 6.22, y: -2.18}
+  m_SizeDelta: {x: 139.08, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495727837
 MonoBehaviour:
@@ -2030,7 +2030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8ccbb706903da034a8ff08ff7fb60a25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b041e96ab9d329438b3687a9faf16c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2622,7 +2622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -53.3, y: 0}
+  m_AnchoredPosition: {x: -62, y: 0}
   m_SizeDelta: {x: 106.61, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733617985
@@ -2654,8 +2654,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291080049
-  m_fontColor: {r: 0.44313726, g: 0.6862745, b: 0.76862746, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2734,6 +2734,7 @@ GameObject:
   - component: {fileID: 783897268}
   - component: {fileID: 783897267}
   - component: {fileID: 783897266}
+  - component: {fileID: 783897269}
   m_Layer: 5
   m_Name: Result
   m_TagString: Untagged
@@ -2818,6 +2819,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783897264}
   m_CullTransparentMesh: 1
+--- !u!82 &783897269
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783897264}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &789467003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,7 +3353,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1870986188}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -3790,7 +3887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 428a2242385896341ac4bdb507872389, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 826e5d9b69eeabb4fab61c848da6981a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5573,8 +5670,8 @@ RectTransform:
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1008555194}
   - {fileID: 67738089}
+  - {fileID: 1008555194}
   m_Father: {fileID: 2043346563}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5614,41 +5711,41 @@ MonoBehaviour:
   Question:
   - '[a]2000 kg'
   - '[b]1000 q'
-  - '[c]3000 m'
+  - '[c]1 t'
   - '[a]3000 cm'
   - '[b]2500 mm'
-  - '[c]5 minut 8 sekund'
-  - '[a]3 q 200 kg'
-  - '[b]2 km 3 m'
+  - '[c]250 m'
+  - '[a]2 soat 10 minut'
+  - '[b]1 soat 20 minut'
   - '[c]1 soat 30 minut'
   - '[a]1 km 5 m'
-  - '[b]4 q 5 kg'
-  - '[c]1 soat 60 sekund'
+  - '[b]105 m'
+  - '[c]1005 dm'
   - '[a]3 kg 257 g'
   - '[b]85000 g'
-  - '[c]1000 cm'
-  - '[a]1 q 50 kg'
-  - '[b]1 soat 30 sekund'
+  - '[c]80 q'
+  - '[a]2 m 5 dm'
+  - '[b]1 dm 8 cm'
   - '[c]1050 cm'
   Answer:
-  - '[c]3 km'
+  - '[c]1000 kg'
   - '[a]2 t'
   - '[b]100 t'
   - '[b]25 m'
-  - '[c]308 sekund'
+  - '[c]25000 cm'
   - '[a]30 m'
   - '[c]90 minut'
-  - '[a]500 kg'
-  - '[a]2003 m'
+  - '[a]130 minut'
+  - '[b]80 minut'
   - '[a]100500 cm'
-  - '[c]61minut'
-  - '[b]405 kg'
-  - '[c]10 m'
-  - '[b]85 q'
+  - '[c]10050 cm'
+  - '[b]1050 dm'
+  - '[c]8 t'
+  - '[b]85 kg'
   - '[a]3257 g'
-  - '[b]3630 sekund'
+  - '[b]18 dm'
   - '[c]10500 mm'
-  - '[a]150 kg'
+  - '[a]250 cm'
   Result: 000000000000
 --- !u!1 &1927210346
 GameObject:
