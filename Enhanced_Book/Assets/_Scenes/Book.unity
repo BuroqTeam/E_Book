@@ -13126,7 +13126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PercentageText: {fileID: 1096490886}
   MaxVal: 0.6
-  Val: 60
 --- !u!1 &675716323
 GameObject:
   m_ObjectHideFlags: 0
@@ -26103,7 +26102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PercentageText: {fileID: 766143933}
   MaxVal: 0.5
-  Val: 70
 --- !u!114 &1449851104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35292,8 +35290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PercentageText: {fileID: 751360679}
-  MaxVal: 0.45
-  Val: 45
+  MaxVal: 0.4
 --- !u!114 &2095119211
 MonoBehaviour:
   m_ObjectHideFlags: 0

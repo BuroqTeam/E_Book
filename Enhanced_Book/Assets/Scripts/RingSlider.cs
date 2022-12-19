@@ -28,7 +28,7 @@ public class RingSlider : MonoBehaviour
         PercentageText.DOText("", 0);
         _img.DOFillAmount(MaxVal, 1);
         StartCoroutine( DoText());
-        //PercentageText.DOText(Val + "%", 1);
+        
     }
 
     IEnumerator DoText()
