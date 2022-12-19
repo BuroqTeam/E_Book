@@ -716,7 +716,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.13395211
+        value: 0.10486886
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2123,7 +2123,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.13395211
+        value: 0.10779855
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -5603,7 +5603,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.13395211
+        value: 0.10486886
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -6365,6 +6365,10 @@ MonoBehaviour:
   SilverSprite: {fileID: 21300000, guid: 14d3f9df7150bf049bf72a6f04964f05, type: 3}
   BronzeSprite: {fileID: 21300000, guid: 602786547f48097469440306b58b14c0, type: 3}
   LoseSprite: {fileID: 21300000, guid: af37aec8107e3364abe64944b59e2e46, type: 3}
+  TimeGold: 0
+  TimeSilver: 0
+  TimeBronze: 0
+  durration: 0
 --- !u!1 &890457331
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,6 +6571,8 @@ GameObject:
   - component: {fileID: 909879660}
   - component: {fileID: 909879659}
   - component: {fileID: 909879658}
+  - component: {fileID: 909879662}
+  - component: {fileID: 909879661}
   m_Layer: 5
   m_Name: BackTasks
   m_TagString: Untagged
@@ -6702,6 +6708,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909879656}
   m_CullTransparentMesh: 1
+--- !u!114 &909879661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909879656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60879d4052fe1744bc72b17bfd35c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &909879662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909879656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f45931fc288be14ca83184785f94858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CursorOn: {fileID: 2800000, guid: 34f5985abc4e2994485d3cfb086f79f3, type: 3}
+  CursorOff: {fileID: 0}
 --- !u!224 &915102502 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8140909435393683544, guid: 34f471bcfb03d7a418f25dd951a5483c, type: 3}
@@ -10569,7 +10601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 241.4, y: -25}
+  m_AnchoredPosition: {x: 240, y: -25}
   m_SizeDelta: {x: 85.08, y: 26.049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473331188
@@ -11859,7 +11891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 341.4, y: -25}
+  m_AnchoredPosition: {x: 340, y: -25}
   m_SizeDelta: {x: 85.08, y: 26.049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1770391246
@@ -13579,6 +13611,8 @@ GameObject:
   - component: {fileID: 2081742952}
   - component: {fileID: 2081742951}
   - component: {fileID: 2081742950}
+  - component: {fileID: 2081742954}
+  - component: {fileID: 2081742953}
   m_Layer: 5
   m_Name: StartAgain
   m_TagString: Untagged
@@ -13714,6 +13748,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081742948}
   m_CullTransparentMesh: 1
+--- !u!114 &2081742953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081742948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60879d4052fe1744bc72b17bfd35c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2081742954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081742948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f45931fc288be14ca83184785f94858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CursorOn: {fileID: 2800000, guid: 34f5985abc4e2994485d3cfb086f79f3, type: 3}
+  CursorOff: {fileID: 0}
 --- !u!1001 &2100176441
 PrefabInstance:
   m_ObjectHideFlags: 0

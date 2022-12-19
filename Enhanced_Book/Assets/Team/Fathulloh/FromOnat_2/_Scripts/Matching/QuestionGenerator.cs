@@ -56,15 +56,14 @@ namespace Matching
                 collectionDict.Remove(collectionDict.ElementAt(random).Key);
             }
 
-            //Debug.Log(collectionDict.Any() + " " + collectionDict.Count);
-            //Debug.Log(randomCollectionDict.Any() + " " + randomCollectionDict.Count);
 
             for (int i = 0; i < Grams.Count; i++)
             {
                 MainList.Add(Grams[i]);
+                MainList.Add(Kilograms[i]);
             }
             for (int i = 0; i < Kilograms.Count; i++)            {
-                MainList.Add(Kilograms[i]);
+                //MainList.Add(Kilograms[i]);
             }
         }
 
@@ -108,12 +107,12 @@ namespace Matching
                 string text1 = enableObjectsGroup[0].GetComponent<Square>().text.text;
                 string text2 = enableObjectsGroup[1].GetComponent<Square>().text.text;
 
-                Debug.Log("text1 = " + text1 + "text1 = " + text1);
+                //Debug.Log("text1 = " + text1 + "text1 = " + text1);
 
                 text1 = Regex.Replace(text1, "([a-zA-Z,_ ]+|(?<=[a-zA-Z ])[/-])", "");
                 text2 = Regex.Replace(text2, "([a-zA-Z,_ ]+|(?<=[a-zA-Z ])[/-])", "");
 
-                Debug.Log("text1 = " + text1 + "text1 = " + text2);
+                //Debug.Log("text1 = " + text1 + "text1 = " + text2);
 
                 if (text1 == text2)                
                     isCorrect = true;                
@@ -132,7 +131,7 @@ namespace Matching
                 //{
                 //    string img2 = enableObjectsGroup[1].GetComponent<Square>().image.sprite.name;
                 //    if (img2.Equals(text1))                                              
-                //        isCorrect = true;                    
+                //        isCorrect = true;  
                 //    else                    
                 //        isCorrect = false;
                 //}
@@ -165,7 +164,7 @@ namespace Matching
             correctEvent.Raise();
             foreach (GameObject obj in enableObjectsGroup)
             {
-                //Instantiate(particle, obj.transform.position, Quaternion.identity);
+                Instantiate(particle, obj.transform.position, Quaternion.identity);
                 collection.Remove(obj);
                 Destroy(obj);
             }
@@ -184,8 +183,6 @@ namespace Matching
         }
 
        
-        
-
 
     }
 
