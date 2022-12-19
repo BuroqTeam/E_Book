@@ -35,9 +35,6 @@ namespace Matching
             image = transform.GetChild(1).GetComponent<SpriteRenderer>();
             initialPos = transform.position;
             initialScale = transform.localScale;
-
-            
-
         }
 
 
@@ -71,11 +68,11 @@ namespace Matching
 
             //GetComponent<SpriteRenderer>().sprite = ChangeSprite();
             //StartCoroutine(Actions.RotateOverSecondsInYAxis(gameObject, 0, period));
-            StartCoroutine(Actions.ScaleOverSeconds(gameObject, new Vector3(1, 1, 0), period));
-            StartCoroutine(Actions.MoveOverSeconds(gameObject, new Vector3(0, 0, 0), period));
-            yield return new WaitForSeconds(1);
-            StartCoroutine(Actions.ScaleOverSeconds(gameObject, initialScale, period));
-            StartCoroutine(Actions.MoveOverSeconds(gameObject, initialPos, period));
+            //StartCoroutine(Actions.ScaleOverSeconds(gameObject, new Vector3(1, 1, 0), period));
+            //StartCoroutine(Actions.MoveOverSeconds(gameObject, new Vector3(0, 0, 0), period));
+            //yield return new WaitForSeconds(1);
+            //StartCoroutine(Actions.ScaleOverSeconds(gameObject, initialScale, period));
+            //StartCoroutine(Actions.MoveOverSeconds(gameObject, initialPos, period));
             yield return new WaitForSeconds(period);
             GetComponent<SpriteRenderer>().sortingOrder = 0;
             transform.GetChild(0).GetComponent<MeshRenderer>().sortingOrder = 0;
@@ -138,13 +135,11 @@ namespace Matching
             Color col = text.color;
             if (text.text != "")
             {                
-                if (col.a == 0)
-                {
+                if (col.a == 0)                {
                     col.a = 255;
                     text.color = col;
                 }
-                else if(col.a == 255)
-                {
+                else if(col.a == 255)          {
                     col.a = 0;
                     text.color = col;
                 }
@@ -211,18 +206,14 @@ namespace Matching
 
         public void ChangeColor()
         {
-            if (!_IsClicked)
-            {
+            if (!_IsClicked)            {
                 gameObject.GetComponent<SpriteRenderer>().color = newColor;
                 _IsClicked = true;
             }                            
-            else if (_IsClicked)
-            {
+            else if (_IsClicked)            {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 _IsClicked = false;
-            }
-                
-            
+            }            
         }
 
 

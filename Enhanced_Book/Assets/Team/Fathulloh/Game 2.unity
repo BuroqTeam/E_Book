@@ -6368,6 +6368,7 @@ MonoBehaviour:
   TimeGold: 0
   TimeSilver: 0
   TimeBronze: 0
+  durration: 0
 --- !u!1 &890457331
 GameObject:
   m_ObjectHideFlags: 0
@@ -10600,7 +10601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 240.4, y: -25}
+  m_AnchoredPosition: {x: 240, y: -25}
   m_SizeDelta: {x: 85.08, y: 26.049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473331188
@@ -11890,7 +11891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 340.4, y: -25}
+  m_AnchoredPosition: {x: 340, y: -25}
   m_SizeDelta: {x: 85.08, y: 26.049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1770391246

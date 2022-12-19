@@ -3637,6 +3637,7 @@ MonoBehaviour:
   TimeGold: 120
   TimeSilver: 60
   TimeBronze: 0
+  durration: 0
 --- !u!114 &1434614905
 MonoBehaviour:
   m_ObjectHideFlags: 0
