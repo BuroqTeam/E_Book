@@ -6,7 +6,7 @@ public class StaticWordScript : MonoBehaviour
     GamePlayController_3_1 gamePlayController;
     public int matchIndex;
     public bool selectable = false;
-    bool selected = false;
+    //bool selected = false;
 
 
     private void Start()

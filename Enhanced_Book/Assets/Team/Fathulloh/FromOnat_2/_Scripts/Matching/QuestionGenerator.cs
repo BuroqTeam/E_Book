@@ -2,6 +2,7 @@ using ActionManager;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -55,15 +56,14 @@ namespace Matching
                 collectionDict.Remove(collectionDict.ElementAt(random).Key);
             }
 
-            Debug.Log(collectionDict.Any() + " " + collectionDict.Count);
-            Debug.Log(randomCollectionDict.Any() + " " + randomCollectionDict.Count);
+            //Debug.Log(collectionDict.Any() + " " + collectionDict.Count);
+            //Debug.Log(randomCollectionDict.Any() + " " + randomCollectionDict.Count);
 
             for (int i = 0; i < Grams.Count; i++)
             {
                 MainList.Add(Grams[i]);
             }
-            for (int i = 0; i < Kilograms.Count; i++)
-            {
+            for (int i = 0; i < Kilograms.Count; i++)            {
                 MainList.Add(Kilograms[i]);
             }
         }
@@ -104,39 +104,44 @@ namespace Matching
             }
 
             if (enableObjectsGroup.Count.Equals(2))
-            {
+            {                
                 string text1 = enableObjectsGroup[0].GetComponent<Square>().text.text;
                 string text2 = enableObjectsGroup[1].GetComponent<Square>().text.text;
 
-                if (enableObjectsGroup[0].GetComponent<Square>().image.sprite != null)
-                {
-                    string img1 = enableObjectsGroup[0].GetComponent<Square>().image.sprite.name;
-                    if (img1.Equals(text2))
-                    {
-                        
-                        isCorrect = true;
-                    }
-                    else
-                    {
-                        isCorrect = false;
-                    }
-                }
-                else if (enableObjectsGroup[1].GetComponent<Square>().image.sprite != null)
-                {
-                    string img2 = enableObjectsGroup[1].GetComponent<Square>().image.sprite.name;
-                    if (img2.Equals(text1))
-                    {                        
-                        
-                        isCorrect = true;
-                    }
-                    else
-                    {
-                        isCorrect = false;
-                    }
-                }
+                Debug.Log("text1 = " + text1 + "text1 = " + text1);
+
+                text1 = Regex.Replace(text1, "([a-zA-Z,_ ]+|(?<=[a-zA-Z ])[/-])", "");
+                text2 = Regex.Replace(text2, "([a-zA-Z,_ ]+|(?<=[a-zA-Z ])[/-])", "");
+
+                Debug.Log("text1 = " + text1 + "text1 = " + text2);
+
+                if (text1 == text2)                
+                    isCorrect = true;                
+                else if (text1 != text2)                
+                    isCorrect = false;                
+
+                //if (enableObjectsGroup[0].GetComponent<Square>().image.sprite != null)
+                //{
+                //    string img1 = enableObjectsGroup[0].GetComponent<Square>().image.sprite.name;
+                //    if (img1.Equals(text2))                                           
+                //        isCorrect = true;                    
+                //    else                    
+                //        isCorrect = false;                    
+                //}
+                //else if (enableObjectsGroup[1].GetComponent<Square>().image.sprite != null)
+                //{
+                //    string img2 = enableObjectsGroup[1].GetComponent<Square>().image.sprite.name;
+                //    if (img2.Equals(text1))                                              
+                //        isCorrect = true;                    
+                //    else                    
+                //        isCorrect = false;
+                //}
             }
+
         }
 
+
+        
         public void TurnOffCollection(bool colliderEnableValue, GameObject exceptionObj)
         {
             foreach (GameObject obj in collection)
