@@ -38,6 +38,7 @@ namespace YuzlikFathulloh
                 ShowQuestionIndex();
             }
             else if (HowManyQuestion == CurrentQuestionIndex)    {
+                ShowQuestionIndex();
                 FinishEvent.Invoke();
             }                        
         }

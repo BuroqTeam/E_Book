@@ -9,7 +9,7 @@ namespace ChessGameFathulloh
     {
         public GameManager Gmanager;
 
-        public const int TotalTaskCount = 8;
+        public int TotalTaskCount;
         private int CurrentTaskIndex = 0;
 
         public int BoardSize;
