@@ -17,9 +17,9 @@ public class P3_Puzzle1 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (Pattern3.transform.GetChild(0).GetComponent<VerticalLayoutGroup>().enabled)
+        if (Pattern3.transform.GetChild(1).GetComponent<VerticalLayoutGroup>().enabled)
         {
-            Pattern3.transform.GetChild(0).GetComponent<VerticalLayoutGroup>().enabled = false;
+            Pattern3.transform.GetChild(1).GetComponent<VerticalLayoutGroup>().enabled = false;
         }
         transform.GetChild(1).transform.DOScale(1.2f, 0);
         _lastPos = transform.GetChild(1).transform.position;
@@ -73,6 +73,15 @@ public class P3_Puzzle1 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
             Pattern3.SelectedPuzles.Remove(gameObject);
         }
         _selectedAnswerId = -1;
+        if (Pattern3.SelectedPuzles.Count>0)
+        {
+            Pattern3.NextButton.SetActive(true);
+        }
+        else
+        {
+            Pattern3.NextButton.SetActive(false);
+        }
+
         transform.SetSiblingIndex(siblingIndexObj);
         //Pattern3.CheckButton();
         //Pattern3.Check();
