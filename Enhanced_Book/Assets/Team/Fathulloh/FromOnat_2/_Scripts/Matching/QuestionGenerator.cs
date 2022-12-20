@@ -106,13 +106,9 @@ namespace Matching
             {                
                 string text1 = enableObjectsGroup[0].GetComponent<Square>().text.text;
                 string text2 = enableObjectsGroup[1].GetComponent<Square>().text.text;
-
-                //Debug.Log("text1 = " + text1 + "text1 = " + text1);
-
+                
                 text1 = Regex.Replace(text1, "([a-zA-Z,_ ]+|(?<=[a-zA-Z ])[/-])", "");
-                text2 = Regex.Replace(text2, "([a-zA-Z,_ ]+|(?<=[a-zA-Z ])[/-])", "");
-
-                //Debug.Log("text1 = " + text1 + "text1 = " + text2);
+                text2 = Regex.Replace(text2, "([a-zA-Z,_ ]+|(?<=[a-zA-Z ])[/-])", "");                
 
                 if (text1 == text2)                
                     isCorrect = true;                
@@ -155,6 +151,15 @@ namespace Matching
             {
                 obj.GetComponent<BoxCollider2D>().enabled = false;
             }
+
+            //if (colliderEnableValue)
+            //{
+            //    Debug.Log("Yondi");
+            //}
+            //else if (!colliderEnableValue)
+            //{
+            //    Debug.Log("O'chdi.");
+            //}
         }
 
 

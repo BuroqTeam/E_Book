@@ -73,5 +73,13 @@ namespace YuzlikFathulloh
             FinishEvent.Invoke();
         }
 
+
+        public void ForRestartButton()
+        {
+            CurrentQuestionIndex = 0;
+            MakeQuestion();
+        }
+
+
     }
 }

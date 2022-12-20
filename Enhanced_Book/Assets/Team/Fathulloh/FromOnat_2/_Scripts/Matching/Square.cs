@@ -27,8 +27,6 @@ namespace Matching
         
         
 
-
-
         private void Awake()
         {
             text = transform.GetChild(0).GetComponent<TMP_Text>();
@@ -46,6 +44,7 @@ namespace Matching
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            //Debug.Log("OnPointerClick");
             //StartCoroutine(Flip());
             StartCoroutine(Flip2());
         }
@@ -60,7 +59,7 @@ namespace Matching
             GetComponent<BoxCollider2D>().enabled = false;
             questionGenerator.TurnOffCollection(false, gameObject);
             ChangeColor();
-            yield return new WaitForSeconds(period);
+            yield return new WaitForSeconds(period - 0.05f);
             //ChangeTextColor();
             GetComponent<SpriteRenderer>().sortingOrder = 2;
             transform.GetChild(0).GetComponent<MeshRenderer>().sortingOrder = 2;
@@ -73,7 +72,7 @@ namespace Matching
             //yield return new WaitForSeconds(1);
             //StartCoroutine(Actions.ScaleOverSeconds(gameObject, initialScale, period));
             //StartCoroutine(Actions.MoveOverSeconds(gameObject, initialPos, period));
-            yield return new WaitForSeconds(period);
+            //yield return new WaitForSeconds(period); //F++
             GetComponent<SpriteRenderer>().sortingOrder = 0;
             transform.GetChild(0).GetComponent<MeshRenderer>().sortingOrder = 0;
             transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 1;
@@ -132,6 +131,7 @@ namespace Matching
 
         void ChangeTextColor()
         {
+            
             Color col = text.color;
             if (text.text != "")
             {                
