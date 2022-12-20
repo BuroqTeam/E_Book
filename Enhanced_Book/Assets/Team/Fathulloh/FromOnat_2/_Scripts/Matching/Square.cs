@@ -27,17 +27,12 @@ namespace Matching
         
         
 
-
-
         private void Awake()
         {
             text = transform.GetChild(0).GetComponent<TMP_Text>();
             image = transform.GetChild(1).GetComponent<SpriteRenderer>();
             initialPos = transform.position;
             initialScale = transform.localScale;
-
-            
-
         }
 
 
@@ -49,6 +44,7 @@ namespace Matching
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            //Debug.Log("OnPointerClick");
             //StartCoroutine(Flip());
             StartCoroutine(Flip2());
         }
@@ -63,7 +59,7 @@ namespace Matching
             GetComponent<BoxCollider2D>().enabled = false;
             questionGenerator.TurnOffCollection(false, gameObject);
             ChangeColor();
-            yield return new WaitForSeconds(period);
+            yield return new WaitForSeconds(period - 0.05f);
             //ChangeTextColor();
             GetComponent<SpriteRenderer>().sortingOrder = 2;
             transform.GetChild(0).GetComponent<MeshRenderer>().sortingOrder = 2;
@@ -71,12 +67,12 @@ namespace Matching
 
             //GetComponent<SpriteRenderer>().sprite = ChangeSprite();
             //StartCoroutine(Actions.RotateOverSecondsInYAxis(gameObject, 0, period));
-            StartCoroutine(Actions.ScaleOverSeconds(gameObject, new Vector3(1, 1, 0), period));
-            StartCoroutine(Actions.MoveOverSeconds(gameObject, new Vector3(0, 0, 0), period));
-            yield return new WaitForSeconds(1);
-            StartCoroutine(Actions.ScaleOverSeconds(gameObject, initialScale, period));
-            StartCoroutine(Actions.MoveOverSeconds(gameObject, initialPos, period));
-            yield return new WaitForSeconds(period);
+            //StartCoroutine(Actions.ScaleOverSeconds(gameObject, new Vector3(1, 1, 0), period));
+            //StartCoroutine(Actions.MoveOverSeconds(gameObject, new Vector3(0, 0, 0), period));
+            //yield return new WaitForSeconds(1);
+            //StartCoroutine(Actions.ScaleOverSeconds(gameObject, initialScale, period));
+            //StartCoroutine(Actions.MoveOverSeconds(gameObject, initialPos, period));
+            //yield return new WaitForSeconds(period); //F++
             GetComponent<SpriteRenderer>().sortingOrder = 0;
             transform.GetChild(0).GetComponent<MeshRenderer>().sortingOrder = 0;
             transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 1;
@@ -135,16 +131,15 @@ namespace Matching
 
         void ChangeTextColor()
         {
+            
             Color col = text.color;
             if (text.text != "")
             {                
-                if (col.a == 0)
-                {
+                if (col.a == 0)                {
                     col.a = 255;
                     text.color = col;
                 }
-                else if(col.a == 255)
-                {
+                else if(col.a == 255)          {
                     col.a = 0;
                     text.color = col;
                 }
@@ -211,18 +206,14 @@ namespace Matching
 
         public void ChangeColor()
         {
-            if (!_IsClicked)
-            {
+            if (!_IsClicked)            {
                 gameObject.GetComponent<SpriteRenderer>().color = newColor;
                 _IsClicked = true;
             }                            
-            else if (_IsClicked)
-            {
+            else if (_IsClicked)            {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 _IsClicked = false;
-            }
-                
-            
+            }            
         }
 
 

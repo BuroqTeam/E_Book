@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,6 +25,8 @@ public class GameResultPanel : MonoBehaviour
     public int TimeSilver;
     public int TimeBronze;
 
+    public float durration;
+    public float LongTime;
 
     void Start()
     {
@@ -91,6 +95,31 @@ public class GameResultPanel : MonoBehaviour
 
         TimeText.text = TimerObject.transform.GetChild(0).GetComponent<TMP_Text>().text;
     }
+
+    
+
+    public void SwitchPanel()
+    {
+        gameObject.transform.GetChild(0).transform.localScale = new Vector3(0, 0, 0);
+        gameObject.SetActive(true);
+        StartCoroutine(SwitchingPanel());
+    }
+
+
+    IEnumerator SwitchingPanel()
+    {
+        if (LongTime == 0)
+        {
+            yield return new WaitForSeconds((float)durration / 4);
+            gameObject.transform.GetChild(0).transform.DOScale(1, 3 * (float)durration / 4);
+        }
+        else if (LongTime != 0)
+        {
+            yield return new WaitForSeconds((float)durration / 2);
+            gameObject.transform.GetChild(0).transform.DOScale(1, 3 * (float)durration / 3);
+        }        
+    }
+
 
     
 }

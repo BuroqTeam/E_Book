@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.Events;
 
 namespace YuzlikFathulloh
 {
@@ -23,6 +24,8 @@ namespace YuzlikFathulloh
         private CanvasGroup canvasGroup;
         bool _IsTrue = true;
         //bool _IsParentColumn = false;
+
+        public GameEventSO DragEvent, DropEvent, FallEvent;
 
 
         void Start()
@@ -49,6 +52,8 @@ namespace YuzlikFathulloh
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            DragEvent.Raise();
+
             gameObject.transform.SetParent(ObjGameManager.transform);
             LastPos = gameObject.transform.localPosition /*gameObject.transform.position*/;
             
@@ -73,6 +78,7 @@ namespace YuzlikFathulloh
             canvasGroup.blocksRaycasts = true;
 
             if (ObjGameManager.GetComponent<GameManager>().IsArea)     {
+                DropEvent.Raise();
                 ChangeParent();
                 //if (!_IsParentColumn)                
                 //    ChangeParent();                
@@ -80,12 +86,13 @@ namespace YuzlikFathulloh
                 //    gameObject.transform.localPosition = LastPos;
             }
             else    {
-                //_IsParentColumn = false;
+                //FallEvent.Raise();                
                 gameObject.transform.SetParent(InitialParentObj.transform);
-                                
+                //_IsParentColumn = false;
                 //gameObject.transform.localPosition = InitialPos;
                 //gameObject.GetComponent<RectTransform>().DOAnchorPos(InitialPos, 0.2f);
                 gameObject.transform.DOLocalMove(InitialPos, 0.2f);
+                FallEvent.Raise();
             }
         }
 

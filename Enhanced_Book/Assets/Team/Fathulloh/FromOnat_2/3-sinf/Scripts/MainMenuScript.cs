@@ -20,7 +20,7 @@ public class MainMenuScript : MonoBehaviour
     string levelNameMain;
     public Image flagImage;
     public GameObject noInternet;
-    string languageName;
+    //string languageName;
 
     void Start()
     {
@@ -44,13 +44,13 @@ public class MainMenuScript : MonoBehaviour
 
     public void SetLanguage()
     {
-        if (MainMenuScript.languageIndex == 0) { languageName = "Uzbek"; }
-        else if (MainMenuScript.languageIndex == 1) { languageName = "karakalpak"; }
-        else if (MainMenuScript.languageIndex == 2) { languageName = "Kazakh"; }
-        else if (MainMenuScript.languageIndex == 3) { languageName = "Kirghiz"; }
-        else if (MainMenuScript.languageIndex == 4) { languageName = "Turkmen"; }
-        else if (MainMenuScript.languageIndex == 5) { languageName = "Tajik"; }
-        else if (MainMenuScript.languageIndex == 6) { languageName = "Russian"; }
+        //if (MainMenuScript.languageIndex == 0) { languageName = "Uzbek"; }
+        //else if (MainMenuScript.languageIndex == 1) { languageName = "karakalpak"; }
+        //else if (MainMenuScript.languageIndex == 2) { languageName = "Kazakh"; }
+        //else if (MainMenuScript.languageIndex == 3) { languageName = "Kirghiz"; }
+        //else if (MainMenuScript.languageIndex == 4) { languageName = "Turkmen"; }
+        //else if (MainMenuScript.languageIndex == 5) { languageName = "Tajik"; }
+        //else if (MainMenuScript.languageIndex == 6) { languageName = "Russian"; }
 
         //LocalizationManager.CurrentLanguage = languageName;
     }

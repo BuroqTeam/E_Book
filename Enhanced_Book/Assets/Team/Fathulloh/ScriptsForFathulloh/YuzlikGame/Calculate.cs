@@ -24,6 +24,7 @@ namespace YuzlikFathulloh
         public float MaxScaleSize = 1;
 
         public UnityEvent NextTaskEvent;
+        public UnityEvent CorrectSoundEvent;
         public UnityEvent WrongEvent;
 
 
@@ -63,6 +64,10 @@ namespace YuzlikFathulloh
 
 
             if (CorrectColumns == Gmanager.XonalarSoni)        {
+                if (Tmaker.HowManyQuestion != Tmaker.CurrentQuestionIndex)                {
+                    CorrectSoundEvent.Invoke();
+                }
+                
                 NextTaskEvent.Invoke();                
             }
             else            {

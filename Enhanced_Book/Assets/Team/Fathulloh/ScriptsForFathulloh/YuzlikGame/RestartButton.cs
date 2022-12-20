@@ -36,7 +36,6 @@ namespace YuzlikFathulloh
 
 
 
-
         public void ReturnDiscsInitialPos()
         {
             for (int i = 0; i < AllDiscs.Count; i++)

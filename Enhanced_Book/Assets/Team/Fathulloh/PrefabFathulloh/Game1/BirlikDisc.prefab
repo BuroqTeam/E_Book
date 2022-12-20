@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8389582893792327547}
   - component: {fileID: 8389582893792327546}
   - component: {fileID: 8389582893792327550}
+  - component: {fileID: 8941184145441845164}
   m_Layer: 5
   m_Name: BirlikDisc
   m_TagString: Untagged
@@ -114,6 +115,9 @@ MonoBehaviour:
   InitialPos2: {x: 0, y: 0, z: 0}
   ObjGameManager: {fileID: 0}
   InitialParentObj: {fileID: 0}
+  DragEvent: {fileID: 11400000, guid: a41a985d5d4c2324589d0f10380a1377, type: 2}
+  DropEvent: {fileID: 11400000, guid: 037707924ced9514482f033089eb197c, type: 2}
+  FallEvent: {fileID: 11400000, guid: 0277edb8d3e97cf40ab3e7ef187379eb, type: 2}
 --- !u!225 &8389582893792327550
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -126,6 +130,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &8941184145441845164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389582893792327544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f45931fc288be14ca83184785f94858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CursorOn: {fileID: 2800000, guid: 34f5985abc4e2994485d3cfb086f79f3, type: 3}
+  CursorOff: {fileID: 0}
 --- !u!1 &8389582894255122730
 GameObject:
   m_ObjectHideFlags: 0
