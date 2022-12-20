@@ -15,8 +15,17 @@ EditorBuildSettings:
     path: Assets/_Scenes/Tutorials/Big Numbers/Media 1.unity
     guid: d5dd3185c5eb8d841ab2af797fadb377
   - enabled: 1
+    path: Assets/_Scenes/Tutorials/Triangles/Scene/Media 2.unity
+    guid: d4c62d61ef83cb64e9ccf5fc6711cbc1
+  - enabled: 1
     path: Assets/Team/Fathulloh/Game 1.unity
     guid: d37e2ec240a2ad74ea63b67fa5962abe
+  - enabled: 1
+    path: Assets/Team/Fathulloh/Game 2.unity
+    guid: a1d6f1c88ce5c2149b7ea031a1498e21
+  - enabled: 1
+    path: Assets/Team/Fathulloh/FromOnat_2/Game 3.unity
+    guid: 2482d00db163cbe4eb3c3ddf12801c61
   - enabled: 1
     path: Assets/Team/Jahongir/Scenes/Quiz 1.unity
     guid: 72d922d99bad78a41a502663b399fe4a
@@ -26,7 +35,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Team/Jahongir/Scenes/Quiz 3.unity
     guid: 3cc2a8fe78185f145b676e33df4bdba9
-  - enabled: 1
-    path: Assets/Team/Fathulloh/Game 2.unity
-    guid: a1d6f1c88ce5c2149b7ea031a1498e21
   m_configObjects: {}
