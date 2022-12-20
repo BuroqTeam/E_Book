@@ -2532,6 +2532,7 @@ Transform:
   - {fileID: 1944813988}
   - {fileID: 1707697244}
   - {fileID: 851005526}
+  - {fileID: 2047200021}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4742,7 +4743,8 @@ MonoBehaviour:
   TimeGold: 0
   TimeSilver: 0
   TimeBronze: 0
-  durration: 0
+  durration: 0.15
+  LongTime: 1
 --- !u!1001 &890741634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9507,18 +9509,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2119492388}
         m_TargetAssemblyTypeName: YuzlikFathulloh.TaskMaker, Assembly-CSharp
-        m_MethodName: IncreaseIndex
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2119492388}
-        m_TargetAssemblyTypeName: YuzlikFathulloh.TaskMaker, Assembly-CSharp
         m_MethodName: MakeQuestion
         m_Mode: 1
         m_Arguments:
@@ -9536,6 +9526,21 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CorrectSoundEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 851005527}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 33842556a35575f43b0e6597894d9a13, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9888,6 +9893,124 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6196809200020520622, guid: ce448da1d1a838d4fb2f6e60cd21be44, type: 3}
   m_PrefabInstance: {fileID: 2021369328}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2047200020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2047200021}
+  - component: {fileID: 2047200023}
+  - component: {fileID: 2047200022}
+  - component: {fileID: 2047200024}
+  m_Layer: 0
+  m_Name: GameEventListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2047200021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047200020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548411336}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2047200022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047200020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56647b653d61c7744ae99abaf41e068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 037707924ced9514482f033089eb197c, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 851005527}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 2c41ca1d88498de4d91a266a2a0239a7, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2047200023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047200020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56647b653d61c7744ae99abaf41e068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a41a985d5d4c2324589d0f10380a1377, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 851005527}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: e87333e2ceffb654c92cc22faac25cd5, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2047200024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047200020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56647b653d61c7744ae99abaf41e068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0277edb8d3e97cf40ab3e7ef187379eb, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 851005527}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: c9d05ce83d5164f4d843be0fc37509c9, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2053254337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10498,7 +10621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3dd4f2adbd6104eabb2c91951de314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HowManyQuestion: 3
+  HowManyQuestion: 10
   CurrentQuestionIndex: 0
   QuestionTablo: {fileID: 1473331186}
   TaskObj: {fileID: 992329608}
@@ -10507,17 +10630,17 @@ MonoBehaviour:
   FinishEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 483953120}
-        m_TargetAssemblyTypeName: YuzlikFathulloh.Stopwatch, Assembly-CSharp
-        m_MethodName: StopStopWatch
-        m_Mode: 1
+      - m_Target: {fileID: 851005527}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 0ae1b0493961915448ba8fafe4521042, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1770391246}
         m_TargetAssemblyTypeName: YuzlikFathulloh.Timer, Assembly-CSharp
@@ -10531,10 +10654,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 883486014}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 883486019}
+        m_TargetAssemblyTypeName: GameResultPanel, Assembly-CSharp
+        m_MethodName: SwitchPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11141,6 +11264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YuzMinglikDisc
       objectReference: {fileID: 0}
+    - target: {fileID: 3011283447455535926, guid: 373185f7973f6c84ea8a2ed059300384, type: 3}
+      propertyPath: FallEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 0277edb8d3e97cf40ab3e7ef187379eb, type: 2}
     - target: {fileID: 3011283447455535926, guid: 373185f7973f6c84ea8a2ed059300384, type: 3}
       propertyPath: ObjGameManager
       value: 

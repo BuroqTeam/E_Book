@@ -26,6 +26,7 @@ public class GameResultPanel : MonoBehaviour
     public int TimeBronze;
 
     public float durration;
+    public float LongTime;
 
     void Start()
     {
@@ -107,9 +108,16 @@ public class GameResultPanel : MonoBehaviour
 
     IEnumerator SwitchingPanel()
     {
-        yield return new WaitForSeconds((float)durration / 4);
-        gameObject.transform.GetChild(0).transform.DOScale(1, 2 * (float)durration / 4);
-        
+        if (LongTime == 0)
+        {
+            yield return new WaitForSeconds((float)durration / 4);
+            gameObject.transform.GetChild(0).transform.DOScale(1, 3 * (float)durration / 4);
+        }
+        else if (LongTime != 0)
+        {
+            yield return new WaitForSeconds((float)durration / 2);
+            gameObject.transform.GetChild(0).transform.DOScale(1, 3 * (float)durration / 3);
+        }        
     }
 
 
