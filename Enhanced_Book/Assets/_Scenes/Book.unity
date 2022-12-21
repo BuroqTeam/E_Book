@@ -568,7 +568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Natural sonlarni taqqoslash
+  m_text: Sodda geometrik shakllar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a28db713a465594db416a710a973193, type: 2}
   m_sharedMaterial: {fileID: -7801446643192849594, guid: 2a28db713a465594db416a710a973193, type: 2}
@@ -7291,7 +7291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bet: 28-32'
+  m_text: 'Bet: 19-20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a28db713a465594db416a710a973193, type: 2}
   m_sharedMaterial: {fileID: -7801446643192849594, guid: 2a28db713a465594db416a710a973193, type: 2}
@@ -8851,7 +8851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bet: 90-96'
+  m_text: 'Bet: 25-26'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a28db713a465594db416a710a973193, type: 2}
   m_sharedMaterial: {fileID: -7801446643192849594, guid: 2a28db713a465594db416a710a973193, type: 2}
@@ -11169,7 +11169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Natural sonlarni ko\u2018paytirish"
+  m_text: Shkalalar va sonlar nuri
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a28db713a465594db416a710a973193, type: 2}
   m_sharedMaterial: {fileID: -7801446643192849594, guid: 2a28db713a465594db416a710a973193, type: 2}
@@ -33409,7 +33409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sodda geometrik shakllar
+  m_text: Natural sonlar va nol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a28db713a465594db416a710a973193, type: 2}
   m_sharedMaterial: {fileID: -7801446643192849594, guid: 2a28db713a465594db416a710a973193, type: 2}
@@ -34550,7 +34550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bet: 16-22 '
+  m_text: 'Bet: 11-12'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a28db713a465594db416a710a973193, type: 2}
   m_sharedMaterial: {fileID: -7801446643192849594, guid: 2a28db713a465594db416a710a973193, type: 2}
