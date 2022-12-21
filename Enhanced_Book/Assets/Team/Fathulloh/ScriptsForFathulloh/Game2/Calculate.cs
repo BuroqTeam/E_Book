@@ -30,16 +30,15 @@ namespace Game2_Fathulloh
                 ClickSoundEvent.Invoke();
                 NextTaskEvent.Invoke();
             }
-            else
-            {
+            else            
                 WrongEvent.Invoke();
-            }
+            
         }
 
 
         public void Finished()
         {
-            Debug.Log("Everything is finished.");
+            //Debug.Log("Everything is finished.");
         }
 
     }

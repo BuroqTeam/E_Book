@@ -67,7 +67,8 @@ namespace Game2_Fathulloh
             switch (CurrentFigure)
             {
                 case FigureType.RightTriangle:
-                    CheckRightTriangle();
+                    //CheckRightTriangle();
+                    CheckRightTrianglewithPifagor();
                     break;
                 case FigureType.Square:
                     CheckSquare();
@@ -100,18 +101,41 @@ namespace Game2_Fathulloh
             distance2 = Vector3.Distance(Childs[1].transform.position, Childs[2].transform.position);
             distance3 = Vector3.Distance(Childs[2].transform.position, Childs[0].transform.position);
 
-            if (distance1 == Mathf.Sqrt(distance2 * distance2 + distance3 * distance3) && (distance1 + distance2 + distance3 == PerimetrOrSurface))            {
+            float halfPer = (distance1 + distance2 + distance3) / 2;
+            float areaTriangle = Mathf.Sqrt(halfPer * (halfPer - distance1) * (halfPer - distance2) * (halfPer - distance3));
+            if ((int)areaTriangle / 1 == PerimetrOrSurface || (PerimetrOrSurface - areaTriangle < 0.1f)) 
+            {
                 _IsCorrect = true;
+                //Debug.Log("To'g'ri     areaTriangle = " + areaTriangle + " PerimetrOrSurface = " + PerimetrOrSurface);
             }
-            else if (distance2 == Mathf.Sqrt(distance1 * distance1 + distance3 * distance3) && (distance1 + distance2 + distance3 == PerimetrOrSurface))      {
-                _IsCorrect = true;
-            }
-            else if (distance3 == Mathf.Sqrt(distance2 * distance2 + distance1 * distance1) && (distance1 + distance2 + distance3 == PerimetrOrSurface))       {
-                _IsCorrect = true;
-            }
-            else           
+            else
+            {
                 _IsCorrect = false;
-            
+                //Debug.Log("Xato        areaTriangle = " + areaTriangle + " PerimetrOrSurface = " + PerimetrOrSurface);
+            }    
+        }
+
+        public void CheckRightTrianglewithPifagor()
+        {
+            float distance1, distance2, distance3;
+            distance1 = Vector3.Distance(Childs[0].transform.position, Childs[1].transform.position);
+            distance2 = Vector3.Distance(Childs[1].transform.position, Childs[2].transform.position);
+            distance3 = Vector3.Distance(Childs[2].transform.position, Childs[0].transform.position);
+
+            if (distance1 == Mathf.Sqrt(distance2 * distance2 + distance3 * distance3) /*&& (distance1 + distance2 + distance3 == PerimetrOrSurface)*/)
+            {
+                _IsCorrect = true;
+            }
+            else if (distance2 == Mathf.Sqrt(distance1 * distance1 + distance3 * distance3) /*&& (distance1 + distance2 + distance3 == PerimetrOrSurface)*/)
+            {
+                _IsCorrect = true;
+            }
+            else if (distance3 == Mathf.Sqrt(distance2 * distance2 + distance1 * distance1) /*&& (distance1 + distance2 + distance3 == PerimetrOrSurface)*/)
+            {
+                _IsCorrect = true;
+            }
+            else
+                _IsCorrect = false;
         }
 
 
@@ -142,18 +166,21 @@ namespace Game2_Fathulloh
 
             if ((distance1 == Mathf.Sqrt(distance2 * distance2 + distance3 * distance3)) && (distance2 == distance3))
             {
-                if (distance2 *distance3 == PerimetrOrSurface * 2)
-                    _IsCorrect = true;
+                //if (distance2 *distance3 == PerimetrOrSurface * 2)
+                //    _IsCorrect = true;
+                _IsCorrect = true;
             }
             else if ((distance2 == Mathf.Sqrt(distance1 * distance1 + distance3 * distance3)) && (distance1 == distance3))
             {
-                if (distance1 * distance3 == PerimetrOrSurface * 2)
-                    _IsCorrect = true;
+                //if (distance1 * distance3 == PerimetrOrSurface * 2)
+                //    _IsCorrect = true;
+                _IsCorrect = true;
             }
             else if ((distance3 == Mathf.Sqrt(distance2 * distance2 + distance1 * distance1)) && (distance2 == distance1))
             {
-                if (distance2 * distance1 == PerimetrOrSurface * 2)
-                    _IsCorrect = true;
+                //if (distance2 * distance1 == PerimetrOrSurface * 2)
+                //    _IsCorrect = true;
+                _IsCorrect = true;
             }
             else
             {
@@ -172,21 +199,36 @@ namespace Game2_Fathulloh
             float diogonal1 = Vector3.Distance(Childs[2].transform.position, Childs[0].transform.position);
             float diogonal2 = Vector3.Distance(Childs[3].transform.position, Childs[1].transform.position);
 
+            float perimetr = (distance1 + distance2 + distance3 + distance4);
+
             Vector3 vec0 = Childs[0].transform.position;
             Vector3 vec1 = Childs[1].transform.position;
             Vector3 vec2 = Childs[2].transform.position;
             Vector3 vec3 = Childs[3].transform.position;
 
-            if ((distance1 == distance3) && (distance2 == distance4) && (distance2 == distance1) && (vec0 != vec1))
+            if (PerimetrOrSurface == perimetr && (distance4 == distance2) && (distance1 == distance3))
             {
-                if ((vec0.x == vec2.x || vec0.y == vec2.y) && (vec1.x == vec3.x || vec1.y == vec3.y) && (diogonal1 * diogonal2 / 2 == PerimetrOrSurface)) 
-                {
-                    _IsCorrect = true;
-                    Debug.Log("Romb ishladi.");
-                }                
+                _IsCorrect = true;
+                //Debug.Log("(distance1 + distance2 + distance3 + distance4) = " + (distance1 + distance2 + distance3 + distance4));
             }
-            else      
-                _IsCorrect = false;            
+            else
+            {
+                _IsCorrect = false;
+                //Debug.Log("(distance1 + distance2 + distance3 + distance4) = " + (distance1 + distance2 + distance3 + distance4));
+            }
+
+            //if ((distance1 == distance3) && (distance2 == distance4) && (distance2 == distance1) && (vec0 != vec1))
+            //{
+            //    if ((vec0.x == vec2.x || vec0.y == vec2.y) && (vec1.x == vec3.x || vec1.y == vec3.y) && (diogonal1 * diogonal2 / 2 == PerimetrOrSurface))
+            //    {
+            //        _IsCorrect = true;
+            //        Debug.Log("Romb ishladi.");
+            //    }
+            //    else
+            //        _IsCorrect = false;
+            //}
+            //else      
+            //    _IsCorrect = false;            
         }
 
 
@@ -198,18 +240,25 @@ namespace Game2_Fathulloh
 
             if ((distance1 != distance2) && (distance2 != distance3) && (distance1 != distance3))
             {
-                float halfPerimetr = (distance1 + distance2 + distance3) / 2;
-                float areaTriangle = Mathf.Sqrt(halfPerimetr * (halfPerimetr - distance1) * (halfPerimetr - distance2) * (halfPerimetr - distance3));
-                if ((areaTriangle == PerimetrOrSurface) || (PerimetrOrSurface == (areaTriangle / 1)) || (PerimetrOrSurface - areaTriangle < 0.1f ) )               {
-                    Debug.Log("HalfPerimetr");
-                    _IsCorrect = true;
-                }
-                else
-                    Debug.Log("HalfPerimetr don't work.   " + areaTriangle + " " + areaTriangle / 1);
+                _IsCorrect = true;
+                //float halfPerimetr = (distance1 + distance2 + distance3) / 2;
+                //float areaTriangle = Mathf.Sqrt(halfPerimetr * (halfPerimetr - distance1) * (halfPerimetr - distance2) * (halfPerimetr - distance3));
+                
+                //if ((areaTriangle == PerimetrOrSurface) || (PerimetrOrSurface == (areaTriangle / 1)) || (PerimetrOrSurface - areaTriangle < 0.1f ) )               {
+                //    Debug.Log("areaTriangle " + areaTriangle);
+                //    _IsCorrect = true;
+                //}
+                //else
+                //{
+                //    _IsCorrect = false;
+                //    Debug.Log("HalfPerimetr don't work.   " + areaTriangle + " " + areaTriangle / 1);
+                //}                    
             }
             else
+            {
                 _IsCorrect = false;
-
+            }
+                
         }
 
 
