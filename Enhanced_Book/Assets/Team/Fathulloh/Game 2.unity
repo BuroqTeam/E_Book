@@ -728,8 +728,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6509434, g: 0.5250534, b: 0.5250534, a: 1}
-      key1: {r: 0.6509434, g: 0.5250534, b: 0.5250534, a: 1}
+      key0: {r: 0.24056602, g: 0.57357705, b: 1, a: 1}
+      key1: {r: 0.24056602, g: 0.57357705, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1003,6 +1003,9 @@ MonoBehaviour:
   TotalTask: 5
   GCalculate: {fileID: 2119492389}
   CurrentFigure: {fileID: 0}
+  CurrentLineManager: {fileID: 0}
+  InitialColor: {r: 0, g: 0, b: 0, a: 0}
+  InitialColorCorner: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &164651864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,8 +2138,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6509434, g: 0.5250534, b: 0.5250534, a: 1}
-      key1: {r: 0.6509434, g: 0.5250534, b: 0.5250534, a: 1}
+      key0: {r: 0.24056602, g: 0.57357705, b: 1, a: 1}
+      key1: {r: 0.24056602, g: 0.57357705, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5616,8 +5619,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6509434, g: 0.5250534, b: 0.5250534, a: 1}
-      key1: {r: 0.6509434, g: 0.5250534, b: 0.5250534, a: 1}
+      key0: {r: 0.24056602, g: 0.57357705, b: 1, a: 1}
+      key1: {r: 0.24056602, g: 0.57357705, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -14310,6 +14313,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 149875691}
+        m_TargetAssemblyTypeName: Game2_Fathulloh.GameControl, Assembly-CSharp
+        m_MethodName: ErrorAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   FinishEvent:
     m_PersistentCalls:
       m_Calls:
@@ -14384,6 +14399,21 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+  CorrectSounEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 851005527}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: b696809041d72924bbf20cb68b81d3a7, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   ClickSoundEvent:
     m_PersistentCalls:

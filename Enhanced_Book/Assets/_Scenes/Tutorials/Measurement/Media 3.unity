@@ -3647,10 +3647,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111248483}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d6c161e2754209640babf77829fd8ddd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c6232ef937b77634888b97fece77ef11, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.034
   m_Pitch: 1
@@ -4565,6 +4565,8 @@ MonoBehaviour:
   Triangle2: {fileID: 0}
   Angles: {fileID: 0}
   Sides: {fileID: 0}
+  AllTriangle: {fileID: 0}
+  PosActive: {fileID: 0}
   SoundClips:
   - {fileID: 8300000, guid: 20cb868c26bf8e249adf332877093772, type: 3}
   - {fileID: 8300000, guid: 902e0fc011fa44741838313c6347eb79, type: 3}

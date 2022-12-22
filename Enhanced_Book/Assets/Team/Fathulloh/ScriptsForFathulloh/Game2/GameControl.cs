@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -35,6 +36,7 @@ namespace Game2_Fathulloh
         public Calculate GCalculate;
 
         public GameObject CurrentFigure;
+        public GameObject CurrentLineManager;
         bool _IsChanged = false;
 
 
@@ -96,6 +98,7 @@ namespace Game2_Fathulloh
                     LineManagers[i].SetActive(true);
                     QuestionText.text = Questions[i];
 
+                    CurrentLineManager = LineManagers[i];
                     CurrentFigure = GeoBoardFigures[i];
                     GCalculate.CurrentFigure = CurrentFigure;                    
                     break;
@@ -150,12 +153,44 @@ namespace Game2_Fathulloh
             GeoBoardFigures[4].GetComponent<GeoFigure>().InitialDots.Add(Hooks[38]);
 
             GeoBoardFigures[4].GetComponent<GeoFigure>().PerimetrOrSurface = n4;
+
         }
 
 
+        public Color InitialColor;
+        public Color InitialColorCorner;
+        bool _IsFirstTime = true;
         public void ErrorAnimation()
-        {
+        {            
+            if (_IsFirstTime)
+            {
+                InitialColor = CurrentLineManager.GetComponent<LineRenderer>().startColor;
+                InitialColorCorner = CurrentFigure.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
+                _IsFirstTime = false;
+            }
+            
+            StartCoroutine(ErrorAnimating());
+        }
 
+
+        IEnumerator ErrorAnimating()
+        {
+            for (int i = 0; i < CurrentFigure.transform.childCount; i++)
+            {
+                CurrentFigure.transform.GetChild(i).GetComponent<SpriteRenderer>().color = new Color(0.91f, 0.09f, 0.09f);
+            }
+
+            CurrentLineManager.GetComponent<LineRenderer>().endColor = new Color(0.5f, 0.12f, 0.22f, 1);
+            CurrentLineManager.GetComponent<LineRenderer>().startColor = new Color(0.5f, 0.12f, 0.22f, 1);
+            yield return new WaitForSeconds(0.5f);
+
+            CurrentLineManager.GetComponent<LineRenderer>().endColor = InitialColor;
+            CurrentLineManager.GetComponent<LineRenderer>().startColor = InitialColor;
+
+            for (int i = 0; i < CurrentFigure.transform.childCount; i++)
+            {
+                CurrentFigure.transform.GetChild(i).GetComponent<SpriteRenderer>().color = InitialColorCorner;
+            }
         }
 
 

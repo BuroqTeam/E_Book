@@ -22,7 +22,6 @@ namespace Game2_Fathulloh
 
 
 
-
         void Start()
         {
 
@@ -257,11 +256,9 @@ namespace Game2_Fathulloh
             else
             {
                 _IsCorrect = false;
-            }
-                
+            }                
         }
-
-
+                
 
     }
 }
