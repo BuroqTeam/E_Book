@@ -29,10 +29,10 @@ namespace Media3_Fathulloh
 
         IEnumerator Moving()
         {
-            float time = 0.75f;
+            float time = 1.0f;
             float longTime = 1.5f;
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(2.0f);
             gameObject.GetComponent<Image>().DOFade(1, time);
             //gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsHigh[0], time);
             yield return new WaitForSeconds(longTime);
@@ -42,11 +42,11 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(longTime);
 
             gameObject.GetComponent<Image>().DOFade(0, time);
-            yield return new WaitForSeconds(longTime);
+            yield return new WaitForSeconds(2 * longTime);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsLower[0], time);
             MeasurementManager.PlayAudio();   //    for audio 08
 
-            yield return new WaitForSeconds(longTime);
+            yield return new WaitForSeconds(2 * longTime);
             gameObject.GetComponent<Image>().DOFade(1, time);
             yield return new WaitForSeconds(longTime);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsLower[1], time);
