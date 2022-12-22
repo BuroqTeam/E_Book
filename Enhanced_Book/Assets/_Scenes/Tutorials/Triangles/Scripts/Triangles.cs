@@ -17,6 +17,8 @@ public class Triangles : MonoBehaviour
     public GameObject Triangle2;
     public GameObject Angles;
     public GameObject Sides;
+    public GameObject AllTriangle;
+    public GameObject PosActive;
 
 
 
@@ -26,6 +28,7 @@ public class Triangles : MonoBehaviour
     private float _1lastPos;
     private float _2lastPos;
     private float _3lastPos;
+    private Vector2 _activePos;
 
     AudioSource _audioSource;
     int _soundIndex = 0;
@@ -35,6 +38,7 @@ public class Triangles : MonoBehaviour
         _1lastPos = Angles.transform.GetChild(2).GetChild(0).GetComponent<RectTransform>().localPosition.x;
         _2lastPos = Angles.transform.GetChild(2).GetChild(1).GetComponent<RectTransform>().localPosition.x;
         _3lastPos = Angles.transform.GetChild(2).GetChild(2).GetComponent<RectTransform>().localPosition.x;
+        _activePos = PosActive.transform.GetChild(6).GetChild(0).GetComponent<RectTransform>().localPosition;
         _audioSource = GetComponent<AudioSource>();
         StartCoroutine(StartAction());
 
@@ -43,7 +47,9 @@ public class Triangles : MonoBehaviour
     IEnumerator StartAction()
     {
         Title.GetComponent<RectTransform>().DOScale(1, 2);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1);
+        PlaySound();
+        yield return new WaitForSeconds(3);
         Title.GetComponent<RectTransform>().DOScale(0, 1);
         yield return new WaitForSeconds(2);
 
@@ -220,7 +226,7 @@ public class Triangles : MonoBehaviour
         //Tomonlariga kora
 
         PlaySound();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         Sides.transform.gameObject.SetActive(true);
         Sides.transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(0.2f);
@@ -236,7 +242,7 @@ public class Triangles : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
             Sides.transform.GetChild(2).GetChild(i).GetComponent<RectTransform>().DOScale(1f, 0.3f);
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
 
 
 
@@ -284,14 +290,158 @@ public class Triangles : MonoBehaviour
 
 
 
+        //Barcha Uchburchaklarni sanab o'tadi
+
+        PlaySound();
+        AllTriangle.transform.GetComponent<RectTransform>().DOScale(1f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        AllTriangle.transform.GetChild(0).GetComponent<RectTransform>().DOScale(1f, 0.5f);
+        AllTriangle.transform.GetChild(1).GetComponent<RectTransform>().DOScale(1f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        for (int i = 0; i < 3; i++)
+        {
+            AllTriangle.transform.GetChild(0).GetChild(i).GetComponent<RectTransform>().DOScale(1f, 0.3f);
+            yield return new WaitForSeconds(0.3f);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            AllTriangle.transform.GetChild(1).GetChild(i).GetComponent<RectTransform>().DOScale(1f, 0.3f);
+            yield return new WaitForSeconds(0.3f);
+        }
+        yield return new WaitForSeconds(3f);
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                AllTriangle.transform.GetChild(i).GetChild(j).GetComponent<RectTransform>().DOScale(1.2f, 0.3f);
+                yield return new WaitForSeconds(2.5f);
+                AllTriangle.transform.GetChild(i).GetChild(j).GetComponent<RectTransform>().DOScale(1, 0.3f);
+            }
+        }
 
 
 
 
+        //Ucburchaklarni takrorlab chiqadi
+        
+        //1
+        PosActive.transform.GetComponent<RectTransform>().DOScale(1f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        PosActive.transform.GetChild(6).GetChild(7).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
+        PlaySound();
+        PosActive.transform.GetChild(6).GetChild(7).GetComponent<RectTransform>().DOScale(1, 0.3f);
+        yield return new WaitForSeconds(4f);
+        for (int i = 0; i < 3; i++)
+        {
+            PosActive.transform.GetChild(6).GetChild(7).GetChild(i).GetComponent<RectTransform>().DOScale(1, 0.3f);
+            yield return new WaitForSeconds(0.3f);
+        }
+        yield return new WaitForSeconds(3f);
+        PosActive.transform.GetChild(6).GetChild(7).GetComponent<RectTransform>().DOScale(0, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(7).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(1).GetComponent<RectTransform>().localPosition, 0.5f);
+
+
+
+        //2
+        PlaySound();
+        PosActive.transform.GetChild(6).GetChild(8).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(8).GetComponent<RectTransform>().DOScale(1, 0.3f);
+        yield return new WaitForSeconds(4f);
+        PosActive.transform.GetChild(6).GetChild(8).GetChild(0).GetComponent<RectTransform>().DOScale(1, 0.3f);
+        yield return new WaitForSeconds(4f);
+        PosActive.transform.GetChild(6).GetChild(8).GetChild(1).GetComponent<RectTransform>().DORotate(new Vector3(0, 0, -90), 1);
+        yield return new WaitForSeconds(4f);
+        PosActive.transform.GetChild(6).GetChild(8).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(2).GetComponent<RectTransform>().localPosition, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(8).GetComponent<RectTransform>().DOScale(0, 0.5f);
 
 
 
 
+        //3
+        PlaySound();
+        PosActive.transform.GetChild(6).GetChild(9).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(9).GetComponent<RectTransform>().DOScale(1, 0.3f);
+        yield return new WaitForSeconds(4f);
+        PosActive.transform.GetChild(6).GetChild(9).GetChild(0).GetComponent<RectTransform>().DOScale(1, 0.3f);
+        yield return new WaitForSeconds(3f);
+        PosActive.transform.GetChild(6).GetChild(9).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(3).GetComponent<RectTransform>().localPosition, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(9).GetComponent<RectTransform>().DOScale(0, 0.5f);
+
+
+
+        //4
+        PlaySound();
+        PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOScale(1, 0.3f);
+        yield return new WaitForSeconds(7f);
+        for (int i = 0; i < 3; i++)
+        {
+            PosActive.transform.GetChild(6).GetChild(10).GetChild(0).GetChild(i).GetComponent<RectTransform>().DOScale(1, 0.5f);
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return new WaitForSeconds(5f);
+        for (int i = 0; i < 3; i++)
+        {
+            PosActive.transform.GetChild(6).GetChild(10).GetChild(0).GetChild(i).GetComponent<RectTransform>().DOScale(1.4f, 0.5f);
+        }
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < 3; i++)
+        {
+            PosActive.transform.GetChild(6).GetChild(10).GetChild(0).GetChild(i).GetComponent<RectTransform>().DOScale(1, 0.5f);
+        }
+        yield return new WaitForSeconds(6f);
+        for (int i = 0; i < 3; i++)
+        {
+            PosActive.transform.GetChild(6).GetChild(10).GetChild(1).GetChild(i).GetComponent<RectTransform>().DOScale(1, 0.5f);
+        }
+        yield return new WaitForSeconds(3f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(300, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(0).GetComponent<RectTransform>().DOScale(1, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(1).GetComponent<RectTransform>().DOScale(1, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(2).GetComponent<RectTransform>().DOScale(1, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(1).GetComponent<RectTransform>().DOAnchorPosY(-15, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(3).GetComponent<RectTransform>().DOScale(1, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(4).GetComponent<RectTransform>().DOScale(1, 1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(5).GetComponent<RectTransform>().DOScale(1, 1f);
+        yield return new WaitForSeconds(7f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(5).GetComponent<RectTransform>().DOScale(1.3f, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(5).GetComponent<RectTransform>().DOScale(1.3f, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(1000, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetComponent<RectTransform>().DOScale(0, 0);
+        PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(3).GetComponent<RectTransform>().localPosition, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOScale(0, 0.5f);
+        yield return new WaitForSeconds(1f);
+
+
+
+        //5
+        PlaySound();
+        PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOScale(1, 0.3f);
+        yield return new WaitForSeconds(1.5f);
+        PosActive.transform.GetChild(6).GetChild(11).GetChild(0).GetComponent<RectTransform>().DOScale(1, 1f);
+        yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(11).GetChild(1).GetComponent<RectTransform>().DOScale(1, 1f);
+        yield return new WaitForSeconds(3.5f);
+        PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(4).GetComponent<RectTransform>().localPosition, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOScale(0, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+
+
+        //6
+        PlaySound();
+        PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOScale(1, 0.3f);
+        yield return new WaitForSeconds(20f);
 
     }
 
