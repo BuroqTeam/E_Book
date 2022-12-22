@@ -53,29 +53,29 @@ public class Triangles : MonoBehaviour
         Title.GetComponent<RectTransform>().DOScale(0, 1);
         yield return new WaitForSeconds(2);
 
-        Triangle.GetComponent<RectTransform>().DOScale(1, 0.5f);
-        PlaySound();
-        yield return new WaitForSeconds(0.5f);
-        TrianglesBackground.SetActive(true);
-        Triangle.GetComponent<TMP_Text>().text = Triangle.GetComponent<TMP_Text>().text + ":";
-        Triangle.GetComponent<RectTransform>().DOAnchorPosX(-150, 1.5f);
-        yield return new WaitForSeconds(0.5f);
-        Defination.GetComponent<RectTransform>().DOAnchorPosX(30, 0.5f);
-        Defination.GetComponent<RectTransform>().DORotate(new Vector3(0, 0, 0), 0.5f);
-        yield return new WaitForSeconds(1f);
-        TriangleMain.GetComponent<RectTransform>().DOScale(1.5f, 1.5f);
-        yield return new WaitForSeconds(1.2f);
-        TriangleMain.transform.GetChild(1).gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        TriangleMain.transform.GetChild(0).gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        TriangleMain.GetComponent<RectTransform>().DOScale(0.5f, 1);
-        TriangleMain.transform.GetChild(1).gameObject.SetActive(false);
-        TriangleMain.transform.GetChild(0).gameObject.SetActive(false);
-        yield return new WaitForSeconds(3);
-        TrianglesBackground.GetComponent<RectTransform>().DOScale(0, 0.1f);
-        Defination.GetComponent<RectTransform>().DOScale(0, 0.1f);
-        Triangle.GetComponent<RectTransform>().DOScale(0, 0.1f);
+        //Triangle.GetComponent<RectTransform>().DOScale(1, 0.5f);
+        //PlaySound();
+        //yield return new WaitForSeconds(0.5f);
+        //TrianglesBackground.SetActive(true);
+        //Triangle.GetComponent<TMP_Text>().text = Triangle.GetComponent<TMP_Text>().text + ":";
+        //Triangle.GetComponent<RectTransform>().DOAnchorPosX(-150, 1.5f);
+        //yield return new WaitForSeconds(0.5f);
+        //Defination.GetComponent<RectTransform>().DOAnchorPosX(30, 0.5f);
+        //Defination.GetComponent<RectTransform>().DORotate(new Vector3(0, 0, 0), 0.5f);
+        //yield return new WaitForSeconds(1f);
+        //TriangleMain.GetComponent<RectTransform>().DOScale(1.5f, 1.5f);
+        //yield return new WaitForSeconds(1.2f);
+        //TriangleMain.transform.GetChild(1).gameObject.SetActive(true);
+        //yield return new WaitForSeconds(1.5f);
+        //TriangleMain.transform.GetChild(0).gameObject.SetActive(true);
+        //yield return new WaitForSeconds(1);
+        //TriangleMain.GetComponent<RectTransform>().DOScale(0.5f, 1);
+        //TriangleMain.transform.GetChild(1).gameObject.SetActive(false);
+        //TriangleMain.transform.GetChild(0).gameObject.SetActive(false);
+        //yield return new WaitForSeconds(3);
+        //TrianglesBackground.GetComponent<RectTransform>().DOScale(0, 0.1f);
+        //Defination.GetComponent<RectTransform>().DOScale(0, 0.1f);
+        //Triangle.GetComponent<RectTransform>().DOScale(0, 0.1f);
 
 
 
