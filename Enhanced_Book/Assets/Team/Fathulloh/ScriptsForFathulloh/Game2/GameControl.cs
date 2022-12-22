@@ -20,14 +20,14 @@ namespace Game2_Fathulloh
         //private List<string> Questions = new() { "Can you make right triangle", "Can you make square", "Can you make isosceles right triangle", "Can you make rhombus", "Can you make an obtuse scalene triangle" };
         List<string> Questions = new()
         {
-            $"Perimetri {n0} cm bo'lgan to'g'ri burchakli uchburchak yasang.",
-            $"Yuzasi {n1} kv. cm ga teng bo'lgan kvadrat yasang.",
-            $"Yuzasi {n2} kv. cm bo'lgan teng yonli to'g'ri burchakli uchburchak yasang.",
-            $"Yuzasi {n3} kv. cm ga teng bo'lgan rombni yasang.",
-            $"Yuzasi {n4} kv. cm ga teng bo'lgan turli tomonli uchburchakni yasang."
+            $"To'g'ri burchakli uchburchak yasang.",  //Yuzasi {n0} kv. cm bo'lgan uchburchakni yasang.
+            $"Perimetri {n1} cm ga teng bo'lgan kvadrat yasang.",
+            $"Teng yonli to'g'ri burchakli uchburchak yasang.", // Yuzasi {n2} kv. cm bo'lgan teng yonli to'g'ri burchakli uchburchak yasang.
+            $"Perimetri {n3} cm ga teng bo'lgan to'rtburchakni yasang.",
+            $"Turli tomonli uchburchakni yasang." // Yuzasi {n4} kv. cm ga teng bo'lgan turli tomonli uchburchakni yasang.
         };
 
-        const int n0 = 12, n1 = 16, n2 = 8, n3 = 4, n4 = 5;
+        const int n0 = 12, n1 = 16, n2 = 8, n3 = 14, n4 = 5;
 
         public int CurrentTask;
         public int TotalTask;
@@ -56,13 +56,11 @@ namespace Game2_Fathulloh
                     }
                 }
 
-                if (CountGeoboardFigures == GeoBoardFigures.Count)
-                {
+                if (CountGeoboardFigures == GeoBoardFigures.Count)                {
                     _IsCheck = false;
                     SwitchOffFigures();
                 }
-                else if (CountGeoboardFigures != GeoBoardFigures.Count)
-                {
+                else if (CountGeoboardFigures != GeoBoardFigures.Count)                {
                     CountGeoboardFigures = 0;
                 }
             }
@@ -76,10 +74,7 @@ namespace Game2_Fathulloh
         /// Barcha shakllarni o'chirib keraklisini qaytadan yoquvchi shakl.
         /// </summary>
         public void SwitchOffFigures()
-        {
-            QuestionTablo.transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentTask.ToString() + " / " + TotalTask.ToString();
-
-
+        {   
             for (int i = 0; i < GeoBoardFigures.Count; i++)
             {
                 GeoBoardFigures[i].SetActive(false);
@@ -88,20 +83,22 @@ namespace Game2_Fathulloh
 
             for (int i = 0; i < GeoBoardFigures.Count; i++)
             {
-                if (CurrentTask == TotalTask)
+                if (CurrentTask >= TotalTask)
                 {
                     GCalculate.FinishEvent.Invoke();
                     break;
                 }
-                else if (i == CurrentTask)
+                else if ((i == CurrentTask) /*|| (CurrentTask <= TotalTask)*/)
                 {
+                    CurrentTask++;
+                    QuestionTablo.transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentTask.ToString() + " / " + TotalTask.ToString();
+
                     GeoBoardFigures[i].SetActive(true);
                     LineManagers[i].SetActive(true);
                     QuestionText.text = Questions[i];
 
                     CurrentFigure = GeoBoardFigures[i];
-                    GCalculate.CurrentFigure = CurrentFigure;
-
+                    GCalculate.CurrentFigure = CurrentFigure;                    
                     break;
                 }
             }
@@ -110,9 +107,7 @@ namespace Game2_Fathulloh
             {
                 ChangePosition(); ;
                 _IsChanged = true;
-            }
-
-            CurrentTask++;
+            }            
         }
 
 

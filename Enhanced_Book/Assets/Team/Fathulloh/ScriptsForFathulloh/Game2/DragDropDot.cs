@@ -18,6 +18,8 @@ namespace Game2_Fathulloh
 
         public int HookNumbers = 0;
 
+        public GameEventSO DragEvent, DropEvent, FallEvent;
+        
 
         void Start()
         {
@@ -35,6 +37,7 @@ namespace Game2_Fathulloh
         {
             InitialPos = transform.position;
 
+            DragEvent.Raise();
         }
 
 
@@ -65,14 +68,14 @@ namespace Game2_Fathulloh
             if (HookNumbers >= 1)       {
                 HookNumbers = 0;
                 transform.position = CurrentPos;
+                DropEvent.Raise();
             }
             else if (HookNumbers == 0)         {
                 transform.position = CurrentPos;
+                FallEvent.Raise();
             }
 
-            gameObject.transform.parent.GetComponent<GeoFigure>().CheckFigure();
-
-            
+            gameObject.transform.parent.GetComponent<GeoFigure>().CheckFigure();            
         }
 
 

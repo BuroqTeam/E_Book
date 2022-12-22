@@ -121,6 +121,9 @@ MonoBehaviour:
   CurrentPos: {x: 0, y: 0, z: 0}
   ListHooks: []
   HookNumbers: 0
+  DragEvent: {fileID: 11400000, guid: a41a985d5d4c2324589d0f10380a1377, type: 2}
+  DropEvent: {fileID: 11400000, guid: 037707924ced9514482f033089eb197c, type: 2}
+  FallEvent: {fileID: 11400000, guid: 0277edb8d3e97cf40ab3e7ef187379eb, type: 2}
 --- !u!114 &390141601798402477
 MonoBehaviour:
   m_ObjectHideFlags: 0
