@@ -9965,7 +9965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vazifadan chiqish
+  m_text: O'yindan chiqish
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e0a5fcd5af98a1469f0a85ee4072604, type: 2}
   m_sharedMaterial: {fileID: 2203094178869421095, guid: 7e0a5fcd5af98a1469f0a85ee4072604, type: 2}
@@ -14102,6 +14102,7 @@ MonoBehaviour:
   TimeSilver: 60
   TimeBronze: 0
   durration: 1
+  LongTime: 0
 --- !u!114 &1462081534
 MonoBehaviour:
   m_ObjectHideFlags: 0

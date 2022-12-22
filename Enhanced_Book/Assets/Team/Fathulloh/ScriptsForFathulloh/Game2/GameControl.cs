@@ -32,15 +32,16 @@ namespace Game2_Fathulloh
         public int CurrentTask;
         public int TotalTask;
 
-
         public Calculate GCalculate;
+
+        public GameObject CurrentFigure;
+        bool _IsChanged = false;
 
 
         void Start()
         {
 
         }
-
 
 
         void Update()
@@ -66,9 +67,7 @@ namespace Game2_Fathulloh
             }
         }
 
-
-        public GameObject CurrentFigure;
-        bool _IsChanged = false;
+                
 
         /// <summary>
         /// Barcha shakllarni o'chirib keraklisini qaytadan yoquvchi shakl.
@@ -153,6 +152,11 @@ namespace Game2_Fathulloh
             GeoBoardFigures[4].GetComponent<GeoFigure>().PerimetrOrSurface = n4;
         }
 
+
+        public void ErrorAnimation()
+        {
+
+        }
 
 
     }
