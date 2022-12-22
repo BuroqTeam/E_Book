@@ -428,9 +428,11 @@ public class Triangles : MonoBehaviour
         PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
         PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOScale(1, 0.3f);
         yield return new WaitForSeconds(1.5f);
-        PosActive.transform.GetChild(6).GetChild(11).GetChild(0).GetComponent<RectTransform>().DOScale(1, 1f);
+        PosActive.transform.GetChild(6).GetChild(11).GetChild(0).GetChild(0).GetComponent<RectTransform>().DOScale(1, 1f);
+        PosActive.transform.GetChild(6).GetChild(11).GetChild(0).GetChild(1).GetComponent<RectTransform>().DOScale(1, 1f);
         yield return new WaitForSeconds(1f);
-        PosActive.transform.GetChild(6).GetChild(11).GetChild(1).GetComponent<RectTransform>().DOScale(1, 1f);
+        PosActive.transform.GetChild(6).GetChild(11).GetChild(1).GetChild(0).GetComponent<RectTransform>().DOScale(1, 1f);
+        PosActive.transform.GetChild(6).GetChild(11).GetChild(1).GetChild(1).GetComponent<RectTransform>().DOScale(1, 1f);
         yield return new WaitForSeconds(3.5f);
         PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(4).GetComponent<RectTransform>().localPosition, 0.5f);
         PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOScale(0, 0.5f);
