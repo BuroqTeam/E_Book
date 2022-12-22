@@ -73,10 +73,8 @@ namespace Media3_Fathulloh
             MinimizeObject(Media3Sylinder, 1);
             StartCoroutine(TollAndShortAnim());
 
-
             //SylinderObj.GetComponent<RectTransform>().DOScale(1, 0.5f)
             //    .SetEase(ChosenEase);
-
         }
 
 
