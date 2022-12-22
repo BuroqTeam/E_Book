@@ -10,6 +10,8 @@ public class P3_Puzzle1 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     public string QuestionId;
     public Pattern_3 Pattern3;
     public GameObject AttechedPuzzle;
+    public GameEventSO DragEvent, DropEvent, FallEvent;
+
     private int _selectedAnswerId = -1;
     private int siblingIndexObj;
     private int a = 0;
@@ -17,6 +19,7 @@ public class P3_Puzzle1 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        DragEvent.Raise();
         if (Pattern3.transform.GetChild(1).GetComponent<VerticalLayoutGroup>().enabled)
         {
             Pattern3.transform.GetChild(1).GetComponent<VerticalLayoutGroup>().enabled = false;
@@ -44,6 +47,7 @@ public class P3_Puzzle1 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         }
         if (_selectedAnswerId != -1)
         {
+            DropEvent.Raise();
             transform.GetChild(1).transform.position = Pattern3.AnswerPuzles[_selectedAnswerId].transform.GetChild(1).transform.position;
             AttechedPuzzle = Pattern3.AnswerPuzles[_selectedAnswerId];
             transform.GetChild(1).transform.DOScale(1, 0);
@@ -71,6 +75,7 @@ public class P3_Puzzle1 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
             transform.GetChild(1).transform.position = transform.GetChild(0).transform.position;
             transform.GetChild(1).transform.DOScale(1, 0);
             Pattern3.SelectedPuzles.Remove(gameObject);
+            FallEvent.Raise();
         }
         _selectedAnswerId = -1;
         if (Pattern3.SelectedPuzles.Count>0)
