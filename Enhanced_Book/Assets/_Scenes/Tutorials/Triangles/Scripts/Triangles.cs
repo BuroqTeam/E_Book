@@ -19,6 +19,7 @@ public class Triangles : MonoBehaviour
     public GameObject Sides;
     public GameObject AllTriangle;
     public GameObject PosActive;
+    public GameObject BackgroundMusic;
 
 
 
@@ -443,7 +444,12 @@ public class Triangles : MonoBehaviour
         PlaySound();
         PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
         PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOScale(1, 0.3f);
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(21f);
+        PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(5).GetComponent<RectTransform>().localPosition, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOScale(0, 0.5f);
+        BackgroundMusic.gameObject.SetActive(false);
+
+
 
     }
 
