@@ -39,10 +39,10 @@ namespace Media3_Fathulloh
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsHigh[1], time);
             yield return new WaitForSeconds(longTime);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsHigh[2], time);
-            yield return new WaitForSeconds(longTime);
+            yield return new WaitForSeconds(2 * longTime);
 
             gameObject.GetComponent<Image>().DOFade(0, time);
-            yield return new WaitForSeconds(2 * longTime);
+            yield return new WaitForSeconds(1 * longTime);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsLower[0], time);
             MeasurementManager.PlayAudio();   //    for audio 08
 
