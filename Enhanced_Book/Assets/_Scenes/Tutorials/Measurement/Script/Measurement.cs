@@ -150,7 +150,7 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(5 * time);
             PlayAudio();    //   for audio 04
             
-            yield return new WaitForSeconds(2.5f * time);
+            yield return new WaitForSeconds(3.5f * time);
             TallAndShort[0].transform.GetChild(0).gameObject.GetComponent<SizeObjects>().ChangeColor();
             yield return new WaitForSeconds(3.5f * time);
             TallAndShort[1].transform.GetChild(0).gameObject.GetComponent<SizeObjects>().ChangeColor();
@@ -184,17 +184,13 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(6.0f);
             MetrObjects.transform.GetChild(1).GetComponent<RectTransform>().DOScale(1, time);
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(2.0f);
             MetrObjects.transform.GetChild(2).GetComponent<RectTransform>().DOScale(1, time);
-
-            for (int i = 0; i < MetrObjects.transform.GetChild(2).gameObject.transform.childCount; i++)
-            {
-
-            }
-
-            yield return new WaitForSeconds(3.0f);
+                        
+            yield return new WaitForSeconds(2.0f);
             MetrObjects.transform.GetChild(3).GetComponent<RectTransform>().DOScale(1, time);
 
+            yield return new WaitForSeconds(2.0f);
             StartCoroutine(ByPrefix());
         }
 
