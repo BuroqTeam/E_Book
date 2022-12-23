@@ -23,6 +23,7 @@ namespace Media3_Fathulloh
         AudioSource audioSource;
         public GameObject MetrObjects;
         public GameObject CursorObject;
+        public GameObject Qisqartmalar, QisqartmalarTextObj;        
         public List<GameObject> SylinderTexts; 
         public List<GameObject> ScalenObjects;
         public List<GameObject> OtherScalens;
@@ -181,7 +182,7 @@ namespace Media3_Fathulloh
 
             yield return new WaitForSeconds(1.0f);
             MetrObjects.transform.GetChild(0).GetComponent<RectTransform>().DOScale(1, time);
-            yield return new WaitForSeconds(6.0f);
+            yield return new WaitForSeconds(5.0f);
             MetrObjects.transform.GetChild(1).GetComponent<RectTransform>().DOScale(1, time);
 
             yield return new WaitForSeconds(2.0f);
@@ -190,7 +191,7 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(2.0f);
             MetrObjects.transform.GetChild(3).GetComponent<RectTransform>().DOScale(1, time);
 
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(3.0f);
             StartCoroutine(ByPrefix());
         }
 
@@ -206,6 +207,29 @@ namespace Media3_Fathulloh
             CursorObject.GetComponent<RedCursor>().MoveByPositions();
             
         }
+
+
+        public Ease EaseforShorts;
+
+        public IEnumerator ShowQisqartmalar()
+        {
+            float littleTime = 0.5f;
+            //float time = 0.72f;
+            PlayAudio();
+            yield return new WaitForSeconds(2.0f);
+            QisqartmalarTextObj.GetComponent<SizeObjects>().ChangeColor();
+
+            yield return new WaitForSeconds(1.0f);
+            for (int i = 0; i < Qisqartmalar.transform.childCount; i += 2) 
+            {
+                Qisqartmalar.transform.GetChild(i).GetComponent<RectTransform>().DOScale(1, littleTime)
+                    .SetEase(EaseforShorts);
+                Qisqartmalar.transform.GetChild(i + 1).GetComponent<RectTransform>().DOScale(1, littleTime)
+                    .SetEase(EaseforShorts);
+                yield return new WaitForSeconds(littleTime);
+            }
+        }
+
 
 
         public void PlayAudio()

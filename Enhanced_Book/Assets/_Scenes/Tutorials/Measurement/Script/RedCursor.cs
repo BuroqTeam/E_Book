@@ -30,7 +30,7 @@ namespace Media3_Fathulloh
         IEnumerator Moving()
         {
             float time = 1.0f;
-            float longTime = 1.5f;
+            float longTime = 1.8f;
 
             yield return new WaitForSeconds(2.0f);
             gameObject.GetComponent<Image>().DOFade(1, time);
@@ -50,9 +50,13 @@ namespace Media3_Fathulloh
             gameObject.GetComponent<Image>().DOFade(1, time);
             yield return new WaitForSeconds(longTime);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsLower[1], time);
-            yield return new WaitForSeconds(longTime);
+            yield return new WaitForSeconds(longTime + 0.2f);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsLower[2], time);
-            yield return new WaitForSeconds(longTime);
+            yield return new WaitForSeconds(1.5f * longTime);
+            gameObject.GetComponent<Image>().DOFade(0, time);
+            yield return new WaitForSeconds(0.5f * longTime);
+
+            StartCoroutine(MeasurementManager.ShowQisqartmalar());
         }
 
 
