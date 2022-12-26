@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Team/Jahongir/Scenes/Quiz 3.unity
     guid: 3cc2a8fe78185f145b676e33df4bdba9
+  - enabled: 1
+    path: Assets/_Scenes/Video 1.unity
+    guid: 66a61301c6154d84d977a7af586dbb0d
+  - enabled: 1
+    path: Assets/_Scenes/Video 2.unity
+    guid: 5b9101f541628dd408221765603c9d19
   m_configObjects: {}
