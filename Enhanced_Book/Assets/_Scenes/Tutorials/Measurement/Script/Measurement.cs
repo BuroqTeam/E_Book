@@ -316,7 +316,10 @@ namespace Media3_Fathulloh
 
             TheLast.transform.GetChild(1).transform.DOScale(1, 1);
             yield return new WaitForSeconds(1.2f);
-            
+
+            yield return new WaitForSeconds(4.5f);
+            PlayAudio();   // for audio 15
+
             //TheLast.transform.GetChild(2).GetComponent<VirusAnim>().VirusAnimation();
         }
 

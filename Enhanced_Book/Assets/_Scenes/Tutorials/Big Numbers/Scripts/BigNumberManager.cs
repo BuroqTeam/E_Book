@@ -341,6 +341,11 @@ public class BigNumberManager : MonoBehaviour
         Sinflar.transform.GetChild(2).transform.GetChild(4).transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 1, 2, 1);
         yield return new WaitForSeconds(1);
         Sinflar.transform.GetChild(2).DOPunchScale(new Vector3(0.2f, 0.2f, 0), 1, 2, 1);
+
+        yield return new WaitForSeconds(1);
+        PlaySound();          // for audio 20
+        yield return new WaitForSeconds(9.5f);
+        PlaySound();          // for audio 21
     }
 
 

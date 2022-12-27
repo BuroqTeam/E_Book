@@ -12348,6 +12348,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ce559066e058e24f82fafcbc0583699, type: 3}
   - {fileID: 8300000, guid: 56c05bf82b9266c4097c261e958af918, type: 3}
   - {fileID: 8300000, guid: 7f87bd2a7108a1e4a8318020bb257592, type: 3}
+  - {fileID: 8300000, guid: c64190df1c0b27d4191ad6178a2aa47e, type: 3}
   ChosenEase: 28
   Index: 0
   MetrObjects: {fileID: 533246040}
