@@ -207,7 +207,8 @@ public class Triangles : MonoBehaviour
 
 
         PlaySound();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+        PlaySound();
         Angles.transform.GetChild(1).GetChild(2).GetComponent<RectTransform>().DOScale(1.5f, 0.3f);
         Angles.transform.GetChild(2).GetChild(2).GetComponent<RectTransform>().DOScale(1.2f, 0.3f);
         Angles.transform.GetChild(2).GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(_1lastPos - 15, 1f);
