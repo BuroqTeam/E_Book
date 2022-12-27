@@ -53,7 +53,9 @@ public class BigNumberManager : MonoBehaviour
     {        
         Title.GetComponent<RectTransform>().DOScale(1, 2);
         yield return new WaitForSeconds(1);
-        PlaySound();
+        PlaySound();      // for audio 01 
+
+        //Debug.Log("SoundClips[0].length = " + SoundClips[0].length);
 
         yield return new WaitForSeconds(SoundClips[0].length);
         yield return new WaitForSeconds(1);
@@ -61,11 +63,11 @@ public class BigNumberManager : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         Earth.transform.DOScale(1.2f, 1).OnComplete(MoonMaximize);
-        PlaySound();
+        PlaySound();      // for audio 02
         yield return new WaitForSeconds(SoundClips[1].length);
         
         Rocket.transform.DOScale(0.5f, 0);
-        PlaySound();
+        PlaySound();      // for audio 03
         Rocket.transform.DOMove(Moon.transform.position, 5);
         StartCoroutine(CreateDot());
         yield return new WaitForSeconds(5);
@@ -75,15 +77,15 @@ public class BigNumberManager : MonoBehaviour
         Distance2.GetComponent<RectTransform>().DOScale(1, 1);
         Distance3.GetComponent<RectTransform>().DOScale(1, 1);
         Distance4.GetComponent<RectTransform>().DOScale(1, 1);
-        PlaySound();
+        PlaySound();       // for audio 04
         yield return new WaitForSeconds(3);
         Distance1.GetComponent<RectTransform>().DOPunchScale(new Vector3(0.5f, 0.5f, 0),1, 3, 1);
         yield return new WaitForSeconds(1.1f);
         Distance2.GetComponent<RectTransform>().DOPunchScale(new Vector3(0.5f, 0.5f, 0), 1, 3, 1);
-        yield return new WaitForSeconds(1.7f);
+        yield return new WaitForSeconds(0.5f);   // 1.7f
         Distance3.GetComponent<RectTransform>().DOPunchScale(new Vector3(0.5f, 0.5f, 0), 0.75f, 3, 1);
         yield return new WaitForSeconds(4);
-        PlaySound();
+        PlaySound();       // for audio 05
         Sun.transform.DOScale(5, 0);
         RemoveAll(_dots);
         Distance1.text = "";
@@ -104,10 +106,10 @@ public class BigNumberManager : MonoBehaviour
         Rocket.transform.DOMove(Sun.transform.position, 5);
         StartCoroutine(CreateDot());
         yield return new WaitForSeconds(3);
-        PlaySound();
+        PlaySound();       // for audio 06
         StartCoroutine(AnimateNumbers(SunDistance));
-        yield return new WaitForSeconds(13);
-        PlaySound();
+        yield return new WaitForSeconds(10);     //  13
+        PlaySound();       // for audio 07
         yield return new WaitForSeconds(5);
         Rocket.transform.DOScale(0, 0);
         Earth.transform.DOScale(0, 0);
@@ -118,14 +120,14 @@ public class BigNumberManager : MonoBehaviour
         SunDistance.transform.GetChild(1).GetComponent<TMP_Text>().text = "";
         SunDistance.transform.GetChild(2).GetComponent<TMP_Text>().text = "";
         SunDistance.transform.GetChild(3).GetComponent<TMP_Text>().text = "";
-        PlaySound();        
+        PlaySound();        // for audio 08
         Astronaut_1.transform.DOScale(0.7f, 2.5f);
         yield return new WaitForSeconds(2.5f);
         Astronaut_2.transform.DOScale(0.8f, 2.5f);
         yield return new WaitForSeconds(2.5f);
         Astronaut_3.transform.DOScale(0.9f, 2.5f);
         yield return new WaitForSeconds(2.5f);
-
+        //yield return new WaitForSeconds(1.5f);      //F++
         Astronaut_1.transform.DOPunchRotation(new Vector3(0, 0, 20), 3, 3, 1);
         Astronaut_2.transform.DOPunchRotation(new Vector3(0, 0, 20), 3, 3, 1);
         Astronaut_3.transform.DOPunchRotation(new Vector3(0, 0, 20), 3, 3, 1);
@@ -151,7 +153,7 @@ public class BigNumberManager : MonoBehaviour
         numberBoard_3.transform.DOMove(new Vector3(Board_3.transform.position.x, Board_3.transform.position.y - 1.2f, 0), 3);
 
         yield return new WaitForSeconds(6);
-        PlaySound();
+        PlaySound();        // for audio 09
 
         Board_1.transform.DOScale(0, 0);
         Board_2.transform.DOScale(0, 0);
@@ -164,14 +166,14 @@ public class BigNumberManager : MonoBehaviour
 
         yield return new WaitForSeconds(4);
         Sinflar.transform.GetChild(3).transform.DOScale(1, 2);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.2f);    // 2
         Sinflar.transform.GetChild(2).transform.DOScale(1, 1);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.2f);    // 2
         Sinflar.transform.GetChild(1).transform.DOScale(1, 1);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.2f);    // 2
         Sinflar.transform.GetChild(0).transform.DOScale(1, 1);
-        yield return new WaitForSeconds(3);    
-        PlaySound();
+        yield return new WaitForSeconds(2.4f);    // 3
+        PlaySound();          // for audio 10
         yield return new WaitForSeconds(1.5f);
         Sinflar.transform.GetChild(0).transform.GetChild(1).transform.DOScale(1, 2);
         Sinflar.transform.GetChild(1).transform.GetChild(1).transform.DOScale(1, 2);
@@ -202,10 +204,10 @@ public class BigNumberManager : MonoBehaviour
 
 
         yield return new WaitForSeconds(1);
-        PlaySound();
+        PlaySound();        // for audio 11
         Numbers.transform.DOScale(1, 1);
         yield return new WaitForSeconds(7);
-        PlaySound();
+        PlaySound();        // for audio 12
 
         Arrow.transform.DOScale(1, 0);
         Arrow.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0), 1, 3, 1);
@@ -217,8 +219,8 @@ public class BigNumberManager : MonoBehaviour
             Sinflar.transform.GetChild(3).transform.position.y - 1.3f, 0), 2);
         yield return new WaitForSeconds(2);
         Numbers.transform.GetChild(2).transform.SetParent(Sinflar.transform.GetChild(3).transform);
-        yield return new WaitForSeconds(5);
-        PlaySound();
+        yield return new WaitForSeconds(3);   //5
+        PlaySound();       // for audio 13
         Sinflar.transform.GetChild(2).transform.GetComponent<Image>().DOFade(0.5f, 3);
         Numbers.transform.GetChild(1).transform.DOMove(new Vector3(Sinflar.transform.GetChild(2).transform.position.x,
             Sinflar.transform.GetChild(2).transform.position.y - 1.3f, 0), 1);
@@ -232,7 +234,7 @@ public class BigNumberManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         Numbers.transform.GetChild(0).transform.SetParent(Sinflar.transform.GetChild(1).transform);
         yield return new WaitForSeconds(3);
-        PlaySound();
+        PlaySound();       // for audio 14
         Sinflar.transform.GetChild(0).DOScale(0, 1);
         yield return new WaitForSeconds(1);
         Destroy(Sinflar.transform.GetChild(0).gameObject);
@@ -242,7 +244,7 @@ public class BigNumberManager : MonoBehaviour
         Sinflar.GetComponent<RectTransform>().DOSizeDelta(new Vector2(600, 100), 1, true);
         yield return new WaitForSeconds(1);
 
-        PlaySound();
+        PlaySound();      // for audio 15
 
         yield return new WaitForSeconds(1);
         
@@ -250,9 +252,9 @@ public class BigNumberManager : MonoBehaviour
 
         Arrow_2.transform.DOScale(1, 0);
         Arrow_2.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0), 1, 3, 1);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);     //5
         Arrow_2.transform.DOScale(0, 1);        
-        PlaySound();
+        PlaySound();       // for audio 16
 
         yield return new WaitForSeconds(2);
         Sinflar.transform.GetChild(0).transform.GetChild(4).
@@ -276,9 +278,9 @@ public class BigNumberManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Sinflar.transform.GetChild(0).transform.GetChild(3).transform.GetComponent<Image>().DOFade(1, 0.5f);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);   //2
 
-        PlaySound();
+        PlaySound();          // for audio 17
 
         Sinflar.transform.GetChild(1).transform.GetChild(3).
             transform.DOPunchScale(new Vector3(0.3f, 0.3f, 0), 2, 2, 1);
@@ -321,12 +323,12 @@ public class BigNumberManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Sinflar.transform.GetChild(2).transform.GetChild(3).transform.GetComponent<Image>().DOFade(1, 0.5f);
         yield return new WaitForSeconds(2);
-        PlaySound();
+        PlaySound();          // for audio 18
         Sinflar.transform.GetChild(2).transform.GetChild(3).transform.GetComponent<Image>().DOFade(0, 0);
         Sinflar.transform.GetChild(1).transform.GetChild(2).transform.GetComponent<Image>().DOFade(0, 0);
         Sinflar.transform.GetChild(0).transform.GetChild(3).transform.GetComponent<Image>().DOFade(0, 0);
         yield return new WaitForSeconds(6); 
-        PlaySound();
+        PlaySound();          // for audio 19
         yield return new WaitForSeconds(1);
         Sinflar.transform.GetChild(0).transform.GetChild(4).transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 1, 2, 1);
         yield return new WaitForSeconds(1);
@@ -335,7 +337,7 @@ public class BigNumberManager : MonoBehaviour
         Sinflar.transform.GetChild(1).transform.GetChild(3).transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 1, 2, 1);
         yield return new WaitForSeconds(1);
         Sinflar.transform.GetChild(1).DOPunchScale(new Vector3(0.2f, 0.2f, 0), 1, 2, 1);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);   // 2
         Sinflar.transform.GetChild(2).transform.GetChild(4).transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 1, 2, 1);
         yield return new WaitForSeconds(1);
         Sinflar.transform.GetChild(2).DOPunchScale(new Vector3(0.2f, 0.2f, 0), 1, 2, 1);
@@ -345,6 +347,7 @@ public class BigNumberManager : MonoBehaviour
     void PlaySound()
     {
         _audioSource.PlayOneShot(SoundClips[_soundIndex]);
+        //Debug.Log(" Audio name = " + SoundClips[_soundIndex].name);
         _soundIndex++;
     }
 
@@ -395,11 +398,11 @@ public class BigNumberManager : MonoBehaviour
             obj.GetComponent<RectTransform>().DOScale(1, 1);
         }
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2.5f);  // 4
         list[0].GetComponent<RectTransform>().DOPunchScale(new Vector3(0.5f, 0.5f, 0), 1, 3, 1);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.6f);     // 2
         list[1].GetComponent<RectTransform>().DOPunchScale(new Vector3(0.5f, 0.5f, 0), 1, 3, 1);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.6f);     // 3
         list[2].GetComponent<RectTransform>().DOPunchScale(new Vector3(0.5f, 0.5f, 0), 1, 3, 1);
         yield return new WaitForSeconds(1.7f);
         //list[3].GetComponent<RectTransform>().DOPunchScale(new Vector3(0.5f, 0.5f, 0), 0.75f, 5, 1);
