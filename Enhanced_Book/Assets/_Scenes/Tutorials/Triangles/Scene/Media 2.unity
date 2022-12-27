@@ -10773,7 +10773,7 @@ MonoBehaviour:
   PosActive: {fileID: 887948013}
   BackgroundMusic: {fileID: 1111248483}
   SoundClips:
-  - {fileID: 8300000, guid: 50512bedc449b3e44b91d5935c3b59cb, type: 3}
+  - {fileID: 8300000, guid: 20cb868c26bf8e249adf332877093772, type: 3}
   - {fileID: 8300000, guid: 902e0fc011fa44741838313c6347eb79, type: 3}
   - {fileID: 8300000, guid: 1f3657ac1d12df740a5de16a4b15699e, type: 3}
   - {fileID: 8300000, guid: 3594bf3e47ff7784bba05135c12cdafd, type: 3}
@@ -10791,9 +10791,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d902fe4fa8899a14cb7660528ca065e9, type: 3}
   - {fileID: 8300000, guid: ed7b983e5143d4948879dfbec64f5e5c, type: 3}
   - {fileID: 8300000, guid: 9949fef3ff685604785b72a93f047e27, type: 3}
-  - {fileID: 8300000, guid: 372ec963146561b4a881ff02d3ef98b3, type: 3}
-  - {fileID: 8300000, guid: 0af72b3269bad144e92742dd5e219df1, type: 3}
-  - {fileID: 8300000, guid: 9451effa2acf4584f8df8ce2e08ef5c3, type: 3}
 --- !u!1 &1324518664
 GameObject:
   m_ObjectHideFlags: 0

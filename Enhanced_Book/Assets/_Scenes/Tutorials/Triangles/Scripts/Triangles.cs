@@ -114,7 +114,7 @@ public class Triangles : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Triangle2.transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(0.8f);
         }
         yield return new WaitForSeconds(2.5f);
 
@@ -374,13 +374,13 @@ public class Triangles : MonoBehaviour
         PlaySound();
         PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
         PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOScale(1, 0.3f);
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(6f);
         for (int i = 0; i < 3; i++)
         {
             PosActive.transform.GetChild(6).GetChild(10).GetChild(0).GetChild(i).GetComponent<RectTransform>().DOScale(1, 0.5f);
             yield return new WaitForSeconds(0.5f);
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         for (int i = 0; i < 3; i++)
         {
             PosActive.transform.GetChild(6).GetChild(10).GetChild(0).GetChild(i).GetComponent<RectTransform>().DOScale(1.4f, 0.5f);
@@ -395,9 +395,9 @@ public class Triangles : MonoBehaviour
         {
             PosActive.transform.GetChild(6).GetChild(10).GetChild(1).GetChild(i).GetComponent<RectTransform>().DOScale(1, 0.5f);
         }
-        yield return new WaitForSeconds(3f);
-        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(300, 1f);
         yield return new WaitForSeconds(1f);
+        PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(300, 0.5f);
+        yield return new WaitForSeconds(0.5f);
         PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(0).GetComponent<RectTransform>().DOScale(1, 1f);
         yield return new WaitForSeconds(1f);
         PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(1).GetComponent<RectTransform>().DOScale(1, 1f);
