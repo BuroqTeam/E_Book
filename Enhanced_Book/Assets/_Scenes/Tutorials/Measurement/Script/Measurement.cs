@@ -20,7 +20,6 @@ namespace Media3_Fathulloh
         public int Index;
 
 
-
         float distanceDurration = 0.7f;
         AudioSource audioSource;
         public GameObject MetrObjects;
@@ -33,7 +32,8 @@ namespace Media3_Fathulloh
         public List<GameObject> ScalenObjects;
         public List<GameObject> OtherScalens;
         public List<GameObject> TallAndShort;
-        
+
+        public GameObject TheLast;
 
 
         private void Awake()
@@ -67,22 +67,19 @@ namespace Media3_Fathulloh
         public IEnumerator MovementText()
         {
             StartCoroutine(MovingObject(TitleDurration, TitleObject, new Vector3(0, 65, 0), false));
-            yield return new WaitForSeconds(TitleDurration + 0.545f);
+            yield return new WaitForSeconds(TitleDurration /*+ 0.545f*/);
 
-            yield return new WaitForSeconds( distanceDurration);            
+            yield return new WaitForSeconds(2 * distanceDurration);            
             PlayAudio();  // for audio 02
-            yield return new WaitForSeconds(3.7f);
+            yield return new WaitForSeconds(4.2f);
             TitleObject.GetComponent<RectTransform>().DOAnchorPosY(180, 0.5f);
 
             StartCoroutine(ScaleSylinderObjects());            
-            yield return new WaitForSeconds(13f);
+            yield return new WaitForSeconds(16.5f);
             
             MinimizeObject(Media3Sylinder, 1);
             yield return new WaitForSeconds(1f);
             StartCoroutine(TollAndShortAnim());
-
-            //SylinderObj.GetComponent<RectTransform>().DOScale(1, 0.5f)
-            //    .SetEase(ChosenEase);
         }
 
 
@@ -108,18 +105,18 @@ namespace Media3_Fathulloh
 
         IEnumerator ScaleSylinderObjects()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.75f);
             for (int i = 0; i < ScalenObjects.Count; i++)
             {
                 ScalenObjects[i].transform.DOScale(1, 0.6f)
                     .SetEase(ChosenEase);
-                yield return new WaitForSeconds(0.75f);
+                yield return new WaitForSeconds(1.1f);
 
                 if (i == 0)
-                    yield return new WaitForSeconds(2f);                
+                    yield return new WaitForSeconds(2.3f);                
             }
 
-            yield return new WaitForSeconds(3.9f);
+            yield return new WaitForSeconds(6.0f);
 
             for (int i = 0; i < SylinderTexts.Count; i++)            {
                 SylinderTexts[i].GetComponent<SizeObjects>().ChangeText();
@@ -130,12 +127,14 @@ namespace Media3_Fathulloh
 
         IEnumerator TollAndShortAnim()
         {
-            float time = 0.75f;
-            float littleTime = 0.5f;
+            float time = 1/*0.75f*/;
+            float littleTime = 0.65f;
+
             PlayAudio();  // for audio 03
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(littleTime/*time*/);
             TallAndShort[0].GetComponent<RectTransform>().DOScale(1, littleTime)
                 .SetEase(ChosenEase);
+            yield return new WaitForSeconds(time - littleTime);
             yield return new WaitForSeconds(time);
             TallAndShort[0].GetComponent<RectTransform>().DOScaleY(1.2f, littleTime);            
             yield return new WaitForSeconds(2f * time);
@@ -143,19 +142,19 @@ namespace Media3_Fathulloh
                 .SetEase(ChosenEase);
             yield return new WaitForSeconds(2.5f * time);
 
-            TallAndShort[1].GetComponent<RectTransform>().DOScale(1, time)
+            TallAndShort[1].GetComponent<RectTransform>().DOScale(1, littleTime)
+                .SetEase(ChosenEase);
+            yield return new WaitForSeconds(1f * time);
+            TallAndShort[1].GetComponent<RectTransform>().DOAnchorPosY(-75, littleTime)
                 .SetEase(ChosenEase);
             yield return new WaitForSeconds(time);
-            TallAndShort[1].GetComponent<RectTransform>().DOAnchorPosY(-75, time)
+            TallAndShort[1].GetComponent<RectTransform>().DOAnchorPosY(50, littleTime)
                 .SetEase(ChosenEase);
-            yield return new WaitForSeconds(time);
-            TallAndShort[1].GetComponent<RectTransform>().DOAnchorPosY(50, time)
-                .SetEase(ChosenEase);
-            yield return new WaitForSeconds(3 * time);
+            yield return new WaitForSeconds(4 * time);
             TallAndShort[0].GetComponent<RectTransform>().DOScale(1, littleTime);
             TallAndShort[1].GetComponent<RectTransform>().DOAnchorPosY(15, time);
 
-            yield return new WaitForSeconds(5 * time);
+            yield return new WaitForSeconds(2.0f * time);//3
             PlayAudio();    //   for audio 04
             
             yield return new WaitForSeconds(3.5f * time);
@@ -163,16 +162,17 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(3.5f * time);
             TallAndShort[1].transform.GetChild(0).gameObject.GetComponent<SizeObjects>().ChangeColor();
 
-            yield return new WaitForSeconds(8.0f);
+            yield return new WaitForSeconds(9.5f);
             TallAndShort[0].GetComponent<RectTransform>().DOScale(0, littleTime);
             TallAndShort[1].GetComponent<RectTransform>().DOScale(0, littleTime);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.75f);//yangi qator
             TallAndShort[2].GetComponent<SizeObjects>().ChangeColor();
             TallAndShort[3].GetComponent<SizeObjects>().ChangeColor();
+            yield return new WaitForSeconds(0.75f);
 
             PlayAudio();     // for audio 05
 
-            yield return new WaitForSeconds(4.0f);
+            yield return new WaitForSeconds(5.0f);
             TallAndShort[2].GetComponent<SizeObjects>().InvisibleColor();
             TallAndShort[3].GetComponent<SizeObjects>().InvisibleColor();
             yield return new WaitForSeconds(1.0f);
@@ -192,13 +192,13 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(5.0f);
             MetrObjects.transform.GetChild(1).GetComponent<RectTransform>().DOScale(1, time);
 
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(3f);
             MetrObjects.transform.GetChild(2).GetComponent<RectTransform>().DOScale(1, time);
                         
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(3.5f);
             MetrObjects.transform.GetChild(3).GetComponent<RectTransform>().DOScale(1, time);
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(4f);
             StartCoroutine(ByPrefix());
         }
 
@@ -227,8 +227,8 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(1.0f);
             QisqartmalarTextObj.GetComponent<SizeObjects>().ChangeColor();
 
-            yield return new WaitForSeconds(1.0f);
-            for (int i = 0; i < Qisqartmalar.transform.childCount; i += 2) 
+            yield return new WaitForSeconds(littleTime);
+            for (int i = 0; i < Qisqartmalar.transform.childCount; i += 2) // jami 7 martta aylanadi.
             {
                 Qisqartmalar.transform.GetChild(i).GetComponent<RectTransform>().DOScale(1, littleTime)
                     .SetEase(EaseforShorts);
@@ -236,26 +236,25 @@ namespace Media3_Fathulloh
                     .SetEase(EaseforShorts);
                 yield return new WaitForSeconds(littleTime);
             }
-            yield return new WaitForSeconds(12.5f);
+            yield return new WaitForSeconds(20f);            
             MetrObjects.GetComponent<RectTransform>().DOAnchorPosX(-950, 1.5f);
+            yield return new WaitForSeconds(1.5f * time);
 
-            yield return new WaitForSeconds(2 * time);
-            PlayAudio();
+            PlayAudio();  // for audio 10
             RotatedObject.GetComponent<RectTransform>().DOScale(1, time);
-            yield return new WaitForSeconds( 4 * time);
+            yield return new WaitForSeconds(4 * time);
             RotatedObject.GetComponent<RectTransform>().DORotate(new Vector3(0, 0, 90), time);
-            yield return new WaitForSeconds(4.5f*time);
+            yield return new WaitForSeconds(9);
             
             StrelkaObject.transform.GetChild(1).gameObject.SetActive(true);
             for (int i = 0; i < StrelkaObject.transform.GetChild(0).transform.childCount; i++)            
-                StrelkaObject.transform.GetChild(0).transform.GetChild(i).gameObject.GetComponent<Image>().DOFade(1, littleTime);            
-
-            yield return new WaitForSeconds(2.5f * time);
+                StrelkaObject.transform.GetChild(0).transform.GetChild(i).gameObject.GetComponent<Image>().DOFade(1, littleTime); 
+            yield return new WaitForSeconds(4.5f * time);
 
             StrelkaObject.transform.GetChild(1).gameObject.SetActive(false);
             for (int i = 0; i < StrelkaObject.transform.GetChild(0).transform.childCount; i++)
                 StrelkaObject.transform.GetChild(0).transform.GetChild(i).gameObject.GetComponent<Image>().DOFade(0, littleTime);
-            yield return new WaitForSeconds(1.2f * time);
+            yield return new WaitForSeconds(1f * time);
 
             StrelkaObject.transform.GetChild(3).gameObject.SetActive(true);
             for (int i = 0; i < StrelkaObject.transform.GetChild(2).transform.childCount; i++)
@@ -265,15 +264,21 @@ namespace Media3_Fathulloh
             StrelkaObject.transform.GetChild(3).gameObject.SetActive(false);
             for (int i = 0; i < StrelkaObject.transform.GetChild(2).transform.childCount; i++)
                 StrelkaObject.transform.GetChild(2).transform.GetChild(i).gameObject.GetComponent<Image>().DOFade(0, littleTime);
-            yield return new WaitForSeconds(2 * time);
+            yield return new WaitForSeconds(1.5f * time);
 
-            //yield return new WaitForSeconds(1);
-            PlayAudio();
+            
+            PlayAudio();  // for audio 12
             for (int i = 0; i < RotatedObject.transform.childCount; i++)
             {
-                RotatedObject.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
+                //RotatedObject.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
+                RotatedObject.transform.GetChild(i).transform.GetChild(0).gameObject.transform.DOScale(1.2f, 0.5f);
             }
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < RotatedObject.transform.childCount; i++)                
+                RotatedObject.transform.GetChild(i).transform.GetChild(0).gameObject.transform.DOScale(1, 0.4f);
+            
+            yield return new WaitForSeconds(2f);
             RotatedObject.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = "1";
             yield return new WaitForSeconds(2);
             RotatedObject.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = "0";
@@ -282,26 +287,26 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(1.9f);
             RotatedObject.transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = "0";
             RotatedObject.transform.GetChild(5).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = "0";
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(3.0f);//
             RotatedObject.transform.DOScale(0, 0.5f);
             yield return new WaitForSeconds(1.5f);
 
-            PlayAudio();
+            PlayAudio();  // for audio 13
             RotatedObject2.transform.DOScale(1, 1f);
                 //.SetEase(ChosenEase);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(12.5f);
 
-            yield return new WaitForSeconds(7.5f);
-            PlayAudio();
+            
+            PlayAudio();   // for audio 14
             yield return new WaitForSeconds(1.5f);
             RotatedObject2.transform.GetChild(6).GetComponent<TMP_Text>().DOColor(new Color(0.7f, 0.01f, 0.14f), 0.5f);
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.7f);
             RotatedObject2.transform.GetChild(5).GetComponent<TMP_Text>().DOColor(new Color(0.7f, 0.01f, 0.14f), 0.5f);
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.7f);
             RotatedObject2.transform.GetChild(3).GetComponent<TMP_Text>().DOColor(new Color(0.7f, 0.01f, 0.14f), 0.5f);
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.7f);
             RotatedObject2.transform.GetChild(0).GetComponent<TMP_Text>().DOColor(new Color(0.7f, 0.01f, 0.14f), 0.5f);
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(2.5f);
 
             TheLast.transform.GetChild(0).GetComponent<TMP_Text>().DOFade(1, 0.5f);
             yield return new WaitForSeconds(1.2f);
@@ -311,20 +316,21 @@ namespace Media3_Fathulloh
 
             TheLast.transform.GetChild(1).transform.DOScale(1, 1);
             yield return new WaitForSeconds(1.2f);
-            
+
+            yield return new WaitForSeconds(4.5f);
+            PlayAudio();   // for audio 15
+
             //TheLast.transform.GetChild(2).GetComponent<VirusAnim>().VirusAnimation();
         }
 
-        public GameObject TheLast;
+        
 
-        public IEnumerator NanoMetrAnim()
-        {
-            yield return new WaitForSeconds(1.0f);
-            PlayAudio();    // for audio 
-            yield return new WaitForSeconds(1.0f);
-            
-
-        }
+        //public IEnumerator NanoMetrAnim()
+        //{
+        //    yield return new WaitForSeconds(1.0f);
+        //    PlayAudio();    // for audio 
+        //    yield return new WaitForSeconds(1.0f);
+        //}
 
 
 
@@ -332,8 +338,7 @@ namespace Media3_Fathulloh
         {
             audioSource.PlayOneShot(Audios[Index]);
             //Debug.Log(Audios[Index].name);
-            Index++;
-            
+            Index++;            
         }
 
 

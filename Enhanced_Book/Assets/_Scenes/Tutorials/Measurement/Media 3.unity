@@ -275,7 +275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: KiloMetr
+  m_text: Kilometr
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 770ac409bc0ee2a4c88104dff89c7ef8, type: 2}
   m_sharedMaterial: {fileID: 4748836038652697748, guid: 770ac409bc0ee2a4c88104dff89c7ef8, type: 2}
@@ -4593,6 +4593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NumberBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7746302746493292673, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7204,6 +7208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NumberBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7746302746493292673, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9207,6 +9215,7 @@ MonoBehaviour:
   Sides: {fileID: 0}
   AllTriangle: {fileID: 0}
   PosActive: {fileID: 0}
+  BackgroundMusic: {fileID: 0}
   SoundClips:
   - {fileID: 8300000, guid: 20cb868c26bf8e249adf332877093772, type: 3}
   - {fileID: 8300000, guid: 902e0fc011fa44741838313c6347eb79, type: 3}
@@ -9783,6 +9792,10 @@ PrefabInstance:
     - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Name
       value: NumberBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746302746493292673, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Pivot.x
@@ -10554,7 +10567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: KiloMetr
+  m_text: Kilometr
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 770ac409bc0ee2a4c88104dff89c7ef8, type: 2}
   m_sharedMaterial: {fileID: 4748836038652697748, guid: 770ac409bc0ee2a4c88104dff89c7ef8, type: 2}
@@ -10869,6 +10882,10 @@ PrefabInstance:
     - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Name
       value: NumberBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746302746493292673, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Pivot.x
@@ -11305,6 +11322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NumberBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7746302746493292673, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11406,6 +11427,10 @@ PrefabInstance:
     - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Name
       value: NumberBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746302746493292673, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Pivot.x
@@ -12310,19 +12335,20 @@ MonoBehaviour:
   Media3Sylinder: {fileID: 89945662}
   TitleDurration: 0.7
   Audios:
-  - {fileID: 8300000, guid: a1f2dab11fbe73343a397eedbc87532f, type: 3}
-  - {fileID: 8300000, guid: 5f0599a42a17d9743b752640ea3a8f1e, type: 3}
-  - {fileID: 8300000, guid: 7f1646b92e6067d4aa58829712d603c7, type: 3}
-  - {fileID: 8300000, guid: e6e62eae139918a4f86d210ebecf55c7, type: 3}
-  - {fileID: 8300000, guid: b52632bb5cbaf9e4aa9e2040b91e1665, type: 3}
-  - {fileID: 8300000, guid: bc00d32bce104fa4eaca5142dceba640, type: 3}
-  - {fileID: 8300000, guid: 502f12fc5c6c8ee4d9265c60cae19d8d, type: 3}
-  - {fileID: 8300000, guid: b1073c1de69ddac4cb16a1a908d4486f, type: 3}
-  - {fileID: 8300000, guid: a0a13f0344f3dbd4aa13831fdf74c24b, type: 3}
+  - {fileID: 8300000, guid: bf7be9bc3922e034ebbc3734ae4c4b6d, type: 3}
+  - {fileID: 8300000, guid: ca7ceecec70f1b34c89d4acbcfcaf447, type: 3}
+  - {fileID: 8300000, guid: c785356954801d94ba749e3b6d3708a6, type: 3}
+  - {fileID: 8300000, guid: 5b239aee37dd75e47bd7265bc6154cd6, type: 3}
+  - {fileID: 8300000, guid: 8b528f8592c8c7c47a0d85b0999ec650, type: 3}
+  - {fileID: 8300000, guid: d23198130f668394a87f97956f4bac73, type: 3}
+  - {fileID: 8300000, guid: 6886e5c2715da3e449e877741e0b23a9, type: 3}
+  - {fileID: 8300000, guid: 1eb9d0023ee2b0541a59fcc733b962c0, type: 3}
+  - {fileID: 8300000, guid: bd7e7909c601a9642916fd62dbb41017, type: 3}
   - {fileID: 8300000, guid: 26f1cb9337245a84599061f66438adcb, type: 3}
   - {fileID: 8300000, guid: 2ce559066e058e24f82fafcbc0583699, type: 3}
   - {fileID: 8300000, guid: 56c05bf82b9266c4097c261e958af918, type: 3}
   - {fileID: 8300000, guid: 7f87bd2a7108a1e4a8318020bb257592, type: 3}
+  - {fileID: 8300000, guid: c64190df1c0b27d4191ad6178a2aa47e, type: 3}
   ChosenEase: 28
   Index: 0
   MetrObjects: {fileID: 533246040}
@@ -12361,8 +12387,8 @@ MonoBehaviour:
   - {fileID: 268446484}
   - {fileID: 618293559}
   - {fileID: 219409126}
-  EaseforShorts: 31
   TheLast: {fileID: 407741337}
+  EaseforShorts: 31
 --- !u!82 &1754217558
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14746,6 +14772,10 @@ PrefabInstance:
     - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Name
       value: NumberBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178955051916837927, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746302746493292673, guid: 345dbbe79ade5514382b65854d3f19c0, type: 3}
       propertyPath: m_Pivot.x
