@@ -86,7 +86,7 @@ public class Triangles : MonoBehaviour
         {
             Triangle2.transform.GetChild(2).GetChild(i).GetComponent<RectTransform>().DOScale(1.3f, 0.5f);
             Triangle2.transform.GetChild(3).GetChild(i).GetComponent<RectTransform>().DOScale(1, 0.5f);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.8f);
             Triangle2.transform.GetChild(2).GetChild(i).GetComponent<RectTransform>().DOScale(1f, 0.5f);
             Triangle2.transform.GetChild(3).GetChild(i).GetComponent<RectTransform>().DOScale(1f, 0.5f);
         }
@@ -96,7 +96,7 @@ public class Triangles : MonoBehaviour
             Triangle2.transform.GetChild(1).GetChild(i).GetComponent<Image>().DOFillAmount(1, 1);
             yield return new WaitForSeconds(1f);
         }
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < 3; i++)
         {
             Triangle2.transform.GetChild(2).GetChild(i).GetComponent<RectTransform>().DOScale(1.4f, 0.5f);
@@ -110,7 +110,7 @@ public class Triangles : MonoBehaviour
             yield return new WaitForSeconds(1.7f);
             Triangle2.transform.GetChild(1).GetChild(i).GetComponent<Image>().color = new Color32(61, 66, 91, 255);
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < 3; i++)
         {
             Triangle2.transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
@@ -207,12 +207,13 @@ public class Triangles : MonoBehaviour
 
 
         PlaySound();
-        yield return new WaitForSeconds(2f);
-        PlaySound();
+        yield return new WaitForSeconds(1f);
         Angles.transform.GetChild(1).GetChild(2).GetComponent<RectTransform>().DOScale(1.5f, 0.3f);
         Angles.transform.GetChild(2).GetChild(2).GetComponent<RectTransform>().DOScale(1.2f, 0.3f);
         Angles.transform.GetChild(2).GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(_1lastPos - 15, 1f);
         Angles.transform.GetChild(2).GetChild(1).GetComponent<RectTransform>().DOAnchorPosX(_2lastPos - 15, 1f);
+        yield return new WaitForSeconds(1f);
+        PlaySound();
         yield return new WaitForSeconds(6f);
         Angles.transform.GetChild(1).GetChild(2).GetComponent<RectTransform>().DOScale(1f, 0.3f);
         Angles.transform.GetChild(2).GetChild(2).GetComponent<RectTransform>().DOScale(1f, 0.3f);
@@ -406,7 +407,7 @@ public class Triangles : MonoBehaviour
         PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(2).GetComponent<RectTransform>().DOScale(1, 1f);
         yield return new WaitForSeconds(1f);
         PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(1).GetComponent<RectTransform>().DOAnchorPosY(-15, 1f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(3).GetComponent<RectTransform>().DOScale(1, 1f);
         yield return new WaitForSeconds(1f);
         PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetChild(4).GetComponent<RectTransform>().DOScale(1, 1f);
@@ -419,7 +420,7 @@ public class Triangles : MonoBehaviour
         PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(1000, 1f);
         yield return new WaitForSeconds(1f);
         PosActive.transform.GetChild(6).GetChild(10).GetChild(2).GetComponent<RectTransform>().DOScale(0, 0);
-        PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(3).GetComponent<RectTransform>().localPosition, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(4).GetComponent<RectTransform>().localPosition, 0.5f);
         PosActive.transform.GetChild(6).GetChild(10).GetComponent<RectTransform>().DOScale(0, 0.5f);
         yield return new WaitForSeconds(1f);
 
@@ -436,7 +437,7 @@ public class Triangles : MonoBehaviour
         PosActive.transform.GetChild(6).GetChild(11).GetChild(1).GetChild(0).GetComponent<RectTransform>().DOScale(1, 1f);
         PosActive.transform.GetChild(6).GetChild(11).GetChild(1).GetChild(1).GetComponent<RectTransform>().DOScale(1, 1f);
         yield return new WaitForSeconds(3.5f);
-        PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(4).GetComponent<RectTransform>().localPosition, 0.5f);
+        PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(5).GetComponent<RectTransform>().localPosition, 0.5f);
         PosActive.transform.GetChild(6).GetChild(11).GetComponent<RectTransform>().DOScale(0, 0.5f);
         yield return new WaitForSeconds(0.5f);
 
@@ -445,11 +446,11 @@ public class Triangles : MonoBehaviour
         PlaySound();
         PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOAnchorPos(_activePos, 0.5f);
         PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOScale(1, 0.3f);
-        yield return new WaitForSeconds(21f);
-        PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(5).GetComponent<RectTransform>().localPosition, 0.5f);
+        yield return new WaitForSeconds(20f);
+        PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOAnchorPos(PosActive.transform.GetChild(6).GetChild(6).GetComponent<RectTransform>().localPosition, 0.5f);
         PosActive.transform.GetChild(6).GetChild(12).GetComponent<RectTransform>().DOScale(0, 0.5f);
-        BackgroundMusic.gameObject.SetActive(false);
-
+        //BackgroundMusic.gameObject.SetActive(false);
+        PlaySound();
 
 
     }
