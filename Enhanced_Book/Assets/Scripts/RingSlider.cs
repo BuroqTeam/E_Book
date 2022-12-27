@@ -18,8 +18,6 @@ public class RingSlider : MonoBehaviour
     private void Awake()
     {
         _img = GetComponent<Image>();
-
-        
     }
 
     public void AnimateSlider()

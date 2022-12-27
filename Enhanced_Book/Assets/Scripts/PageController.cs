@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class PageController : MonoBehaviour
 {
+    public GameObject Video_1;
+    public GameObject Video_2;
+
 
     public List<Sprite> Pages;
     RectTransform _rect;
@@ -37,6 +40,21 @@ public class PageController : MonoBehaviour
         {
             index++;
             _image.sprite = Pages[index];
+            if (Pages[index].name.Equals("15-16"))
+            {
+                Video_1.SetActive(true);
+                Video_2.SetActive(false);
+            }
+            else if (Pages[index].name.Equals("19-20"))
+            {
+                Video_1.SetActive(false);
+                Video_2.SetActive(true);
+            }
+            else
+            {
+                Video_1.SetActive(false);
+                Video_2.SetActive(false);
+            }
             _rect.DOAnchorPosX(-710, 0.3f);
             yield return new WaitForSeconds(0.3f);
             _rect.DOAnchorPosX(0, 0);
@@ -50,6 +68,21 @@ public class PageController : MonoBehaviour
         {
             index--;
             _image.sprite = Pages[index];
+            if (Pages[index].name.Equals("15-16"))
+            {
+                Video_1.SetActive(true);
+                Video_2.SetActive(false);
+            }
+            else if (Pages[index].name.Equals("19-20"))
+            {
+                Video_1.SetActive(false);
+                Video_2.SetActive(true);
+            }
+            else
+            {
+                Video_1.SetActive(false);
+                Video_2.SetActive(false);
+            }
             _rect.DOAnchorPosX(710, 0.3f);
             yield return new WaitForSeconds(0.3f);
             _rect.DOAnchorPosX(0, 0);
