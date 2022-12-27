@@ -35,11 +35,11 @@ namespace Media3_Fathulloh
             yield return new WaitForSeconds(2.0f);
             gameObject.GetComponent<Image>().DOFade(1, time);
             //gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsHigh[0], time);
-            yield return new WaitForSeconds(longTime);
+            yield return new WaitForSeconds(longTime + 1);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsHigh[1], time);
-            yield return new WaitForSeconds(longTime);
+            yield return new WaitForSeconds(longTime + 2);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsHigh[2], time);
-            yield return new WaitForSeconds(2 * longTime);
+            yield return new WaitForSeconds(2 * longTime );
 
             gameObject.GetComponent<Image>().DOFade(0, time);
             yield return new WaitForSeconds(1 * longTime);
@@ -48,13 +48,13 @@ namespace Media3_Fathulloh
 
             yield return new WaitForSeconds(2 * longTime);
             gameObject.GetComponent<Image>().DOFade(1, time);
-            yield return new WaitForSeconds(longTime);
+            yield return new WaitForSeconds(longTime + 1.5f);
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsLower[1], time);
-            yield return new WaitForSeconds(longTime + 0.2f);
+            yield return new WaitForSeconds(2*longTime );
             gameObject.GetComponent<RectTransform>().DOAnchorPos(PositionsLower[2], time);
-            yield return new WaitForSeconds(1.5f * longTime);
+            yield return new WaitForSeconds(1f * longTime + 1.5f);
             gameObject.GetComponent<Image>().DOFade(0, time);
-            yield return new WaitForSeconds(0.5f * longTime);
+            yield return new WaitForSeconds(longTime);
 
             StartCoroutine(MeasurementManager.ShowQisqartmalar());
         }

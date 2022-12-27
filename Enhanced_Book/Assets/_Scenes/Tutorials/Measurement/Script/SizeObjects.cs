@@ -33,12 +33,13 @@ namespace Media3_Fathulloh
 
         IEnumerator ChangeTextAnim()
         {
+            float floTime = 0.85f;
             gameObject.GetComponent<TMP_Text>().DOFade(0, 0.5f);
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(floTime);
 
             gameObject.GetComponent<TMP_Text>().text = Size;
             gameObject.GetComponent<TMP_Text>().DOFade(1, 0.5f);
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(floTime);
         }
 
 
