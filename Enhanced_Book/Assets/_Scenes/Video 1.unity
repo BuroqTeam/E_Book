@@ -305,7 +305,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937035478}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 9cff4ae8c3302ec438ecb24a3f10abed, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 8237f590614d32a4d941c3fe30c11e59, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
