@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NextSceneData", menuName = "ScriptableObjects/VideoEvent")]
-public class VideoUrlSO : ScriptableObject
+public class VideoNameSO : ScriptableObject
 {
-    public string sceneName;
+    public string VideoName;
     //public int intNum;
 
 

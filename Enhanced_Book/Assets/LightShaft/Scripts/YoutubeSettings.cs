@@ -278,6 +278,12 @@ namespace LightShaft.Scripts
             if (request.error != null)
             {
                 Debug.Log("Error: " + request.error);
+                if ("VideoPlayerScene" == UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)  // F++
+                {
+                    Debug.Log("Internet yo'q.");
+                    GameObject noInternet = GameObject.Find("VideoManager");
+                    noInternet.GetComponent<VideoManager>().NoInternetPanelActive();
+                }
             }
             else
             {
