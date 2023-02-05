@@ -46,7 +46,7 @@ namespace XCharts.Demo
             yAxis.data = yData;
 
             var visualMap = m_Chart.GetOrAddChartComponent<VisualMap>();
-            var colors = new List<string> { "#0d5fbb", "#7eadfc", "#fd8b6f", "#aa3523" };
+            var colors = new List<string> { "#aa3523", "#fd8b6f", "#7eadfc", "#0d5fbb" };
             visualMap.AddColors(colors);
             visualMap.autoMinMax = true;
 
