@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,28 +7,29 @@ using UnityEngine.UI;
 namespace ReytingPanel
 {
     public class ControlChart : MonoBehaviour
-    {
-        public GameObject ParentForChart;
-        public GameObject CloseButton;
+    {        
+        public GameObject ParentForChart;        
         float scaleChart = 0.45f;
+
+        public List<GameObject> Prefabs;
 
 
         void Start()
         {
-            WorkingTest();
+            //WorkingTest();
         }
 
 
-        void WorkingTest()
-        {
-            Debug.Log("Started.");
-        }
+        //void WorkingTest()
+        //{
+        //    Debug.Log("Started.");
+        //}
 
 
-        public void WorkingTest2(string str)
-        {
-            Debug.Log("string str = " + str);
-        }
+        //public void WorkingTest2(string str)
+        //{
+        //    Debug.Log("string str = " + str);
+        //}
 
 
         public void MaximizeChart(GameObject obj)
@@ -36,8 +38,7 @@ namespace ReytingPanel
 
             if (ParentForChart.transform.childCount > 0)
             {
-                Destroy(ParentForChart.transform.GetChild(0).gameObject);
-                Debug.Log("Is working!");
+                Destroy(ParentForChart.transform.GetChild(0).gameObject);                
             }
             
             GameObject prefabObj = Instantiate(obj, ParentForChart.transform);
@@ -47,20 +48,44 @@ namespace ReytingPanel
             prefabObj.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
 
             prefabObj.transform.GetChild(0).transform.localScale = new Vector3(scaleChart, scaleChart, scaleChart);
-            prefabObj.GetComponent<Button>().enabled = false;
+            prefabObj.GetComponent<Button>().enabled = false;            
+        }
 
-            //GameObject prefabCloseObj = Instantiate(CloseButton, prefabObj.transform);
-            //prefabCloseObj.GetComponent<RectTransform>().anchorMin = new Vector2(1, 1);
-            //prefabCloseObj.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
-            //prefabCloseObj.GetComponent<RectTransform>().offsetMax = new Vector2(-50, 20);
-            //prefabCloseObj.GetComponent<RectTransform>().offsetMin = new Vector2(-20, 35);
-            
-            //prefabObj.transform.localScale = new Vector3(scaleChart, scaleChart, scaleChart);
+
+        public void CreateChart(int numPrefab)
+        {
+            ParentForChart.SetActive(true);
+
+            if (ParentForChart.transform.childCount > 0)
+            {
+                Destroy(ParentForChart.transform.GetChild(0).gameObject);                
+            }
+
+            //Debug.Log("Is working! 222");
+            for (int i = 0; i < Prefabs.Count + 2; i++)
+            {
+                if (i == numPrefab)
+                {                    
+                    GameObject gObj = Instantiate(Prefabs[i - 1], ParentForChart.transform);
+                    gObj.SetActive(true);
+                    gObj.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+                    gObj.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+                    gObj.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+                    gObj.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+                    break;
+                }
+            }
 
         }
 
 
 
-        
+        //GameObject prefabCloseObj = Instantiate(CloseButton, prefabObj.transform);
+        //prefabCloseObj.GetComponent<RectTransform>().anchorMin = new Vector2(1, 1);
+        //prefabCloseObj.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        //prefabCloseObj.GetComponent<RectTransform>().offsetMax = new Vector2(-50, 20);
+        //prefabCloseObj.GetComponent<RectTransform>().offsetMin = new Vector2(-20, 35);
+
+
     }
 }
