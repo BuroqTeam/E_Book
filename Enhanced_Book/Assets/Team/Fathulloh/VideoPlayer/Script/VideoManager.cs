@@ -2,16 +2,18 @@ using LightShaft.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VideoManager : MonoBehaviour
 {
     public GameObject YoutubePlayerObject;
-    //public static VideoManager Instance;
+    
     public VideoNameSO VideoEvent;
     public GameObject NoInternetPanel;
     
-    public List<string> VideoLinks;    
+    public List<string> VideoLinks;
 
+    //public static VideoManager Instance;
     //public TextAsset DataCSV;
 
 
@@ -64,20 +66,17 @@ public class VideoManager : MonoBehaviour
     {
         Debug.Log("Back Button on VideoPlayerScene is working.");
     }
-    
 
-    //public void WriteSceneName(string str)
-    //{
-    //    if (true)
-    //    {
 
-    //    }
-    //}
+    public void ClearText(GameObject obje)
+    {
+        obje.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+    }
 
 
     public void NoInternetPanelActive()
     {        
-        Debug.Log("---- ----" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        Debug.Log("Write current scene name. " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         NoInternetPanel.SetActive(true);
     }
 
