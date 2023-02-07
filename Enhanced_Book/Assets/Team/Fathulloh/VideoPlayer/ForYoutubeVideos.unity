@@ -423,7 +423,6 @@ GameObject:
   - component: {fileID: 409958985}
   - component: {fileID: 409958984}
   - component: {fileID: 409958983}
-  - component: {fileID: 409958982}
   - component: {fileID: 409958981}
   - component: {fileID: 409958980}
   m_Layer: 5
@@ -452,7 +451,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 9, y: -9}
-  m_SizeDelta: {x: 12, y: 12}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409958980
 MonoBehaviour:
@@ -480,20 +479,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CursorOn: {fileID: 2800000, guid: 34f5985abc4e2994485d3cfb086f79f3, type: 3}
   CursorOff: {fileID: 0}
---- !u!114 &409958982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409958978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abdea5f3020f60f48a471e75dbc5b0bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SoundEvent: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
-  NextEvent: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
 --- !u!114 &409958983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +533,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1034623743}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 47ce8e3524669ae43bccd2cba610480c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 921388683}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Book
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &409958984
@@ -818,6 +827,7 @@ MonoBehaviour:
   YoutubePlayerObject: {fileID: 3279575234431407395}
   VideoEvent: {fileID: 11400000, guid: 92f07dd3d8b748244b8cc30b554d0338, type: 2}
   NoInternetPanel: {fileID: 82538385}
+  LoadingObj: {fileID: 3279575234431407397}
   VideoLinks:
   - https://www.youtube.com/watch?v=0yBYUqOc1wg
   - https://www.youtube.com/watch?v=1kvZMZueHwM
@@ -1466,8 +1476,8 @@ Camera:
   m_GameObject: {fileID: 1517164616}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1778,16 +1788,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1034623743}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 921388683}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Book
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1933982522
@@ -1872,7 +1894,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2014756830168370127, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_AspectRatio
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2045299499362976603, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -1984,19 +2006,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2046264772455286003, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2046264772455286003, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2046348276052399711, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2046348276052399711, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2046659620266572237, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2025,6 +2047,14 @@ PrefabInstance:
     - target: {fileID: 2228589554255763567, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228700283564542227, guid: f2253547a45e1e348b003191599f21e4, type: 3}
+      propertyPath: m_Text
+      value: Yuklanmoqda...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228700283564542227, guid: f2253547a45e1e348b003191599f21e4, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2228810764449715319, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_ReferenceResolution.x
@@ -2199,6 +2229,10 @@ PrefabInstance:
       value: -24.599998
       objectReference: {fileID: 0}
     - target: {fileID: 2268562041949180349, guid: f2253547a45e1e348b003191599f21e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268736985355739149, guid: f2253547a45e1e348b003191599f21e4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

@@ -10,7 +10,7 @@ public class VideoManager : MonoBehaviour
     
     public VideoNameSO VideoEvent;
     public GameObject NoInternetPanel;
-    
+    public GameObject LoadingObj;
     public List<string> VideoLinks;
 
     //public static VideoManager Instance;
@@ -70,6 +70,7 @@ public class VideoManager : MonoBehaviour
 
     public void ClearText(GameObject obje)
     {
+        Debug.Log("Cleare Text is working");
         obje.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
     }
 
@@ -77,6 +78,8 @@ public class VideoManager : MonoBehaviour
     public void NoInternetPanelActive()
     {        
         Debug.Log("Write current scene name. " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        //LoadingObj.SetActive(false);
+        LoadingObj.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
         NoInternetPanel.SetActive(true);
     }
 
