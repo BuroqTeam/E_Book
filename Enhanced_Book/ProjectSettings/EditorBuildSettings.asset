@@ -45,9 +45,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/Video 2.unity
     guid: 5b9101f541628dd408221765603c9d19
   - enabled: 0
-    path: Assets/Team/Fathulloh/VideoPlayer/Scene/VideoPlayerScene.unity
-    guid: fe5ff8c27c0e3194694915caa6cc7576
-  - enabled: 0
     path: Assets/Team/Fathulloh/VideoPlayer/FathullohPlayer.unity
     guid: 59480c71181e8f642995e8d0f6776d92
   - enabled: 1

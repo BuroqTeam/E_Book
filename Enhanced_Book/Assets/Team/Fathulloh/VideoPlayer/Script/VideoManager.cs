@@ -56,7 +56,7 @@ public class VideoManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No name.");
+            //Debug.Log("No name.");
             YoutubePlayerObject.GetComponent<YoutubePlayer>().youtubeUrl = VideoLinks[4];
         }
     }
@@ -70,14 +70,14 @@ public class VideoManager : MonoBehaviour
 
     public void ClearText(GameObject obje)
     {
-        Debug.Log("Cleare Text is working");
+        //Debug.Log("Cleare Text is working");
         obje.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
     }
 
 
     public void NoInternetPanelActive()
     {        
-        Debug.Log("Write current scene name. " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        //Debug.Log("Write current scene name. " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         //LoadingObj.SetActive(false);
         LoadingObj.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
         NoInternetPanel.SetActive(true);
