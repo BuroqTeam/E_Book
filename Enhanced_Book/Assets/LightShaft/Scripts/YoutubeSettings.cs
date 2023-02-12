@@ -278,7 +278,8 @@ namespace LightShaft.Scripts
             if (request.error != null)
             {
                 Debug.Log("Error: " + request.error);
-                if ("VideoPlayerScene" == UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)  // F++
+                string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;  // F++
+                if ("ForYoutubeVideos" == currentSceneName || "VideoPlayerScene" == currentSceneName)  // F++
                 {
                     Debug.Log("Internet yo'q.");
                     GameObject noInternet = GameObject.Find("VideoManager");
