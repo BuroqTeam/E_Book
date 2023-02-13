@@ -44,25 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Video 2.unity
     guid: 5b9101f541628dd408221765603c9d19
-  - enabled: 0
-    path: Assets/Team/Fathulloh/VideoPlayer/FathullohPlayer.unity
-    guid: 59480c71181e8f642995e8d0f6776d92
   - enabled: 1
     path: Assets/Team/Fathulloh/VideoPlayer/ForYoutubeVideos.unity
     guid: a613ea085c382eb4d8224bf689fa36c5
-  - enabled: 0
-    path: Assets/LightShaft/Scenes/YoutubePlayerStyle (standard only for now).unity
-    guid: f5b4edcdda0b56042849812e2d95ade6
-  - enabled: 0
-    path: Assets/LightShaft/Scenes/VimeoPlayerStyle(standard only for now).unity
-    guid: f6af6b5c2ae3723488dee4bf0d3d9dec
-  - enabled: 0
-    path: Assets/LightShaft/Scenes/Demo4 - UIVideoPlayer.unity
-    guid: d1ba9840233a44b4b9510772e80515d2
-  - enabled: 0
-    path: Assets/LightShaft/Scenes/Demo3 - Custom Playlist.unity
-    guid: 06e707d9502a34641a531ee4ed4443a0
-  - enabled: 0
-    path: Assets/LightShaft/Scenes/Demo1.2 - Fullscreen.unity
-    guid: 444e84e99fbe36e419a6a200170efa2b
   m_configObjects: {}

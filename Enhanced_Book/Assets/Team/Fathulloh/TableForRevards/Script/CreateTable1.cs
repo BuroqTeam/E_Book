@@ -6,7 +6,7 @@ using SLS.Widgets.Table;
 namespace TableReward
 {
     /// <summary>
-    /// TablePro assetidagi Simple scriptini o'rniga tayyorlangan script.
+    /// TablePro assetidagi Simple scriptini o'rniga tayyorlangan script. Keraksiz.
     /// </summary>
     public class CreateTable1 : MonoBehaviour
     {
