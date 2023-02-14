@@ -91,7 +91,7 @@ namespace TableReward
         // Handle the Row Selection however you wish
         private void OnRowSelected(Datum datum)
         {
-            print("You Clicked: " + datum.uid);
+            //print("You Clicked: " + datum.uid);
             for (int i = 0; i < datum.elements.Count; i++)
             {
                 //print(datum.elements[i].value);
@@ -106,7 +106,6 @@ namespace TableReward
 
             if (str == "Oltin")
             {
-                Debug.Log("Oltin");
                 RemoveRows(1);
             }
             else if (str == "Kumush")

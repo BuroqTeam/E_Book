@@ -48,7 +48,7 @@ namespace TableReward
 
         public void NextTable(GameObject gObj)
         {
-            Debug.Log("Ishladi.");
+            //Debug.Log("Ishladi.");
 
             string str = gObj.GetComponent<CreateTable>().CurrentTable.ToString();
 
