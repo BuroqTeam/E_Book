@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1982322226}
     m_Modifications:
+    - target: {fileID: 1965512365874910164, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7140045
+      objectReference: {fileID: 0}
     - target: {fileID: 2201797255329774678, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_fontColor.b
       value: 0.4745098
@@ -146,6 +150,14 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4286164546
       objectReference: {fileID: 0}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     - target: {fileID: 4817381431422349151, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_text
       value: 7-sinf
@@ -839,6 +851,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1982322226}
     m_Modifications:
+    - target: {fileID: 1965512365874910164, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7140045
+      objectReference: {fileID: 0}
     - target: {fileID: 2201797255329774678, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_fontColor.b
       value: 0.6039216
@@ -855,6 +871,14 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4288301375
       objectReference: {fileID: 0}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     - target: {fileID: 4817381431422349151, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_text
       value: 11-sinf
@@ -1151,6 +1175,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1982322226}
     m_Modifications:
+    - target: {fileID: 1965512365874910164, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7140045
+      objectReference: {fileID: 0}
     - target: {fileID: 2201797255329774678, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_fontColor.b
       value: 0.4745098
@@ -1167,6 +1195,14 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4286164546
       objectReference: {fileID: 0}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     - target: {fileID: 4817381431422349151, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_text
       value: 8-sinf
@@ -2237,6 +2273,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1982322226}
     m_Modifications:
+    - target: {fileID: 1965512365874910164, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7140045
+      objectReference: {fileID: 0}
     - target: {fileID: 2201797255329774678, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_fontColor.b
       value: 0.6039216
@@ -2253,6 +2293,14 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4288301375
       objectReference: {fileID: 0}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     - target: {fileID: 4817381431422349151, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_text
       value: 10-sinf
@@ -3358,6 +3406,7 @@ GameObject:
   - component: {fileID: 847820625}
   - component: {fileID: 847820624}
   - component: {fileID: 847820623}
+  - component: {fileID: 847820627}
   - component: {fileID: 847820626}
   m_Layer: 5
   m_Name: BackButton
@@ -3443,18 +3492,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 351940307}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadSceneByName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Login
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &847820624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3507,6 +3544,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CursorOn: {fileID: 2800000, guid: 34f5985abc4e2994485d3cfb086f79f3, type: 3}
   CursorOff: {fileID: 0}
+--- !u!114 &847820627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847820621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdea5f3020f60f48a471e75dbc5b0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundEvent: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
+  NextEvent: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
 --- !u!1 &858537805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4865,6 +4916,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1982322226}
     m_Modifications:
+    - target: {fileID: 1965512365874910164, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7140045
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     - target: {fileID: 5091552342780549070, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
@@ -5014,6 +5077,7 @@ GameObject:
   - component: {fileID: 1331941558}
   - component: {fileID: 1331941559}
   - component: {fileID: 1331941560}
+  - component: {fileID: 1331941561}
   m_Layer: 0
   m_Name: Game Event Manager
   m_TagString: Untagged
@@ -5089,7 +5153,35 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Book
+          m_StringArgument: Login
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1331941561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331941557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56647b653d61c7744ae99abaf41e068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 351940307}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SubjectSelection
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1443306974
@@ -5503,6 +5595,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1982322226}
     m_Modifications:
+    - target: {fileID: 1965512365874910164, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7140045
+      objectReference: {fileID: 0}
     - target: {fileID: 2201797255329774678, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_fontColor.b
       value: 0.4745098
@@ -5519,6 +5615,14 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4286164546
       objectReference: {fileID: 0}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     - target: {fileID: 4817381431422349151, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_text
       value: 9-sinf
@@ -6842,6 +6946,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1982322226}
     m_Modifications:
+    - target: {fileID: 1965512365874910164, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7140045
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+    - target: {fileID: 4235739633832865879, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     - target: {fileID: 4817381431422349151, guid: 09e3fc42bde09b24f8e5532c1125a2d2, type: 3}
       propertyPath: m_text
       value: 6-sinf

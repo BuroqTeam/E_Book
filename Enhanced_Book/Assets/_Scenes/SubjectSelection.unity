@@ -1011,7 +1011,7 @@ PrefabInstance:
     - target: {fileID: 1956986176837868643, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d8c7997ea7c44de48b49181ffd53ffe0, type: 3}
+      objectReference: {fileID: 21300000, guid: 616fe000009eeac428f00fdec58a482b, type: 3}
     - target: {fileID: 1956986176837868652, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Name
       value: SubjectEnglish
@@ -1112,6 +1112,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Ingliz tili
       objectReference: {fileID: 0}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
 --- !u!224 &158140090 stripped
@@ -1181,7 +1189,7 @@ PrefabInstance:
     - target: {fileID: 1956986176837868643, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: dc954785da0924a4da99f31dea58213c, type: 3}
+      objectReference: {fileID: 21300000, guid: 4aea2cee32a92594f8e702f733a3326b, type: 3}
     - target: {fileID: 1956986176837868652, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Name
       value: SubjectMath
@@ -1282,6 +1290,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Matematika
       objectReference: {fileID: 0}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
 --- !u!224 &161472176 stripped
@@ -1549,7 +1565,7 @@ PrefabInstance:
     - target: {fileID: 1956986176837868643, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: dc954785da0924a4da99f31dea58213c, type: 3}
+      objectReference: {fileID: 21300000, guid: 4aea2cee32a92594f8e702f733a3326b, type: 3}
     - target: {fileID: 1956986176837868652, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Name
       value: SubjectGeometry
@@ -1654,6 +1670,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Geometriya
       objectReference: {fileID: 0}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
 --- !u!224 &246211190 stripped
@@ -2616,7 +2640,7 @@ PrefabInstance:
     - target: {fileID: 1956986176837868643, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7ad32699258e4e0449453ec64d4b7de3, type: 3}
+      objectReference: {fileID: 21300000, guid: 26d58a8e7230d464f87cc5fe41d572a5, type: 3}
     - target: {fileID: 1956986176837868652, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Name
       value: SubjectBotany
@@ -2717,6 +2741,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Biologiya
       objectReference: {fileID: 0}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
 --- !u!224 &363696084 stripped
@@ -2962,7 +2994,7 @@ PrefabInstance:
     - target: {fileID: 1956986176837868643, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d8c7997ea7c44de48b49181ffd53ffe0, type: 3}
+      objectReference: {fileID: 21300000, guid: 616fe000009eeac428f00fdec58a482b, type: 3}
     - target: {fileID: 1956986176837868652, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Name
       value: SubjectHistory
@@ -3063,6 +3095,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Tarix
       objectReference: {fileID: 0}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
 --- !u!224 &436873908 stripped
@@ -4048,7 +4088,7 @@ PrefabInstance:
     - target: {fileID: 1956986176837868643, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7ad32699258e4e0449453ec64d4b7de3, type: 3}
+      objectReference: {fileID: 21300000, guid: 26d58a8e7230d464f87cc5fe41d572a5, type: 3}
     - target: {fileID: 1956986176837868652, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Name
       value: SubjectGeography
@@ -4149,6 +4189,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Geografiya
       objectReference: {fileID: 0}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
 --- !u!224 &652042313 stripped
@@ -4425,6 +4473,7 @@ GameObject:
   - component: {fileID: 710561749}
   - component: {fileID: 710561748}
   - component: {fileID: 710561747}
+  - component: {fileID: 710561751}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -4523,18 +4572,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 351940307}
-        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
-        m_MethodName: SendMessage
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: ClassSelection
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &710561749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4573,6 +4610,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710561745}
   m_CullTransparentMesh: 1
+--- !u!114 &710561751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710561745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdea5f3020f60f48a471e75dbc5b0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundEvent: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
+  NextEvent: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
 --- !u!1 &713863458
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,7 +4932,7 @@ PrefabInstance:
     - target: {fileID: 1956986176837868643, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: dc954785da0924a4da99f31dea58213c, type: 3}
+      objectReference: {fileID: 21300000, guid: 4aea2cee32a92594f8e702f733a3326b, type: 3}
     - target: {fileID: 1956986176837868652, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Name
       value: SubjectPhysics
@@ -4982,6 +5033,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Fizika
       objectReference: {fileID: 0}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
 --- !u!224 &783425067 stripped
@@ -7014,6 +7073,7 @@ GameObject:
   - component: {fileID: 1331941558}
   - component: {fileID: 1331941559}
   - component: {fileID: 1331941560}
+  - component: {fileID: 1331941561}
   m_Layer: 0
   m_Name: Game Event Manager
   m_TagString: Untagged
@@ -7090,6 +7150,34 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Book
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1331941561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331941557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56647b653d61c7744ae99abaf41e068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 2cc746cb75128b146a0823bc14add1db, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 351940307}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClassSelection
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1001 &1334546860
@@ -7537,7 +7625,7 @@ PrefabInstance:
     - target: {fileID: 1956986176837868643, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7ad32699258e4e0449453ec64d4b7de3, type: 3}
+      objectReference: {fileID: 21300000, guid: 26d58a8e7230d464f87cc5fe41d572a5, type: 3}
     - target: {fileID: 1956986176837868652, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
       propertyPath: m_Name
       value: SubjectChemist
@@ -7638,6 +7726,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Kimyo
       objectReference: {fileID: 0}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: NextEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8146606fe5f5594409ed42ffd9793016, type: 2}
+    - target: {fileID: 6708846198075398571, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
+      propertyPath: SoundEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: af0ba0a2a47046c4cbb33c9e1f7e705c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c798c23181dc6442ad2ed07f9f1a049, type: 3}
 --- !u!224 &1461243705 stripped
