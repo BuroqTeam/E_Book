@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace TableReward
 {
+    /// <summary>
+    /// TablePro assetidagi Simple scriptini o'rniga tayyorlangan script. Keraksiz.
+    /// </summary>
     public class CreateTable2 : MonoBehaviour
     {
         public Table table;

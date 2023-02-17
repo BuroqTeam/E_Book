@@ -26,12 +26,6 @@ namespace ReytingPanel
         //}
 
 
-        //public void WorkingTest2(string str)
-        //{
-        //    Debug.Log("string str = " + str);
-        //}
-
-
         public void MaximizeChart(GameObject obj)
         {            
             ParentForChart.SetActive(true);
