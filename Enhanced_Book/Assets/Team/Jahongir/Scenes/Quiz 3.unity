@@ -655,7 +655,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 514905776}
     m_Modifications:
     - target: {fileID: 203225425344824628, guid: 6875efce120e23b46a807141f057b751, type: 3}
@@ -747,7 +746,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6875efce120e23b46a807141f057b751, type: 3}
 --- !u!1 &241227335
 GameObject:
@@ -2284,7 +2282,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
@@ -3647,7 +3644,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 936816157}
     m_Modifications:
     - target: {fileID: 4192353310673251948, guid: 611c2345f7907084b89c0976cddd24a8, type: 3}
@@ -3739,7 +3735,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 611c2345f7907084b89c0976cddd24a8, type: 3}
 --- !u!1 &1078791912
 GameObject:
@@ -5922,7 +5917,7 @@ MonoBehaviour:
   - '[c]8 t'
   - '[b]85 kg'
   - '[a]3257 g'
-  - '[b]18 dm'
+  - '[b]18 cm'
   - '[c]10500 mm'
   - '[a]250 cm'
   Result: 000000000000
@@ -6331,6 +6326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
