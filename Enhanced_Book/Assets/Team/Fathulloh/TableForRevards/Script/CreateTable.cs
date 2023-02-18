@@ -36,7 +36,22 @@ namespace TableReward
             CreateTopicList();
             DrawTable();
         }
-                  
+
+        bool _IsFirstTime = true;
+
+        private void OnEnable()
+        {
+            if (_IsFirstTime)
+            {
+                _IsFirstTime = false;
+            }
+            else if (!_IsFirstTime) 
+            {
+                //Debug.Log("_IsFirstTime is working.");
+                DrawTableAgain();                
+            }
+        }
+
 
         public void DrawTable()
         {
@@ -169,6 +184,37 @@ namespace TableReward
                 dat.elements.Add(myRow.TopicName);                
                 dat.elements.Add(myRow.SpriteStr);
 
+                this.MyTable.data.Add(dat);
+            }
+
+            this.MyTable.StartRenderEngine();
+        }
+
+
+        /// <summary>
+        /// SeActive(false) va SetActive(true) bo'lganda qayta ishga tushirish uchun qo'llaniladigan metod.
+        /// </summary>
+        public void DrawTableAgain()
+        {            
+            this.MyTable.ResetTable();
+
+            this.MyTable.AddTextColumn("№", null, -1, 30);
+            this.MyTable.AddTextColumn("Topshiriq", null, -1, 90);
+            this.MyTable.AddTextColumn("Mavzu nomi");
+            this.MyTable.AddImageColumn("Sovrin", null, 20, 20);
+
+            this.MyTable.Initialize(this.OnRowSelected, this.SpriteDict);
+
+            for (int i = 0; i < NumberOfRows; i++)
+            {
+                Datum dat = Datum.Body(StrTask + i.ToString());
+                DataOfRow myRow = ReserveTable[i];
+                dat.elements.Add(myRow.IndexNumber);
+                dat.elements.Add(myRow.TaskType);
+                dat.elements.Add(myRow.TopicName);
+                dat.elements.Add(myRow.SpriteStr);
+                                
+                //dat.uid = i.ToString();
                 this.MyTable.data.Add(dat);
             }
 
