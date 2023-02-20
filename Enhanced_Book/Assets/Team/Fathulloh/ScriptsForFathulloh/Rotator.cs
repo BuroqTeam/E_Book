@@ -34,7 +34,7 @@ namespace FathullohExample
             if (_isTrue)
             {
                 gameObject.transform.GetChild(1).transform.Rotate(_rotation * speed * Time.deltaTime);
-                gameObject.transform.GetChild(0).transform.Rotate(_rotation * speed * Time.deltaTime);
+                //gameObject.transform.GetChild(0).transform.Rotate(_rotation * speed * Time.deltaTime);
             }
         }       
 
@@ -49,7 +49,7 @@ namespace FathullohExample
         {
             _isTrue = false;
             gameObject.transform.GetChild(1).transform.rotation = Quaternion.Euler(0, 0, 0);
-            gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
+            //gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
             //Quaternion target = Quaternion.Euler(0, 0, 0);
             //gameObject.transform.GetChild(1).transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
             //Debug.Log("LLL");
