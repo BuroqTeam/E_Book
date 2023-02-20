@@ -163,33 +163,93 @@ public class FirstMedia : MonoBehaviour
         PlaySound();
         yield return new WaitForSeconds(5f);
         NumberUnits.gameObject.SetActive(true);
-        Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(-2.5f, 0.5f);
-        Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(2.5f, 0.5f);
+        Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(-2.77f, 0.5f);
+        Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(2.77f, 0.5f);
         Numbers.transform.DOMoveY(-0.7f, 0.5f);
+        NumberUnits.transform.DOMoveZ(-10f, 0);
         NumberUnits.transform.DOMoveY(1f, 0.5f);
-        yield return new WaitForSeconds(8f);
-        for (int i = 0; i < 3; i++)
+        yield return new WaitForSeconds(8.7f);
+
+
+        
+        for (int j = 3; j < 10; j++)
         {
-            NumberUnits.transform.GetChild(i).transform.DOScale(0.5f, 0.5f);
-            yield return new WaitForSeconds(0.5f);
-            NumberUnits.transform.GetChild(i).transform.DOScale(0.4f, 0.5f);
+            NumberUnits.transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            NumberUnits.transform.GetChild(1).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            NumberUnits.transform.GetChild(2).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.03f);
+        }
+        yield return new WaitForSeconds(0.5f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnits.transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            NumberUnits.transform.GetChild(1).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            NumberUnits.transform.GetChild(2).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.04f);
         }
 
 
 
-        yield return new WaitForSeconds(2f);
+
+        yield return new WaitForSeconds(3f);
         PlaySound();
         Numbers.gameObject.SetActive(false);
         NumberUnits.gameObject.SetActive(false);
         yield return new WaitForSeconds(4f);
+
         NumberUnitsFull.transform.GetChild(3).DOScale(0.4f, 1);
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnitsFull.transform.GetChild(3).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0f);
+        }
         yield return new WaitForSeconds(1f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnitsFull.transform.GetChild(3).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
+
         NumberUnitsFull.transform.GetChild(2).DOScale(0.4f, 1);
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnitsFull.transform.GetChild(2).GetChild(3).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0f);
+        }
         yield return new WaitForSeconds(1f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnitsFull.transform.GetChild(2).GetChild(3).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
         NumberUnitsFull.transform.GetChild(1).DOScale(0.4f, 1);
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnitsFull.transform.GetChild(1).GetChild(3).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0f);
+        }
         yield return new WaitForSeconds(1f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnitsFull.transform.GetChild(1).GetChild(3).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
         NumberUnitsFull.transform.GetChild(0).DOScale(0.4f, 1);
-        yield return new WaitForSeconds(3f);
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnitsFull.transform.GetChild(0).GetChild(3).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0f);
+        }
+        yield return new WaitForSeconds(1f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnitsFull.transform.GetChild(0).GetChild(3).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.03f);
+        }
+        yield return new WaitForSeconds(2f);
 
         PlaySound();
         yield return new WaitForSeconds(1.5f);
@@ -208,7 +268,7 @@ public class FirstMedia : MonoBehaviour
         Numbers.transform.GetChild(1).GetComponent<TMP_Text>().text = "520";
         Numbers.transform.GetChild(2).GetComponent<TMP_Text>().text = "321";
         Numbers.transform.DOMoveY(-2, 0);
-        Numbers.transform.DOMoveX(-5.5f, 0);
+        Numbers.transform.DOMoveX(-4.9f, 0);
         Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(-2.06f, 0f);
         Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(2.06f, 0f);
 
@@ -223,15 +283,15 @@ public class FirstMedia : MonoBehaviour
         Numbers.transform.GetChild(4).gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
         Numbers.transform.GetChild(4).gameObject.SetActive(false);
-        Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(3f, 1f);
+        Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(2.8f, 1f);
         Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOAnchorPosY(1f, 1f);
         yield return new WaitForSeconds(3.5f);
 
         PlaySound();
         yield return new WaitForSeconds(2f);
-        Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(-2.5f, 1f);
+        Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(-3f, 1f);
         Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosY(1f, 1f);
-        Numbers.transform.GetChild(1).GetComponent<RectTransform>().DOAnchorPosX(0.4f, 1f);
+        Numbers.transform.GetChild(1).GetComponent<RectTransform>().DOAnchorPosX(0f, 1f);
         Numbers.transform.GetChild(1).GetComponent<RectTransform>().DOAnchorPosY(1f, 1f);
         yield return new WaitForSeconds(7.0f);
 
@@ -252,29 +312,58 @@ public class FirstMedia : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOScale(1f, 0.5f);
         yield return new WaitForSeconds(3f);
-        NumberUnits.transform.GetChild(0).DOScale(0.5f, 0.5f);
+
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnits.transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(0.5f);
-        NumberUnits.transform.GetChild(0).DOScale(0.4f, 0.5f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnits.transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(2f);
 
 
         PlaySound();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.7f);
         Numbers.transform.GetChild(1).GetComponent<RectTransform>().DOScale(1.3f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         Numbers.transform.GetChild(1).GetComponent<RectTransform>().DOScale(1f, 0.5f);
         yield return new WaitForSeconds(1f);
-        NumberUnits.transform.GetChild(1).DOScale(0.5f, 0.5f);
+
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnits.transform.GetChild(1).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(0.5f);
-        NumberUnits.transform.GetChild(1).DOScale(0.4f, 0.5f);
-        yield return new WaitForSeconds(1f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnits.transform.GetChild(1).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
+
+
+        yield return new WaitForSeconds(0.7f);
         Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOScale(1.3f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOScale(1f, 0.5f);
         yield return new WaitForSeconds(1f);
-        NumberUnits.transform.GetChild(2).DOScale(0.5f, 0.5f);
+
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnits.transform.GetChild(2).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(0.5f);
-        NumberUnits.transform.GetChild(2).DOScale(0.4f, 0.5f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnits.transform.GetChild(2).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(2f);
 
 
@@ -286,29 +375,53 @@ public class FirstMedia : MonoBehaviour
         Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOScale(1.3f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOScale(1f, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnits.transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(0.5f);
-        NumberUnits.transform.GetChild(0).DOScale(0.5f, 0.5f);
-        yield return new WaitForSeconds(0.5f);
-        NumberUnits.transform.GetChild(0).DOScale(0.4f, 0.5f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnits.transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(0.5f);
 
         Numbers.transform.GetChild(1).GetComponent<RectTransform>().DOScale(1.3f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         Numbers.transform.GetChild(1).GetComponent<RectTransform>().DOScale(1f, 0.5f);
-        yield return new WaitForSeconds(1f);
-        NumberUnits.transform.GetChild(1).DOScale(0.5f, 0.5f);
+        yield return new WaitForSeconds(1.5f);
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnits.transform.GetChild(1).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(0.5f);
-        NumberUnits.transform.GetChild(1).DOScale(0.4f, 0.5f);
-        yield return new WaitForSeconds(1f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnits.transform.GetChild(1).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
+        yield return new WaitForSeconds(0.5f);
 
         Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOScale(1.3f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOScale(1f, 0.5f);
         yield return new WaitForSeconds(0.5f);
-        NumberUnits.transform.GetChild(2).DOScale(0.5f, 0.5f);
+        for (int j = 3; j < 10; j++)
+        {
+            NumberUnits.transform.GetChild(2).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
         yield return new WaitForSeconds(0.5f);
-        NumberUnits.transform.GetChild(2).DOScale(0.4f, 0.5f);
-        yield return new WaitForSeconds(1.5f);
+        for (int j = 9; j > 3; j--)
+        {
+            NumberUnits.transform.GetChild(2).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
+            yield return new WaitForSeconds(0.02f);
+        }
+        yield return new WaitForSeconds(1.3f);
 
 
         PlaySound();
