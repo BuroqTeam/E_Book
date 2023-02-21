@@ -1834,6 +1834,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
+      propertyPath: CurrentAxis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
       value: 45
       objectReference: {fileID: 0}
@@ -2407,7 +2411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
-      value: 90
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7778219495123058103, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: m_Pivot.x
@@ -3368,11 +3372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: CurrentAxis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
-      value: 90
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7778219495123058103, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: m_Pivot.x
@@ -3489,8 +3493,12 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
+      propertyPath: CurrentAxis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
-      value: 90
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7778219495123058103, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: m_Pivot.x
@@ -3749,7 +3757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
-      value: 90
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7778219495123058103, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: m_Pivot.x
@@ -3862,11 +3870,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: CurrentAxis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
-      value: 90
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7778219495123058103, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: m_Pivot.x
