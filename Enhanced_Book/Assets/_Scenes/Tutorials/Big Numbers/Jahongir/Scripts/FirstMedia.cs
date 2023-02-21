@@ -75,6 +75,8 @@ public class FirstMedia : MonoBehaviour
         ObjectOfGalaxy.transform.DOMove(new Vector3(-45, 8, 20), 2);
         ObjectOfGalaxy.transform.DOScale(7,2);
         yield return new WaitForSeconds(3f);
+        Earth.transform.GetChild(1).transform.DOScaleX((-1 * (Moon.gameObject.transform.localPosition.z)), 0);
+        Earth.transform.GetChild(1).transform.DOMoveZ(((Moon.gameObject.transform.localPosition.z) / 2), 0);
         Earth.transform.GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         PlaySound();
