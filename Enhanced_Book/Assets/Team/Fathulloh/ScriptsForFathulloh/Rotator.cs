@@ -13,9 +13,9 @@ namespace FathullohExample
         public RotateAxis CurrentAxis;
 
         private int degree = 90;
-        [SerializeField] private Vector3 _rotation;
+        private Vector3 _rotation;
         [SerializeField] private float speed = 2.0f;
-        public bool _isTrue = false;        
+        private bool _isTrue = false;        
 
         float durration = 0.1f;
 
@@ -34,7 +34,7 @@ namespace FathullohExample
             if (_isTrue)
             {
                 gameObject.transform.GetChild(1).transform.Rotate(_rotation * speed * Time.deltaTime);
-                //gameObject.transform.GetChild(0).transform.Rotate(_rotation * speed * Time.deltaTime);
+                gameObject.transform.GetChild(0).transform.Rotate(_rotation * speed * Time.deltaTime);
             }
         }       
 
@@ -49,10 +49,8 @@ namespace FathullohExample
         {
             _isTrue = false;
             gameObject.transform.GetChild(1).transform.rotation = Quaternion.Euler(0, 0, 0);
-            //gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
-            //Quaternion target = Quaternion.Euler(0, 0, 0);
-            //gameObject.transform.GetChild(1).transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
-            //Debug.Log("LLL");
+            gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
+            
         }
 
 
@@ -87,13 +85,10 @@ namespace FathullohExample
             yield return new WaitForSeconds(durration);
         }
 
+        
 
-        //Debug.Log(Vector3.up);
-        //Debug.Log(Vector3.down);
-        //Debug.Log(Vector3.right);
-        //Debug.Log(Vector3.left);
-        //Debug.Log(Vector3.back);
-        //Debug.Log(Vector3.forward);
+        //Quaternion target = Quaternion.Euler(0, 0, 0);
+        //gameObject.transform.GetChild(1).transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
 
     }
 }
