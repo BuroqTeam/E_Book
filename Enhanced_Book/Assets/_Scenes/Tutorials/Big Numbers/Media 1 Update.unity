@@ -3132,7 +3132,9 @@ MonoBehaviour:
   GreenSphera: {fileID: 1599002656}
   GalaxyBackground: {fileID: 681049206}
   LineForSun: {fileID: 310902363}
+  LineForEarth: {fileID: 1224035849}
   TextForSun: {fileID: 2051993307}
+  TextForEarth: {fileID: 1589968186}
 --- !u!4 &529040477
 Transform:
   m_ObjectHideFlags: 0
@@ -3973,7 +3975,6 @@ GameObject:
   - component: {fileID: 631125153}
   - component: {fileID: 631125152}
   - component: {fileID: 631125157}
-  - component: {fileID: 631125156}
   - component: {fileID: 631125158}
   m_Layer: 0
   m_Name: Earth
@@ -4063,20 +4064,6 @@ Transform:
   m_Father: {fileID: 1989691298}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 158.95, z: 0}
---- !u!114 &631125156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631125151}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b74f6b2d22a18554b9615e412f4cc9d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 945798114}
-  speed: 30
 --- !u!114 &631125157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5049,6 +5036,7 @@ GameObject:
   - component: {fileID: 779260442}
   - component: {fileID: 779260441}
   - component: {fileID: 779260446}
+  - component: {fileID: 779260447}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -5148,6 +5136,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 631125155}
   speed: 70
+--- !u!114 &779260447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779260440}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e52f6e1147fbb34fb8ce865369c600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 779260444}
+  speed: 30
 --- !u!1 &794405122
 GameObject:
   m_ObjectHideFlags: 0
@@ -15173,7 +15175,7 @@ GameObject:
   - component: {fileID: 1589968189}
   - component: {fileID: 1589968188}
   m_Layer: 0
-  m_Name: Text
+  m_Name: TextForEarth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18500,7 +18502,7 @@ GameObject:
   - component: {fileID: 2051993309}
   - component: {fileID: 2051993308}
   m_Layer: 0
-  m_Name: Text
+  m_Name: TextForSun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
