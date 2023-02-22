@@ -13,7 +13,7 @@ public class CursorChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Cursor.SetCursor(CursorOn, Vector3.zero, CursorMode.ForceSoftware);
+        //Cursor.SetCursor(CursorOn, Vector3.zero, CursorMode.ForceSoftware);
     }
 
     public void OnPointerExit(PointerEventData eventData)
