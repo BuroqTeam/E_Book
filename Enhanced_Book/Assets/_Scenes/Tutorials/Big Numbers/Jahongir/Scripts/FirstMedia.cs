@@ -36,7 +36,9 @@ public class FirstMedia : MonoBehaviour
     public GameObject GreenSphera;
     public GameObject GalaxyBackground;
     public GameObject LineForSun;
+    public GameObject LineForEarth;
     public GameObject TextForSun;
+    public GameObject TextForEarth;
 
     private void Awake()
     {
@@ -68,33 +70,48 @@ public class FirstMedia : MonoBehaviour
         
         MainBackground.transform.DOScale(3.2f, 1);
         MainBackground.transform.GetChild(0).transform.DOMoveZ(-21, 1);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.75f);
         Earth.GetComponent<RotateForEarth>().enabled = false;
         Moon.GetComponent<RotateAround>().enabled = false;
-        Sun.GetComponent<RotateAround>().enabled = false;
+        Moon.transform.parent = ObjectOfGalaxy.transform;
+        //LineForEarth.transform.parent = ObjectOfGalaxy.transform;
+        TextForEarth.transform.parent = ObjectOfGalaxy.transform;
+        Moon.GetComponent<RotateAroundForMoon>().enabled = true;
+        Earth.GetComponent<RotateAround>().enabled = true;
+        TextForEarth.GetComponent<RectTransform>().DORotate(new Vector3(0, 0, 0), 0);
+
         ObjectOfGalaxy.transform.DOMove(new Vector3(-45, 8, 20), 2);
         ObjectOfGalaxy.transform.DOScale(7,2);
+        Earth.transform.DOLocalMoveZ(-2, 0);
+        Moon.transform.DOLocalMoveZ(-2, 0);
         yield return new WaitForSeconds(3f);
-        Earth.transform.GetChild(1).transform.DOScaleX((-1 * (Moon.gameObject.transform.localPosition.z)), 0);
-        Earth.transform.GetChild(1).transform.DOMoveZ(((Moon.gameObject.transform.localPosition.z) / 2), 0);
-        Earth.transform.GetChild(1).gameObject.SetActive(true);
+        LineForEarth.transform.position = Vector3.Lerp(Earth.transform.position, Moon.transform.position, 0.5f);
+        LineForEarth.transform.DOScaleX(Vector3.Distance(Earth.transform.localPosition, Moon.transform.localPosition), 0f);
+        TextForEarth.GetComponent<RectTransform>().DOAnchorPosX(6.64f, 0);
+        Debug.Log(Vector3.Distance(Earth.transform.localPosition, Moon.transform.localPosition));
+        Debug.Log(Vector3.Lerp(Earth.transform.position, Moon.transform.position, 0.5f));
+        LineForEarth.transform.DOLocalMoveZ(0, 0);
+        LineForSun.transform.DOLocalMoveZ(0, 0);
+        //Earth.transform.GetChild(1).transform.DOScaleX((-1 * (Moon.gameObject.transform.localPosition.z)), 0);
+        //Earth.transform.GetChild(1).transform.DOMoveZ(((Moon.gameObject.transform.localPosition.z) / 2), 0);
+        LineForEarth.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         PlaySound();
         yield return new WaitForSeconds(2.5f);
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = "3";
+        TextForEarth.GetComponent<TMP_Text>().text = "3";
         yield return new WaitForSeconds(0.4f);
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = Earth.transform.GetChild(2).GetComponent<TMP_Text>().text + "8";
+        TextForEarth.GetComponent<TMP_Text>().text = TextForEarth.GetComponent<TMP_Text>().text + "8";
         yield return new WaitForSeconds(0.4f);
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = Earth.transform.GetChild(2).GetComponent<TMP_Text>().text + "4";
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = Earth.transform.GetChild(2).GetComponent<TMP_Text>().text + " ";
+        TextForEarth.GetComponent<TMP_Text>().text = TextForEarth.GetComponent<TMP_Text>().text + "4";
+        TextForEarth.GetComponent<TMP_Text>().text = TextForEarth.GetComponent<TMP_Text>().text + " ";
         yield return new WaitForSeconds(1f);
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = Earth.transform.GetChild(2).GetComponent<TMP_Text>().text + "4";
+        TextForEarth.GetComponent<TMP_Text>().text = TextForEarth.GetComponent<TMP_Text>().text + "4";
         yield return new WaitForSeconds(0.2f);
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = Earth.transform.GetChild(2).GetComponent<TMP_Text>().text + "0";
+        TextForEarth.GetComponent<TMP_Text>().text = TextForEarth.GetComponent<TMP_Text>().text + "0";
         yield return new WaitForSeconds(0.2f);
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = Earth.transform.GetChild(2).GetComponent<TMP_Text>().text + "3";
+        TextForEarth.GetComponent<TMP_Text>().text = TextForEarth.GetComponent<TMP_Text>().text + "3";
         yield return new WaitForSeconds(0.2f);
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = Earth.transform.GetChild(2).GetComponent<TMP_Text>().text + " km";
+        TextForEarth.GetComponent<TMP_Text>().text = TextForEarth.GetComponent<TMP_Text>().text + " km";
         yield return new WaitForSeconds(2.5f);
 
 
@@ -103,6 +120,10 @@ public class FirstMedia : MonoBehaviour
         ObjectOfGalaxy.transform.DOMove(new Vector3(-17, 3.5f, 5), 2);
         ObjectOfGalaxy.transform.DOScale(3, 2);
         yield return new WaitForSeconds(2f);
+        LineForSun.transform.position = Vector3.Lerp(Sun.transform.position, Earth.transform.position, 0.5f);
+        LineForSun.transform.DOScaleX(Vector3.Distance(Sun.transform.localPosition, Earth.transform.localPosition), 0f);
+        LineForSun.transform.DOMoveZ(-1, 0);
+
         LineForSun.gameObject.SetActive(true);
         yield return new WaitForSeconds(4f);
 
@@ -136,16 +157,22 @@ public class FirstMedia : MonoBehaviour
         //Kosmik kema ichiga kirish
         PlaySound();
         LineForSun.gameObject.SetActive(false);
-        Earth.transform.GetChild(1).gameObject.SetActive(false);
+        LineForEarth.gameObject.SetActive(false);
         TextForSun.GetComponent<TMP_Text>().text = " ";
-        Earth.transform.GetChild(2).GetComponent<TMP_Text>().text = " ";
+        TextForEarth.GetComponent<TMP_Text>().text = " ";
+
+        Earth.GetComponent<RotateForEarth>().enabled = true;
+        Moon.GetComponent<RotateAround>().enabled = true;
+        Moon.transform.parent = Earth.transform;
+        Moon.GetComponent<RotateAroundForMoon>().enabled = false;
+        Earth.GetComponent<RotateAround>().enabled = false;
+
+
         ObjectOfGalaxy.transform.DOMove(new Vector3(-7.44f, 1.15f, 10), 2);
         ObjectOfGalaxy.transform.DOScale(1, 2);
         yield return new WaitForSeconds(0.5f);
         MainBackground.transform.DOScale(1f, 1);
         MainBackground.transform.GetChild(0).transform.DOMoveZ(0.1f, 1);
-        Earth.GetComponent<RotateForEarth>().enabled = true;
-        Moon.GetComponent<RotateAround>().enabled = true;
         Doors.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = " ";
         Doors.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = " ";
         Doors.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Door2;
@@ -253,6 +280,16 @@ public class FirstMedia : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
 
+
+        Numbers.gameObject.SetActive(false);
+        Numbers.transform.DOScale(0, 0);
+        NumberUnits.gameObject.SetActive(false);
+        for (int i = 0; i < NumberUnits.transform.childCount; i++)
+        {
+            NumberUnits.transform.GetChild(i).DOScale(0, 0);
+        }
+
+
         PlaySound();
         yield return new WaitForSeconds(1.5f);
         NumberUnitsFull.transform.GetChild(0).GetChild(1).DOMoveY(-1f, 1);
@@ -271,14 +308,19 @@ public class FirstMedia : MonoBehaviour
         Numbers.transform.GetChild(2).GetComponent<TMP_Text>().text = "321";
         Numbers.transform.DOMoveY(-2, 0);
         Numbers.transform.DOMoveX(-4.9f, 0);
-        Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(-2.06f, 0f);
-        Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(2.06f, 0f);
-
+        Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOAnchorPosX(-1.77f, 0f);
+        Numbers.transform.GetChild(2).GetComponent<RectTransform>().DOAnchorPosX(1.77f, 0f);
 
         PlaySound();
         Numbers.gameObject.SetActive(true);
         NumberUnits.gameObject.SetActive(true);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(1f);
+        Numbers.transform.DOScale(1.5f, 0.5f);
+        for (int i = 0; i < NumberUnits.transform.childCount; i++)
+        {
+            NumberUnits.transform.GetChild(i).DOScale(0.4f, 0.5f);
+        }
+        yield return new WaitForSeconds(5f);
 
         PlaySound();
         yield return new WaitForSeconds(1f);
@@ -377,7 +419,7 @@ public class FirstMedia : MonoBehaviour
         Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOScale(1.3f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         Numbers.transform.GetChild(0).GetComponent<RectTransform>().DOScale(1f, 0.5f);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         for (int j = 3; j < 10; j++)
         {
             NumberUnits.transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().material.SetFloat("_Glow", j * 10f);
