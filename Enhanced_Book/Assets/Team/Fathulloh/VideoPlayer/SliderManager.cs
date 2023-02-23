@@ -57,7 +57,7 @@ namespace FathullohVideoPlayer
 
         IEnumerator NewPosHandler()
         {
-            yield return new WaitForSeconds(0.72f);
+            yield return new WaitForSeconds(0.74f);
             slide = false;
         }
 

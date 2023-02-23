@@ -54,6 +54,6 @@ EditorBuildSettings:
     path: Assets/Team/Fathulloh/VideoPlayer/ForYoutubeVideos.unity
     guid: 0f2b547a8fa457a40a25aa4606440e74
   - enabled: 0
-    path: Assets/Team/Fathulloh/VideoPlayer/ForYoutubeVideosOld.unity
+    path: Assets/Team/Fathulloh/VideoPlayer/Scene/ForYoutubeVideosOld.unity
     guid: a613ea085c382eb4d8224bf689fa36c5
   m_configObjects: {}

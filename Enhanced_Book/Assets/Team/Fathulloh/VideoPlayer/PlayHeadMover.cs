@@ -13,7 +13,6 @@ namespace FathullohVideoPlayer
         public void MovePlayhead(double playedFraction)
         {
             transform.position = Vector3.Lerp(startPoint.position, endPoint.position, (float)playedFraction);
-            //transform.position = Vector3.Lerp(startPoint.localPosition, endPoint.localPosition, (float)playedFraction);
         }
 
     }
