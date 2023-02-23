@@ -31,8 +31,8 @@ namespace FathullohVideoPlayer
 
         void CheckCurrentVideo()
         {
-            string nameVideo = VideoEvent.name;
-
+            string nameVideo = VideoEvent.VideoName;
+            Debug.Log(nameVideo);
             if (nameVideo == "Media 1")
             {
                 MyVideoPlayer.GetComponent<VideoPlayer>().clip = Videos[0];
@@ -57,8 +57,14 @@ namespace FathullohVideoPlayer
             {
                 MyVideoPlayer.GetComponent<VideoPlayer>().clip = Videos[0];
             }
+            PlayVideoPlayer();
         }
 
+
+        void PlayVideoPlayer()
+        {
+            MyVideoPlayer.GetComponent<VideoPlayer>().Play();
+        }
         
     }
 }

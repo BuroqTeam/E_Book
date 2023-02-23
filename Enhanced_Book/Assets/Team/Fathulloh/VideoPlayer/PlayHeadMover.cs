@@ -9,10 +9,7 @@ namespace FathullohVideoPlayer
         public RectTransform startPoint;
         public RectTransform endPoint;
 
-        //[SerializeField] private SliderJoint2D _slider;
-        //[]
-
-
+        
         public void MovePlayhead(double playedFraction)
         {
             transform.position = Vector3.Lerp(startPoint.position, endPoint.position, (float)playedFraction);

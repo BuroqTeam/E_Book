@@ -13,33 +13,30 @@ namespace FathullohVideoPlayer
         public Slider audioVolume;
 
         public VideoPlayer videoPlayer;
-        Slider tracking;
+        public Slider tracking;
 
         public bool slide = false;
 
 
         void Start()
         {
-            tracking = GetComponent<Slider>();
+            //tracking = GetComponent<Slider>();
         }
 
 
         public void OnPointerDown(PointerEventData eventData)
         {
             slide = true;
-            //videoPlayer.Pause();
-            //Debug.Log("OnPointerDown true ");
         }
 
 
         public void OnPointerUp(PointerEventData eventData)
-        {
+        {            
             float frame = (float)tracking.value * (float)videoPlayer.frameCount;
             videoPlayer.frame = (long)frame;
-            //tracking.value = (float)videoPlayer.frame / (float)videoPlayer.frameCount;
-            //videoPlayer.Play();
-            //slide = false;
-            //Debug.Log("videoPlayer.frame " + videoPlayer.frame);
+            StartCoroutine(NewPosHandler());
+            
+            //slide = false;            
         }
 
 
@@ -57,6 +54,12 @@ namespace FathullohVideoPlayer
             audioCurrent.volume = audioVolume.value;
         }
 
+
+        IEnumerator NewPosHandler()
+        {
+            yield return new WaitForSeconds(0.72f);
+            slide = false;
+        }
 
     }
 }
