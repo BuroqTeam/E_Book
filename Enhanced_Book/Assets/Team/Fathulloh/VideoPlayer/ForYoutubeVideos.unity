@@ -817,11 +817,11 @@ MonoBehaviour:
   NoInternetPanel: {fileID: 82538385}
   LoadingObj: {fileID: 3279575234431407397}
   VideoLinks:
-  - https://www.youtube.com/watch?v=0yBYUqOc1wg
-  - https://www.youtube.com/watch?v=1kvZMZueHwM
+  - https://www.youtube.com/watch?v=wONk7lL6m_A&list=PLBauI-xYSfxwrCSTA6FdYGvBCBrVgoxsK&index=12
+  - https://www.youtube.com/watch?v=JQqRStQaKsM&list=PLBauI-xYSfxwrCSTA6FdYGvBCBrVgoxsK&index=13
+  - https://www.youtube.com/watch?v=c28nEo_DPpo&list=PLBauI-xYSfxwrCSTA6FdYGvBCBrVgoxsK&index=14
   - https://www.youtube.com/watch?v=ZNX-a-5jGeM&t=59s
-  - https://www.youtube.com/watch?v=yzhO0uBR5Lw
-  - https://www.youtube.com/watch?v=noLtgSCzVjQ
+  - https://www.youtube.com/watch?v=8i4WWM9oa_8&list=PLBauI-xYSfxwrCSTA6FdYGvBCBrVgoxsK&index=16
 --- !u!1 &921388681
 GameObject:
   m_ObjectHideFlags: 0
