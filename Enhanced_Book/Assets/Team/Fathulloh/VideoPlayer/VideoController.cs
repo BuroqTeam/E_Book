@@ -18,15 +18,9 @@ namespace FathullohVideoPlayer
         private void Awake()
         {
             CheckCurrentVideo();
-            //NoInternetPanelActive();
+            
         }
 
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
 
 
         void CheckCurrentVideo()

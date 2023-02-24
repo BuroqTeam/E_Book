@@ -21,9 +21,7 @@ namespace FathullohVideoPlayer
         public TMP_Text TotalMinutes;
         public TMP_Text TotalSeconds;
 
-        //public SliderManager SliderM;
-
-
+        
         private void Awake()
         {
             //videoPlayer = GetComponent<VideoPlayer>();
@@ -41,7 +39,6 @@ namespace FathullohVideoPlayer
             if (videoPlayer.isPlaying)
             {
                 SetCurrentTimeUI();
-                //playHeadMover.MovePlayhead(CalculatePlayedFraction());
             }
         }
 
@@ -78,13 +75,6 @@ namespace FathullohVideoPlayer
 
             TotalMinutes.text = minutes;
             TotalSeconds.text = seconds;
-        }
-
-
-        double CalculatePlayedFraction()
-        {
-            double fraction = (double)videoPlayer.frame / (double) videoPlayer.clip.frameCount;
-            return fraction;
         }
 
 
