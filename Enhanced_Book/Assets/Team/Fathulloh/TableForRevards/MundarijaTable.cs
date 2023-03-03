@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace FathullohMundarijaTable
 {
@@ -10,15 +12,19 @@ namespace FathullohMundarijaTable
         public enum TableType { None, ChapterOne, ChapterTwo, ChapterThree, ChapterFour };
         public TableType CurrentChapter;
 
+        public MundarijaManager MunManager;
+        //public GameObject MainObject;
         public Table MyTable;
         public string TopicStr;
         public List<string> NumberOfTopics;
         public List<string> AllTemas;
         public List<string> PageOfTemas;
 
+        public List<Sprite> Sprites;
         bool _IsFirstTime = true;
-        string strHeader;        
+        string strHeader;
 
+        //public UnityEvent SoundEvent;
 
         void Start()
         {
@@ -33,12 +39,11 @@ namespace FathullohMundarijaTable
             if (_IsFirstTime)
             {
                 _IsFirstTime = false;
-                Debug.Log("Birinchi martta.");
+                //Debug.Log("Birinchi martta.");
             }
             else if (!_IsFirstTime)
             {
-                //DrawTableAgain();
-                //Debug.Log("Ikkinchi martta.");
+                //DrawTableAgain();                
             }
         }
 
@@ -48,7 +53,7 @@ namespace FathullohMundarijaTable
             this.MyTable.ResetTable();
 
             this.MyTable.AddTextColumn("", null, -1, 20);
-            this.MyTable.AddTextColumn(strHeader, null/*, -1, 180*/);            
+            this.MyTable.AddTextColumn(strHeader, null);            
             Column c = this.MyTable.AddTextColumn("", null, -1, 18);
             c.horAlignment = Column.HorAlignment.CENTER;
 
@@ -79,11 +84,22 @@ namespace FathullohMundarijaTable
 
         private void OnRowSelected(Datum datum)
         {
-            print("You Clicked: " + datum.uid);
-            //for (int i = 0; i < datum.elements.Count; i++)
-            //{
-            //    print(datum.elements[i].value);
-            //}
+            if (CurrentChapter == TableType.ChapterOne)
+            {
+                if (datum.uid.ToString().Contains("0"))                
+                    ChangePage(0);                
+                else if (datum.uid.ToString().Contains("1"))                
+                    ChangePage(1);                
+                else if (datum.uid.ToString().Contains("2"))                
+                    ChangePage(2);                
+                else if (datum.uid.ToString().Contains("3"))                
+                    ChangePage(3);
+                
+            }
+
+            //print("You Clicked: " + datum.uid);
+            //for (int i = 0; i < datum.elements.Count; i++)            
+            //    print(datum.elements[i].value);            
         }
 
         
@@ -139,6 +155,15 @@ namespace FathullohMundarijaTable
                 this.MyTable.data.Add(dat);
             }
             this.MyTable.StartRenderEngine();
+        }
+
+
+        void ChangePage(int num)
+        {
+            MunManager.BookObj.transform.GetChild(0).GetComponent<Image>().sprite = Sprites[num];
+            MunManager.PageEvent.Invoke();            
+            //MainObject.transform.GetChild(0).GetComponent<Image>().sprite = Sprites[num];
+            gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
         }
 
 
@@ -202,10 +227,6 @@ namespace FathullohMundarijaTable
         void Chapter2()
         {
             strHeader = "II bob. Natural sonlarni ko‘paytirish va boʻlish";
-
-            //NumberOfTopics.Add("");
-            //AllTemas.Add("II bob. Natural sonlarni ko‘paytirish va boʻlish");
-            //PageOfTemas.Add("");
 
             NumberOfTopics.Add("2.1");
             AllTemas.Add("Natural sonlarni ko‘paytirish");
