@@ -144,7 +144,7 @@ namespace TableReward
         {
             if (NumberOfRows != this.MyTable.data.Count)
             {
-                Debug.Log(" Restart qilib olindi. " + " this.MyTable.data.Count = " + this.MyTable.data.Count);
+                //Debug.Log(" Restart qilib olindi. " + " this.MyTable.data.Count = " + this.MyTable.data.Count);
                 this.MyTable.data.Clear();
                 ReCreateTable();
             }

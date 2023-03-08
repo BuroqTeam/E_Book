@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Ushbu script Youtube Player bilan ishlash uchun tayyorlangan. YoutubePlayer youtube linklarni play qilib beradi.
+/// </summary>
 public class VideoManager : MonoBehaviour
 {
     public GameObject YoutubePlayerObject;
