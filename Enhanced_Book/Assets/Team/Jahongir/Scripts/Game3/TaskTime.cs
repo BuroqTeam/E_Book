@@ -25,9 +25,15 @@ public class TaskTime : MonoBehaviour
     {
         for (int i = time * 10; i > 0.1; i--)
         {
-            Slider.GetComponent<SpriteRenderer>().material.SetFloat("_Arc_Point_1", 180);
+            Slider.GetComponent<SpriteRenderer>().material.SetFloat("_ArcPoint1", 180);
             StartTime = StartTime - 0.1f;
+
             Time.text = Math.Round(StartTime, 1).ToString();
+            if (StartTime < 0)
+            {
+                transform.gameObject.SetActive(false);
+                transform.parent.GetComponent<CardController>().Game3Controller.AddNewCard();
+            }
             yield return new WaitForSeconds(0.1f);
         }
     }

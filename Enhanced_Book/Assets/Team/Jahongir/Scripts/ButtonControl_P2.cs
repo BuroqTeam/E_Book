@@ -30,7 +30,7 @@ public class ButtonControl_P2 : MonoBehaviour
         }
         else
         {
-            transform.GetComponent<Image>().color = new Color32(0, 148, 255, 255);
+            transform.GetComponent<Image>().color = new Color32(70, 130, 180, 255);
             transform.GetChild(0).GetComponent<TMP_Text>().color = new Color32(255, 255, 255, 255);
             Select = true;
         }

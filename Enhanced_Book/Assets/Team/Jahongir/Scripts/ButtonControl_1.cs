@@ -21,7 +21,7 @@ public class ButtonControl_1 : MonoBehaviour
     {
         if ((NextButton.GetComponent<ButtonControl_1>().Select && !Select) || (!NextButton.GetComponent<ButtonControl_1>().Select && !Select))
         {
-            transform.GetComponent<Image>().color = new Color32(0, 148, 255, 255);
+            transform.GetComponent<Image>().color = new Color32(70, 130, 180, 255);
             transform.GetChild(0).GetComponent<TMP_Text>().color = new Color32(255, 255, 255, 255);
             Select = true;
             if (NextButton.GetComponent<ButtonControl_1>().Select)
