@@ -4,6 +4,9 @@ using UnityEngine;
 using DG.Tweening;
 using ActionManager;
 using MoreMountains.Feedbacks;
+using TMPro;
+using System.Linq;
+using Extension;
 
 public class Game3Controller : MonoBehaviour
 {
@@ -21,6 +24,7 @@ public class Game3Controller : MonoBehaviour
     public GameObject CardLocations;
     public Transform AddCardLocLeft;
     public Transform AddCardLocRight;
+    public GameObject ParticleLocations;
     public List<GameObject> Collection;
     public GameObject Doors;
 
@@ -28,12 +32,20 @@ public class Game3Controller : MonoBehaviour
     public List<GameObject> SelectObjects;
     public List<GameObject> EmptyLocation;
     public List<GameObject> AdditionEmptyLocation;
+    public List<GameObject> Card1Collection;
+    public List<GameObject> Card2Collection;
+    public bool Task = false;
     int StrId=0;
+    int w = 0;
 
 
     [Header("Feedbacks")]
     public MMFeedbacks ClickFeedback;
     public MMFeedbacks TimeFeedback;
+
+    [Header("Particles")]
+    public GameObject AddCardParticle;
+    public GameObject CorrectParticle;
 
 
     private void Start()
@@ -55,6 +67,7 @@ public class Game3Controller : MonoBehaviour
             obj.transform.GetComponent<CardController>().CardIndex = 1;
             obj.transform.GetComponent<CardController>().Str = Str1.StrGroup[i];
             obj.transform.GetComponent<CardController>().Game3Controller = this;
+            obj.transform.GetChild(4).GetComponent<TaskTime>().Game3Control = this;
             StrId++;
         }
         for (int i = 0; i < 8; i++)
@@ -64,6 +77,7 @@ public class Game3Controller : MonoBehaviour
             obj.transform.GetComponent<CardController>().CardIndex = 2;
             obj.transform.GetComponent<CardController>().Str = Str2.StrGroup[i];
             obj.transform.GetComponent<CardController>().Game3Controller = this;
+            obj.transform.GetChild(4).GetComponent<TaskTime>().Game3Control = this;
             StrId++;
         }
         for (int i = 0; i < Cards.transform.childCount; i++)
@@ -106,66 +120,131 @@ public class Game3Controller : MonoBehaviour
         }
     }
 
-    public IEnumerator ToGiveTask()
+
+    public void TaskTo()
     {
-        int t = Random.Range(5, 10);
-        int c = Random.Range(1, Collection.Count);
-        yield return new WaitForSeconds(t);
-        Collection[c].transform.GetChild(4).gameObject.SetActive(true);
-        Collection[c].transform.GetChild(4).GetComponent<MMFeedbacks>().PlayFeedbacks();
-        Collection[c].transform.GetChild(4).GetComponent<AudioSource>().enabled = true;
-        yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().StartTime);
-        Collection[c].transform.GetChild(4).GetComponent<AudioSource>().enabled = false;
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            Collection[i].transform.GetChild(4).GetComponent<TaskTime>().PresentTime = Collection[i].transform.GetChild(4).GetComponent<TaskTime>().StartTime;
+            Collection[i].GetComponent<CardController>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
+        }
+
         StartCoroutine(ToGiveTask());
     }
 
+    public IEnumerator ToGiveTask()
+    {
+        if (!Task)
+        {
+            Task = true;
+            int t = Random.Range(5, 10);
+            yield return new WaitForSeconds(t);
+            int c = Random.Range(1, Collection.Count);
+            Collection[c].transform.GetChild(4).gameObject.SetActive(true);
+            Collection[c].GetComponent<CardController>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(130, 210, 230, 255);
+            Collection[c].transform.GetChild(4).GetComponent<MMFeedbacks>().PlayFeedbacks();
+            StartCoroutine(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().ChangeTime());
+            //Collection[c].transform.GetChild(4).GetComponent<AudioSource>().enabled = true;
+            //Collection[c].transform.GetChild(7).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+            //Collection[c].transform.GetChild(7).GetComponent<SpriteRenderer>().material.SetColor("_GlowColor", new Color(255, 255, 255, 255));
+            yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().StartTime - 0.5f);
+            //Collection[c].transform.GetChild(7).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
+            yield return new WaitForSeconds(0.5f);
+        }
+        
+    }
+
+    public void PermissionTask()
+    {
+        if (Collection.Count<=22)
+        {
+            Debug.Log("Joy bor");
+            Task = false;
+        }
+        else
+        {
+            Debug.Log("Joy yo'q");
+        }
+    }
+
+
+
+
     public void AddNewCard()
     {
-        if (EmptyLocation.Count>=2)
+        if (EmptyLocation.Count>=1 && AdditionEmptyLocation.Count % 2 == 0)
         {
             GameObject obj = Instantiate(Card1, Cards.transform);
+            obj.transform.DOMoveZ(-1 , 0);
             obj.transform.GetComponent<CardController>().Index = StrId;
             obj.transform.GetComponent<CardController>().CardIndex = 1;
             obj.transform.GetComponent<CardController>().Str = Str1.StrGroup[StrId / 2];
             obj.transform.GetComponent<CardController>().Game3Controller = this;
+            obj.transform.GetChild(4).GetComponent<TaskTime>().Game3Control = this;
             Collection.Add(Cards.transform.GetChild(Cards.transform.childCount-1).gameObject);
             int r1 = Random.Range(0, EmptyLocation.Count);
-            Collection[StrId].transform.DOMove(EmptyLocation[r1].transform.position, 0);
-            Collection[StrId].GetComponent<CardController>().LocationObj = EmptyLocation[r1];
+            Collection[Collection.Count - 1].transform.DOMove(EmptyLocation[r1].transform.position, 0);
+            Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj = EmptyLocation[r1];
             EmptyLocation[r1].GetComponent<CardLocation>().IHave = true;
-            EmptyLocation[r1].GetComponent<CardLocation>().MyCard = Collection[StrId];
+            EmptyLocation[r1].GetComponent<CardLocation>().MyCard = Collection[Collection.Count - 1];
             EmptyLocation.Remove(EmptyLocation[r1]);
+            obj.transform.DOMoveZ(1, 0.1f);
+            StartCoroutine(obj.transform.GetComponent<CardController>().AddCardFeedback());
+            GameObject _particle = Instantiate(AddCardParticle, ParticleLocations.transform);
+            _particle.transform.DOScale(0.38f, 0);
+            _particle.transform.DOMove(Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj.transform.position, 0);
+
+
 
             GameObject obj1 = Instantiate(Card2, Cards.transform);
+            obj1.transform.DOMoveZ(-1, 0);
             obj1.transform.GetComponent<CardController>().Index = StrId;
             obj1.transform.GetComponent<CardController>().CardIndex = 2;
             obj1.transform.GetComponent<CardController>().Str = Str2.StrGroup[StrId / 2];
             obj1.transform.GetComponent<CardController>().Game3Controller = this;
+            obj1.transform.GetChild(4).GetComponent<TaskTime>().Game3Control = this;
             Collection.Add(Cards.transform.GetChild(Cards.transform.childCount-1).gameObject);
             int r2 = Random.Range(0, EmptyLocation.Count);
+            if (EmptyLocation.Count == 1)
+            {
+                r2 = 0;
+                Debug.Log("Oxirgisi");
+            }
             Collection[Collection.Count-1].transform.DOMove(EmptyLocation[r2].transform.position, 0);
             Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj = EmptyLocation[r2];
             EmptyLocation[r2].GetComponent<CardLocation>().IHave = true;
             EmptyLocation[r2].GetComponent<CardLocation>().MyCard = Collection[Collection.Count - 1];
             EmptyLocation.Remove(EmptyLocation[r2]);
+            obj1.transform.DOMoveZ(1, 0.1f);
+            StartCoroutine(obj1.transform.GetComponent<CardController>().AddCardFeedback());
+            GameObject _particle1 = Instantiate(AddCardParticle, ParticleLocations.transform);
+            _particle1.transform.DOScale(0.38f, 0);
+            _particle1.transform.DOMove(Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj.transform.position, 0);
             StrId = StrId + 2;
         }
-        else
+        else if (EmptyLocation.Count < 1 && AdditionEmptyLocation.Count % 2 == 0)
         {
             GameObject obj = Instantiate(Card1, Cards.transform);
+            obj.transform.DOMoveZ(-1, 0);
             obj.transform.GetComponent<CardController>().Index = StrId;
             obj.transform.GetComponent<CardController>().CardIndex = 1;
             obj.transform.GetComponent<CardController>().Str = Str1.StrGroup[StrId / 2];
             obj.transform.GetComponent<CardController>().Game3Controller = this;
             Collection.Add(Cards.transform.GetChild(Cards.transform.childCount - 1).gameObject);
             int r1 = Random.Range(0, AdditionEmptyLocation.Count);
-            Collection[StrId].transform.DOMove(AdditionEmptyLocation[r1].transform.position, 0);
-            Collection[StrId].GetComponent<CardController>().LocationObj = AdditionEmptyLocation[r1];
+            Collection[Collection.Count - 1].transform.DOMove(AdditionEmptyLocation[r1].transform.position, 0);
+            Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj = AdditionEmptyLocation[r1];
             AdditionEmptyLocation[r1].GetComponent<CardLocation>().IHave = true;
-            AdditionEmptyLocation[r1].GetComponent<CardLocation>().MyCard = Collection[StrId];
+            AdditionEmptyLocation[r1].GetComponent<CardLocation>().MyCard = Collection[Collection.Count - 1];
             AdditionEmptyLocation.Remove(AdditionEmptyLocation[r1]);
+            obj.transform.DOMoveZ(1, 0);
+            StartCoroutine(obj.transform.GetComponent<CardController>().AddCardFeedback());
+            GameObject _particle = Instantiate(AddCardParticle, ParticleLocations.transform);
+            _particle.transform.DOScale(0.38f, 0);
+            _particle.transform.DOMove(Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj.transform.position, 0);
 
             GameObject obj1 = Instantiate(Card2, Cards.transform);
+            obj1.transform.DOMoveZ(-1, 0);
             obj1.transform.GetComponent<CardController>().Index = StrId;
             obj1.transform.GetComponent<CardController>().CardIndex = 2;
             obj1.transform.GetComponent<CardController>().Str = Str2.StrGroup[StrId / 2];
@@ -177,9 +256,144 @@ public class Game3Controller : MonoBehaviour
             AdditionEmptyLocation[r2].GetComponent<CardLocation>().IHave = true;
             AdditionEmptyLocation[r2].GetComponent<CardLocation>().MyCard = Collection[Collection.Count - 1];
             AdditionEmptyLocation.Remove(AdditionEmptyLocation[r2]);
+            obj1.transform.DOMoveZ(1, 0);
+            StartCoroutine(obj1.transform.GetComponent<CardController>().AddCardFeedback());
+            GameObject _particle1 = Instantiate(AddCardParticle, ParticleLocations.transform);
+            _particle1.transform.DOScale(0.38f, 0);
+            _particle1.transform.DOMove(Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj.transform.position, 0);
             StrId = StrId + 2;
         }
+
+        if (EmptyLocation.Count % 2 == 1 && AdditionEmptyLocation.Count % 2 == 1)
+        {
+            GameObject obj = Instantiate(Card1, Cards.transform);
+            obj.transform.DOMoveZ(-1, 0);
+            obj.transform.GetComponent<CardController>().Index = StrId;
+            obj.transform.GetComponent<CardController>().CardIndex = 1;
+            obj.transform.GetComponent<CardController>().Str = Str1.StrGroup[StrId / 2];
+            obj.transform.GetComponent<CardController>().Game3Controller = this;
+            obj.transform.GetChild(4).GetComponent<TaskTime>().Game3Control = this;
+            Collection.Add(Cards.transform.GetChild(Cards.transform.childCount - 1).gameObject);
+            int r1 = Random.Range(0, EmptyLocation.Count);
+            if (EmptyLocation.Count == 1)
+            {
+                r1 = 0;
+                Debug.Log("Oxirgisi");
+            }
+            Collection[Collection.Count - 1].transform.DOMove(EmptyLocation[r1].transform.position, 0);
+            Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj = EmptyLocation[r1];
+            EmptyLocation[r1].GetComponent<CardLocation>().IHave = true;
+            EmptyLocation[r1].GetComponent<CardLocation>().MyCard = Collection[Collection.Count - 1];
+            EmptyLocation.Remove(EmptyLocation[r1]);
+            obj.transform.DOMoveZ(1, 0.1f);
+            StartCoroutine(obj.transform.GetComponent<CardController>().AddCardFeedback());
+            GameObject _particle = Instantiate(AddCardParticle, ParticleLocations.transform);
+            _particle.transform.DOScale(0.38f, 0);
+            _particle.transform.DOMove(Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj.transform.position, 0);
+
+
+
+            GameObject obj1 = Instantiate(Card2, Cards.transform);
+            obj1.transform.DOMoveZ(-1, 0);
+            obj1.transform.GetComponent<CardController>().Index = StrId;
+            obj1.transform.GetComponent<CardController>().CardIndex = 2;
+            obj1.transform.GetComponent<CardController>().Str = Str2.StrGroup[StrId / 2];
+            obj1.transform.GetComponent<CardController>().Game3Controller = this;
+            Collection.Add(Cards.transform.GetChild(Cards.transform.childCount - 1).gameObject);
+            int r2 = Random.Range(0, AdditionEmptyLocation.Count);
+            Collection[Collection.Count - 1].transform.DOMove(AdditionEmptyLocation[r2].transform.position, 0);
+            Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj = AdditionEmptyLocation[r2];
+            AdditionEmptyLocation[r2].GetComponent<CardLocation>().IHave = true;
+            AdditionEmptyLocation[r2].GetComponent<CardLocation>().MyCard = Collection[Collection.Count - 1];
+            AdditionEmptyLocation.Remove(AdditionEmptyLocation[r2]);
+            obj1.transform.DOMoveZ(1, 0);
+            StartCoroutine(obj1.transform.GetComponent<CardController>().AddCardFeedback());
+            GameObject _particle1 = Instantiate(AddCardParticle, ParticleLocations.transform);
+            _particle1.transform.DOScale(0.38f, 0);
+            _particle1.transform.DOMove(Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj.transform.position, 0);
+            StrId = StrId + 2;
+        }
+
+
+        StartCoroutine(ChangeStr());
     }
+
+
+
+
+
+    public IEnumerator ChangeStr()
+    {
+        yield return new WaitForSeconds(1f);
+        //CardDoor yopilishi
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            StartCoroutine(Collection[i].GetComponent<CardController>().CloseDoor());
+        }
+        Collection[0].GetComponent<CardController>().DoorFeedback.PlayFeedbacks();
+        yield return new WaitForSeconds(0.4f);
+
+        //Listga sort qilib olish
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            if (Collection[i].GetComponent<CardController>().CardIndex == 1)
+            {
+                Card1Collection.Add(Collection[i].gameObject);
+            }
+            else
+            {
+                Card2Collection.Add(Collection[i].gameObject);
+            }
+        }
+
+
+        //Shufle qilish
+
+        Card1Collection = Card1Collection.ShuffleList();
+        Card2Collection = Card2Collection.ShuffleList();
+        for (int i = 0; i <= Card1Collection.Count / 2; i++)
+        {
+
+            //Card1 uchun shufle
+            string _newStr = Card1Collection[i].GetComponent<CardController>().Str;
+            int _newIndex = Card1Collection[i].GetComponent<CardController>().Index;
+            Card1Collection[i].GetComponent<CardController>().Str = Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController>().Str;
+            Card1Collection[i].transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Card1Collection[i].GetComponent<CardController>().Str;
+            Card1Collection[i].GetComponent<CardController>().Index = Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController>().Index;
+            Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController>().Str = _newStr;
+            Card1Collection[Card1Collection.Count - (i + 1)].transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController>().Str;
+            Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController>().Index = _newIndex;
+
+            //Card2 uchun shufle
+            string _newStr1 = Card2Collection[i].GetComponent<CardController>().Str;
+            int _newIndex1 = Card2Collection[i].GetComponent<CardController>().Index;
+            Card2Collection[i].GetComponent<CardController>().Str = Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController>().Str;
+            Card2Collection[i].transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Card2Collection[i].GetComponent<CardController>().Str;
+            Card2Collection[i].GetComponent<CardController>().Index = Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController>().Index;
+            Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController>().Str = _newStr1;
+            Card2Collection[Card2Collection.Count - (i + 1)].transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController>().Str;
+            Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController>().Index = _newIndex1;
+        }
+
+        yield return new WaitForSeconds(0.3f);
+        //CardDoor ochilishi
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            StartCoroutine(Collection[i].GetComponent<CardController>().OpenDoor());
+        }
+        Collection[0].GetComponent<CardController>().DoorFeedback.PlayFeedbacks();
+        yield return new WaitForSeconds(1f);
+
+        //Listlarni tozalash
+        for (int i = 0; i < Collection.Count/2; i++)
+        {
+            Card1Collection.Remove(Card1Collection[0]);
+            Card2Collection.Remove(Card2Collection[0]);
+        }
+    }
+
+
+
 
     public void Result()
     {
@@ -188,21 +402,57 @@ public class Game3Controller : MonoBehaviour
             if ((SelectObjects[0].GetComponent<CardController>().CardIndex != SelectObjects[1].GetComponent<CardController>().CardIndex)
                 && (SelectObjects[0].GetComponent<CardController>().Index == SelectObjects[1].GetComponent<CardController>().Index))
             {
-                StartCoroutine(SelectObjects[0].GetComponent<CardController>().Correct());
+                //Correct Particle
+                for (int i = 0; i < 2; i++)
+                {
+                    GameObject _particle = Instantiate(CorrectParticle, ParticleLocations.transform);
+                    _particle.transform.DOScale(0.8f, 0);
+                    _particle.transform.DOMove(SelectObjects[i].GetComponent<CardController>().LocationObj.transform.position, 0);
+                    SelectObjects[i].GetComponent<CardController>().Correct();
+                }
 
                 for (int i = 0; i < SelectObjects.Count; i++)
                 {
+                    for (int j = 0; j < Collection.Count; j++)
+                    {
+                        if (SelectObjects[i].gameObject == Collection[j].gameObject)
+                        {
+                            Collection.Remove(Collection[j]);
+                        }
+                    }
+                    if (SelectObjects[i].transform.GetChild(4).gameObject.activeSelf)
+                    {
+                        SelectObjects[i].GetComponent<CardController>().ActiveCard = false;
+                        Task = false;
+                    }
                     SelectObjects[i].GetComponent<CardController>().LocationObj.GetComponent<CardLocation>().IHave = false;
                     Destroy(SelectObjects[i], 0);
                 }
+                if (Collection.Count >= 22)
+                {
+                    Task = false;
+                }
+
+
                 //Bo'sh joylarni aniqlash
                 DeterminationEmptyLocation();
+                for (int i = 0; i < Collection.Count; i++)
+                {
+                    if (Collection[i].transform.GetChild(4).gameObject.activeSelf)
+                    {
+                        w++;
+                    }
+                }
+                if (!Task)
+                {
+                    StartCoroutine(ToGiveTask());
+                    Debug.Log("Resultni ichidagi funksiya");
+                }
             }
             else
             {
                 StartCoroutine(SelectObjects[0].GetComponent<CardController>().Wrong());
-
-                AddNewCard();
+                StartCoroutine(SelectObjects[1].GetComponent<CardController>().Wrong());
             }
         }
         for (int i = 0; i < 2; i++)
@@ -211,6 +461,10 @@ public class Game3Controller : MonoBehaviour
             SelectObjects.Remove(SelectObjects[0]);
         }
     }
+
+
+
+
 
     public void DeterminationEmptyLocation()
     {
@@ -266,5 +520,8 @@ public class Game3Controller : MonoBehaviour
             }
         }
     }
+
+
+
 }
 
