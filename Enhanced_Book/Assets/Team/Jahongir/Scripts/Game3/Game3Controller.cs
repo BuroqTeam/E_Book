@@ -324,6 +324,10 @@ public class Game3Controller : MonoBehaviour
 
     public IEnumerator ChangeStr()
     {
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            Collection[i].GetComponent<BoxCollider2D>().enabled = false;
+        }
         yield return new WaitForSeconds(1f);
         //CardDoor yopilishi
         for (int i = 0; i < Collection.Count; i++)
@@ -389,6 +393,10 @@ public class Game3Controller : MonoBehaviour
         {
             Card1Collection.Remove(Card1Collection[0]);
             Card2Collection.Remove(Card2Collection[0]);
+        }
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            Collection[i].GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 
@@ -522,6 +530,12 @@ public class Game3Controller : MonoBehaviour
     }
 
 
-
+    public void Lose()
+    {
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            Collection[i].GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
 }
 

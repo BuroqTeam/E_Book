@@ -32,11 +32,18 @@ public class TaskTime : MonoBehaviour
     //}
     public IEnumerator ChangeTime()
     {
+        Slider.GetComponent<SpriteRenderer>().material.SetFloat("Arc Point 1", 180);
         transform.GetComponent<AudioSource>().enabled = true;
         Time.text = StartTime.ToString();
         for (int i = time * 10; i > 0.1; i--)
         {
             //Slider.GetComponent<SpriteRenderer>().material.SetFloat("_ArcPoint1", 180);
+
+            //Debug.Log("Shader Name: " +  Shader.Find("ArcPoint1").name);
+
+
+            //Slider.GetComponent<SpriteRenderer>().material.SetFloat("_ArcPoint1", 180);
+            //Debug.Log(Slider.GetComponent<SpriteRenderer>().material.shader = Shader.Find("_Arc Point 1"));
             PresentTime = PresentTime - 0.1f;
 
             Time.text = Math.Round(PresentTime, 1).ToString();

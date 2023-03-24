@@ -15,6 +15,7 @@ public class CardController : MonoBehaviour, IPointerClickHandler
     public int CardIndex;
     public int Index;
     public bool ActiveCard = true;
+    public bool Select = false;
 
 
     [Header("Feedbacks")]
@@ -43,12 +44,9 @@ public class CardController : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //if (Game3Controller.SelectObjects.Count ==1 && Game3Controller.SelectObjects[0].gameObject != this)
-        //{
-
-        //}
-        if (Game3Controller.SelectObjects.Count<2)
+        if (Game3Controller.SelectObjects.Count<2 && !Select)
         {
+            Select = true;
             transform.GetChild(3).GetComponent<SpriteRenderer>().material.SetColor("_GlowColor", new Color(0, 241, 231, 255));
             StartCoroutine(SelectCard());
         }
@@ -72,23 +70,32 @@ public class CardController : MonoBehaviour, IPointerClickHandler
 
     public void Correct()
     {
+        Select = false;
         CorrectFeedback?.PlayFeedbacks();
     }
 
 
     public IEnumerator Wrong()
     {
+        for (int i = 0; i < Game3Controller.Collection.Count; i++)
+        {
+            Game3Controller.Collection[i].GetComponent<BoxCollider2D>().enabled = false;
+        }
+        Select = false;
         transform.GetChild(3).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         transform.GetChild(5).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
         transform.GetChild(5).GetComponent<SpriteRenderer>().material.SetColor("_GlowColor", new Color(240, 0, 20, 255));
         WrongFeedback?.PlayFeedbacks();
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.9f);
         transform.GetChild(5).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         if (transform.GetChild(4).gameObject.activeSelf)
         {
-            Debug.Log("Taskdagi shader");
             TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(130, 210, 230, 255);
+        }
+        for (int i = 0; i < Game3Controller.Collection.Count; i++)
+        {
+            Game3Controller.Collection[i].GetComponent<BoxCollider2D>().enabled = true;
         }
 
     }
