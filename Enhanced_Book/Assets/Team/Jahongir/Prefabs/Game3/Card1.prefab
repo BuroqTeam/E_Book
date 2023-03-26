@@ -167,7 +167,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: 7bec365b11b18244a8c0933d8f6f1e60, type: 3}
+  Sfx: {fileID: 8300000, guid: 522f21375c7d2dd43b5ea4944cb3eb9d, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
@@ -718,10 +718,12 @@ MonoBehaviour:
   Game3Controller: {fileID: 0}
   LocationObj: {fileID: 0}
   Doors: {fileID: 4325535687516114908}
+  FinishCursorEvent: {fileID: 11400000, guid: 91f28783f498ef240be09ed4fd64f5b3, type: 2}
   Str: 
   CardIndex: 0
   Index: 0
   ActiveCard: 1
+  Select: 0
   WrongFeedback: {fileID: 6062020087186779314}
   CorrectFeedback: {fileID: 815170914}
   DoorFeedback: {fileID: 0}
@@ -1284,9 +1286,10 @@ MonoBehaviour:
   Game3Control: {fileID: 0}
   Time: {fileID: 926272221345750972}
   Slider: {fileID: 8408383570387092082}
-  StartTime: 10
+  StartTime: 20
   PresentTime: 0
   ToGiveTaskEvent: {fileID: 11400000, guid: d9a7c76a3c8e7eb4b9294c296640b757, type: 2}
+  CircleTime: 360
   StartFeedback: {fileID: 0}
 --- !u!82 &4682063706997473111
 AudioSource:
@@ -2237,7 +2240,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7660624343553125467}
   - component: {fileID: 4887334235021877837}
-  - component: {fileID: 6567918616284025701}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -2312,22 +2314,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6567918616284025701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8408383570387092082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 4
-  normalStrength: 5
-  normalSmoothing: 1
-  computingNormal: 0
 --- !u!1 &8479601900231343853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,7 +2462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba1d39e1a4e0a142831b5815b528429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Active: 1
+  Active: 0
   Label: Cinemachine Impulse
   Chance: 100
   Timing:
@@ -2713,7 +2699,7 @@ MonoBehaviour:
   Mode: 0
   TimeScale: 0
   AnimateScaleTarget: {fileID: 1786669401096084383}
-  AnimateScaleDuration: 0.3
+  AnimateScaleDuration: 0.8
   RemapCurveZero: 0.35
   RemapCurveOne: 0.38
   Offset: 0
@@ -2731,8 +2717,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.7382019
-      value: 1.4906235
+      time: 0.30637634
+      value: 1.4904733
+      inSlope: -0.031354178
+      outSlope: -0.031354178
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7069489
+      value: 1.485701
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2765,8 +2760,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.7382019
-      value: 1.4906235
+      time: 0.30637634
+      value: 1.4904733
+      inSlope: -0.031354178
+      outSlope: -0.031354178
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7069489
+      value: 1.485701
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2799,8 +2803,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.7382019
-      value: 1.4906235
+      time: 0.30637634
+      value: 1.4904733
+      inSlope: -0.031354178
+      outSlope: -0.031354178
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7069489
+      value: 1.485701
       inSlope: 0
       outSlope: 0
       tangentMode: 0

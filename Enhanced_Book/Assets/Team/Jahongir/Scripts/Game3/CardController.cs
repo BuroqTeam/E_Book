@@ -11,6 +11,7 @@ public class CardController : MonoBehaviour, IPointerClickHandler
     public Game3Controller Game3Controller;
     public GameObject LocationObj;
     public GameObject Doors;
+    public GameEventSO FinishCursorEvent;
     public string Str;
     public int CardIndex;
     public int Index;
@@ -44,6 +45,7 @@ public class CardController : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        FinishCursorEvent.Raise();
         if (Game3Controller.SelectObjects.Count<2 && !Select)
         {
             Select = true;

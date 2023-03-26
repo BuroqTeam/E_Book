@@ -14,6 +14,7 @@ public class TaskTime : MonoBehaviour
     public float PresentTime;
     public GameEventSO ToGiveTaskEvent;
     int time;
+    public int CircleTime = 360;
 
     public MMFeedbacks StartFeedback;
 
@@ -32,20 +33,14 @@ public class TaskTime : MonoBehaviour
     //}
     public IEnumerator ChangeTime()
     {
-        Slider.GetComponent<SpriteRenderer>().material.SetFloat("Arc Point 1", 180);
+        
         transform.GetComponent<AudioSource>().enabled = true;
         Time.text = StartTime.ToString();
-        for (int i = time * 10; i > 0.1; i--)
+        for (int i = 0; i < time * 10; i++)
         {
-            //Slider.GetComponent<SpriteRenderer>().material.SetFloat("_ArcPoint1", 180);
-
-            //Debug.Log("Shader Name: " +  Shader.Find("ArcPoint1").name);
-
-
-            //Slider.GetComponent<SpriteRenderer>().material.SetFloat("_ArcPoint1", 180);
-            //Debug.Log(Slider.GetComponent<SpriteRenderer>().material.shader = Shader.Find("_Arc Point 1"));
+            //a = a + 360 / (time * 10) + 6;
             PresentTime = PresentTime - 0.1f;
-
+            //Slider.GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", a);
             Time.text = Math.Round(PresentTime, 1).ToString();
             if (PresentTime < 0)
             {
@@ -55,9 +50,15 @@ public class TaskTime : MonoBehaviour
             }
             yield return new WaitForSeconds(0.1f);
         }
-        
-        transform.GetComponent<AudioSource>().enabled = false;
+        for (int i = 0; i < CircleTime; i++)
+        {
+            Slider.GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", i);
+            if (i == 359)
+            {
+                Slider.GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", 0);
+            }
+            yield return new WaitForSeconds(StartTime/360);
+        }
         PresentTime = StartTime;
-        
     }
 }

@@ -29,6 +29,7 @@ public class Game3Controller : MonoBehaviour
     public GameObject Doors;
 
     [Header("Objects for Controller")]
+    public GameObject Cursor;
     public List<GameObject> SelectObjects;
     public List<GameObject> EmptyLocation;
     public List<GameObject> AdditionEmptyLocation;
@@ -53,7 +54,6 @@ public class Game3Controller : MonoBehaviour
         CreateCards();
         LocationCards();
         StartCoroutine(StartCard());
-        StartCoroutine(ToGiveTask());
         DeterminationEmptyLocation();
     }
 
@@ -109,6 +109,10 @@ public class Game3Controller : MonoBehaviour
 
     public IEnumerator StartCard()
     {
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            Collection[i].GetComponent<BoxCollider2D>().enabled = false;
+        }
         yield return new WaitForSeconds(0.5f);
         Doors.transform.GetChild(0).GetComponent<MMFeedbacks>().PlayFeedbacks();
         Doors.transform.GetChild(1).GetComponent<MMFeedbacks>().PlayFeedbacks();
@@ -118,6 +122,7 @@ public class Game3Controller : MonoBehaviour
             Collection[i].transform.DOMove(CardLocations.transform.GetChild(i).transform.position, 0f);
             Collection[i].transform.DOScale(0.35f, 3f);
         }
+        Cursor.GetComponent<CursorController>().SelectObjects();
     }
 
 
@@ -144,11 +149,7 @@ public class Game3Controller : MonoBehaviour
             Collection[c].GetComponent<CardController>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(130, 210, 230, 255);
             Collection[c].transform.GetChild(4).GetComponent<MMFeedbacks>().PlayFeedbacks();
             StartCoroutine(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().ChangeTime());
-            //Collection[c].transform.GetChild(4).GetComponent<AudioSource>().enabled = true;
-            //Collection[c].transform.GetChild(7).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
-            //Collection[c].transform.GetChild(7).GetComponent<SpriteRenderer>().material.SetColor("_GlowColor", new Color(255, 255, 255, 255));
             yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().StartTime - 0.5f);
-            //Collection[c].transform.GetChild(7).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
             yield return new WaitForSeconds(0.5f);
         }
         
@@ -167,7 +168,15 @@ public class Game3Controller : MonoBehaviour
         }
     }
 
-
+    public void FinishCursor()
+    {
+        Cursor.SetActive(false);
+        StartCoroutine(ToGiveTask());
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            Collection[i].GetComponent<BoxCollider2D>().enabled = true;
+        }
+    }
 
 
     public void AddNewCard()
@@ -430,6 +439,7 @@ public class Game3Controller : MonoBehaviour
                     }
                     if (SelectObjects[i].transform.GetChild(4).gameObject.activeSelf)
                     {
+                        SelectObjects[i].transform.GetChild(4).GetComponent<TaskTime>().CircleTime = 0;
                         SelectObjects[i].GetComponent<CardController>().ActiveCard = false;
                         Task = false;
                     }
@@ -536,6 +546,7 @@ public class Game3Controller : MonoBehaviour
         {
             Collection[i].GetComponent<BoxCollider2D>().enabled = false;
         }
+        StopCoroutine(ToGiveTask());
     }
 }
 
