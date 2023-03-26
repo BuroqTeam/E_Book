@@ -24,23 +24,15 @@ public class TaskTime : MonoBehaviour
         time = Convert.ToInt32(StartTime);
         Time.text = StartTime.ToString();
         StartCoroutine(ChangeTime());
-        Debug.Log("Start");
     }
-    //private void Update()
-    //{
-    //    StartCoroutine(ChangeTime());
-    //    Debug.Log("Update");
-    //}
     public IEnumerator ChangeTime()
     {
-        
+        CircleTime = 360;
         transform.GetComponent<AudioSource>().enabled = true;
         Time.text = StartTime.ToString();
         for (int i = 0; i < time * 10; i++)
         {
-            //a = a + 360 / (time * 10) + 6;
             PresentTime = PresentTime - 0.1f;
-            //Slider.GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", a);
             Time.text = Math.Round(PresentTime, 1).ToString();
             if (PresentTime < 0)
             {
@@ -50,7 +42,7 @@ public class TaskTime : MonoBehaviour
             }
             yield return new WaitForSeconds(0.1f);
         }
-        for (int i = 0; i < CircleTime; i++)
+        for (int i = 0; i < 361; i++)
         {
             Slider.GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", i);
             if (i == 359)

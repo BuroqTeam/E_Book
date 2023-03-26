@@ -106,13 +106,6 @@ public class CardController : MonoBehaviour, IPointerClickHandler
     {
         AddNewCardFeedback?.PlayFeedbacks();
         yield return new WaitForSeconds(0.7f);
-        //transform.GetChild(3).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
-        //transform.GetChild(5).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
-        //transform.GetChild(6).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
-        //transform.GetChild(6).GetComponent<SpriteRenderer>().material.SetColor("_GlowColor", new Color(255, 0, 214, 255));
-        //yield return new WaitForSeconds(0.5f);
-        //transform.GetChild(6).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
-
     }
 
 

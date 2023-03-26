@@ -145,12 +145,20 @@ public class Game3Controller : MonoBehaviour
             int t = Random.Range(5, 10);
             yield return new WaitForSeconds(t);
             int c = Random.Range(1, Collection.Count);
-            Collection[c].transform.GetChild(4).gameObject.SetActive(true);
-            Collection[c].GetComponent<CardController>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(130, 210, 230, 255);
-            Collection[c].transform.GetChild(4).GetComponent<MMFeedbacks>().PlayFeedbacks();
-            StartCoroutine(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().ChangeTime());
-            yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().StartTime - 0.5f);
-            yield return new WaitForSeconds(0.5f);
+            if (Collection[c].gameObject.activeSelf)
+            {
+                Collection[c].transform.GetChild(4).gameObject.SetActive(true);
+                Collection[c].GetComponent<CardController>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(130, 210, 230, 255);
+                Collection[c].transform.GetChild(4).GetComponent<MMFeedbacks>().PlayFeedbacks();
+                StartCoroutine(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().ChangeTime());
+                yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().StartTime - 0.5f);
+                yield return new WaitForSeconds(0.5f);
+            }
+            else
+            {
+                Debug.Log("Man ishladim");
+                StartCoroutine(ToGiveTask());
+            }
         }
         
     }
@@ -217,7 +225,6 @@ public class Game3Controller : MonoBehaviour
             if (EmptyLocation.Count == 1)
             {
                 r2 = 0;
-                Debug.Log("Oxirgisi");
             }
             Collection[Collection.Count-1].transform.DOMove(EmptyLocation[r2].transform.position, 0);
             Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj = EmptyLocation[r2];
@@ -287,7 +294,6 @@ public class Game3Controller : MonoBehaviour
             if (EmptyLocation.Count == 1)
             {
                 r1 = 0;
-                Debug.Log("Oxirgisi");
             }
             Collection[Collection.Count - 1].transform.DOMove(EmptyLocation[r1].transform.position, 0);
             Collection[Collection.Count - 1].GetComponent<CardController>().LocationObj = EmptyLocation[r1];
@@ -464,7 +470,6 @@ public class Game3Controller : MonoBehaviour
                 if (!Task)
                 {
                     StartCoroutine(ToGiveTask());
-                    Debug.Log("Resultni ichidagi funksiya");
                 }
             }
             else

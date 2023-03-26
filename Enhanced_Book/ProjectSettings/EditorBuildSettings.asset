@@ -45,6 +45,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/Video 2.unity
     guid: 5b9101f541628dd408221765603c9d19
   - enabled: 1
+    path: Assets/Team/Jahongir/Scenes/Game 3 Update_Profiles/Game3Update.unity
+    guid: b9bcf174550b6d640b478a6d8e5e820e
+  - enabled: 1
     path: Assets/_Scenes/ClassSelection.unity
     guid: fe27547ce7173b543b2cb4bf580bf521
   - enabled: 1
