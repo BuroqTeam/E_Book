@@ -21,13 +21,22 @@ public class PixelTestEditor : MonoBehaviour
             if (_colorIndex.IndexOf (_color) == -1)
             {
                 _colorIndex.Add(_color);
+                if (ColorUtility.ToHtmlStringRGB(_color) == "FFFFFF")
+                {
+                    Debug.Log("Pikseli: " + i);
+                }
             }
         }
         print("Indexed colors " + _colorIndex.Count);
 
         foreach (var color in _colorIndex)
         {
-            print("#" + ColorUtility.ToHtmlStringRGB(color));
+            if (ColorUtility.ToHtmlStringRGB(color) == "FFFFFF")
+            {
+                Debug.Log("Topdi");
+            }
+            //print("#" + ColorUtility.ToHtmlStringRGB(color));
+            
         }
     }
 }

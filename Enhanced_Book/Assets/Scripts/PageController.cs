@@ -8,6 +8,7 @@ public class PageController : MonoBehaviour
 {
     public GameObject Video_1;
     public GameObject Video_2;
+    public GameObject ZoomInZoomOut;
 
 
     public List<Sprite> Pages;
@@ -40,6 +41,14 @@ public class PageController : MonoBehaviour
         {
             index++;
             _image.sprite = Pages[index];
+            if (Pages[index].name.Equals("9-10"))
+            {
+                ZoomInZoomOut.SetActive(true);
+            }
+            else
+            {
+                ZoomInZoomOut.SetActive(false);
+            }
             if (Pages[index].name.Equals("15-16"))
             {
                 Video_1.SetActive(true);
@@ -68,6 +77,14 @@ public class PageController : MonoBehaviour
         {
             index--;
             _image.sprite = Pages[index];
+            if (Pages[index].name.Equals("9-10"))
+            {
+                ZoomInZoomOut.SetActive(true);
+            }
+            else
+            {
+                ZoomInZoomOut.SetActive(false);
+            }
             if (Pages[index].name.Equals("15-16"))
             {
                 Video_1.SetActive(true);

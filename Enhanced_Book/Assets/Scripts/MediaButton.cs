@@ -60,7 +60,7 @@ public class MediaButton : MonoBehaviour
         {
             gameObject.SetActive(true);
             transform.SetParent(MediaPanel1.transform);
-            _sceneName = SceneName + " 3";
+            _sceneName = SceneName + "3Update";
 
         }
         else

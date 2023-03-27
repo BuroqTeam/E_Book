@@ -1,0 +1,93 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using DG.Tweening;
+
+public class ZIZOControl : MonoBehaviour, IPointerClickHandler
+{
+    public GameObject Book;
+    public bool Select = false;
+    private float _bookLastPosx;
+    private float _bookLastPosy;
+    private float _lastPosx;
+    private float _lastPosy;
+
+    [Header("Objects")]
+    public GameObject MediaPanel;
+    public GameObject Account;
+    public GameObject TopMenu;
+    public GameObject LeftMenu;
+    public GameObject Mark;
+    public GameObject RightCorner;
+    public GameObject Help;
+    private void Start()
+    {
+        _bookLastPosx = Book.GetComponent<RectTransform>().localPosition.x;
+        _bookLastPosy = Book.GetComponent<RectTransform>().localPosition.y;
+        _lastPosx = GetComponent<RectTransform>().localPosition.x;
+        _lastPosy = GetComponent<RectTransform>().localPosition.y;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!Select)
+        {
+            StartCoroutine(ZoomIn());
+        }
+        else
+        {
+            StartCoroutine(ZoomOut());
+        }
+    }
+
+    public IEnumerator ZoomIn()
+    {
+        MediaPanel.SetActive(false);
+        Account.SetActive(false);
+        TopMenu.SetActive(false);
+        LeftMenu.SetActive(false);
+        Mark.SetActive(false);
+        RightCorner.SetActive(false);
+        Help.SetActive(false);
+        Book.GetComponent<RectTransform>().DOScale(2.5f, 0.5f);
+        GetComponent<RectTransform>().DOScale(2.5f, 0.5f);
+        Book.GetComponent<RectTransform>().DOAnchorPosX(-1 * _lastPosx * 2.5f, 0.5f);
+        Book.GetComponent<RectTransform>().DOAnchorPosY((-1 * _lastPosy * 2.5f) + _bookLastPosy, 0.5f);
+        GetComponent<RectTransform>().DOAnchorPosX(0, 0.5f);
+        GetComponent<RectTransform>().DOAnchorPosY(0, 0.5f);
+        Select = true;
+        yield return new WaitForSeconds(0);
+        for (int i = 0; i < transform.parent.transform.childCount; i++)
+        {
+            if (!transform.parent.transform.GetChild(i).GetComponent<ZIZOControl>().Select)
+            {
+                transform.parent.transform.GetChild(i).GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
+
+    }
+
+    public IEnumerator ZoomOut()
+    {
+        GetComponent<RectTransform>().DOAnchorPosX(_lastPosx, 0.5f);
+        GetComponent<RectTransform>().DOAnchorPosY(_lastPosy, 0.5f);
+        Book.GetComponent<RectTransform>().DOScale(1f, 0.5f);
+        GetComponent<RectTransform>().DOScale(1f, 0.5f);
+        Book.GetComponent<RectTransform>().DOAnchorPosX(0, 0.5f);
+        Book.GetComponent<RectTransform>().DOAnchorPosY(_bookLastPosy, 0.5f);
+        Select = false;
+        yield return new WaitForSeconds(0);
+        for (int i = 0; i < transform.parent.transform.childCount; i++)
+        {
+            transform.parent.transform.GetChild(i).GetComponent<BoxCollider2D>().enabled = true;
+        }
+        MediaPanel.SetActive(true);
+        Account.SetActive(true);
+        TopMenu.SetActive(true);
+        LeftMenu.SetActive(true);
+        Mark.SetActive(true);
+        RightCorner.SetActive(true);
+        Help.SetActive(true);
+    }
+}

@@ -42,7 +42,7 @@ public class TaskTime : MonoBehaviour
             }
             yield return new WaitForSeconds(0.1f);
         }
-        for (int i = 0; i < 361; i++)
+        for (int i = 0; i < CircleTime; i++)
         {
             Slider.GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", i);
             if (i == 359)
