@@ -12,6 +12,7 @@ public class Hide : MonoBehaviour
     public Sprite UnMurkedSp;
     public UnityEvent HideEvent;
     public UnityEvent ShowEvent;
+    public GameObject ZoomInZoomOut;
 
 
     RectTransform _rect;
@@ -36,6 +37,7 @@ public class Hide : MonoBehaviour
         _count++;
         if (_count % 2 == 0)
         {
+            ZoomInZoomOut.GetComponent<ChangePos>().Big = false;
             transform.GetChild(0).GetComponent<Image>().sprite = MarkedSp;
             ShowEvent.Invoke();
             Book.DOAnchorPosY(-10, 0);
@@ -43,6 +45,7 @@ public class Hide : MonoBehaviour
         }
         else
         {
+            ZoomInZoomOut.GetComponent<ChangePos>().Big = true;
             transform.GetChild(0).GetComponent<Image>().sprite = UnMurkedSp;
             HideEvent.Invoke();
             Book.DOAnchorPosY(13, 0);
