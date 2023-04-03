@@ -39,11 +39,11 @@ namespace FathullohMundarijaTable
             if (_IsFirstTime)
             {
                 _IsFirstTime = false;
-                //Debug.Log("Birinchi martta.");
             }
             else if (!_IsFirstTime)
             {
-                //DrawTableAgain();                
+                //Debug.Log("Need drawTableAgain");
+                DrawTableAgain();                
             }
         }
 
@@ -52,9 +52,9 @@ namespace FathullohMundarijaTable
         {
             this.MyTable.ResetTable();
 
-            this.MyTable.AddTextColumn("", null, -1, 20);
+            this.MyTable.AddTextColumn("", null, -1, 18);
             this.MyTable.AddTextColumn(strHeader, null);            
-            Column c = this.MyTable.AddTextColumn("", null, -1, 18);
+            Column c = this.MyTable.AddTextColumn("", null, -1, 16);
             c.horAlignment = Column.HorAlignment.CENTER;
 
             this.MyTable.Initialize(this.OnRowSelected);
@@ -86,15 +86,20 @@ namespace FathullohMundarijaTable
         {
             if (CurrentChapter == TableType.ChapterOne)
             {
-                if (datum.uid.ToString().Contains("0"))                
-                    ChangePage(0);                
-                else if (datum.uid.ToString().Contains("1"))                
-                    ChangePage(1);                
-                else if (datum.uid.ToString().Contains("2"))                
+                if (datum.uid.ToString().Equals(TopicStr + "0"))
+                {
+                    //Debug.Log(datum.uid.ToString().Contains(TopicStr + "0"));
+                    ChangePage(0);
+                }
+                else if (datum.uid.ToString().Equals(TopicStr + "1"))
+                {
+                    //Debug.Log(datum.uid.ToString().Contains(TopicStr + "1"));
+                    ChangePage(1);
+                }
+                else if (datum.uid.ToString().Equals(TopicStr + "2"))                
                     ChangePage(2);                
-                else if (datum.uid.ToString().Contains("3"))                
-                    ChangePage(3);
-                
+                else if (datum.uid.ToString().Equals(TopicStr + "3"))                                   
+                    ChangePage(3);                               
             }
 
             //print("You Clicked: " + datum.uid);
@@ -171,7 +176,7 @@ namespace FathullohMundarijaTable
         {
             strHeader = "I bob. Natural sonlarni qoʻshish va ayirish";
             NumberOfTopics.Add("1.1");
-            AllTemas.Add("Natural Sonlar va nol");
+            AllTemas.Add("Natural sonlar va nol");
             PageOfTemas.Add("8");
 
             NumberOfTopics.Add("1.2");

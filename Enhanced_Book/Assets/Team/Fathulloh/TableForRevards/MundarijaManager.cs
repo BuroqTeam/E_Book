@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,16 +15,13 @@ namespace FathullohMundarijaTable
         bool isFirstTime = true;
 
         public List<GameObject> MediaButtons;
+        public List<GameObject> Chapters;
 
-        private void Awake()
+        RectTransform _rect;
+
+        void Awake()
         {
-            //InvisiableObjects(false);
-        }
-
-
-        void Start()
-        {
-
+            _rect = gameObject.GetComponent<RectTransform>();
         }
 
 
@@ -73,6 +71,33 @@ namespace FathullohMundarijaTable
             }
         }
 
+
+        public void MakeTableAgain()
+        {
+            if (!BookObj.activeSelf && gameObject.activeSelf && isFirstTime)
+            {
+                for (int i = 0; i < Chapters.Count; i++)
+                    Chapters[i].GetComponent<MundarijaTable>().DrawTableAgain();
+            }
+        }
+
+
+        public void MoveToRight()
+        {
+            if (BookObj.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite.name == "9-10")
+            {
+                StartCoroutine(MovingRight());
+            }
+        }
+
+
+        IEnumerator MovingRight()
+        {
+            gameObject.SetActive(true);
+            _rect.DOAnchorPosX(-710, 0.3f);
+            yield return new WaitForSeconds(0.3f);
+            _rect.DOAnchorPosX(0, 0);
+        }
 
     }
 }
