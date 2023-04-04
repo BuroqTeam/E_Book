@@ -23,19 +23,11 @@ public class ButtonCollection : MonoBehaviour
     public void LasButton()
     {
         StartCoroutine(Last());
-        //transform.GetChild(6).GetComponent<Button>().enabled = false;
-        //Vector3 a = new Vector3(100, -9, 0);
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    if ((transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition.x * -1f) == 100f)
-        //    {
-        //        transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPosX(100f, 0f);
-        //    }
-        //}
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPosX(transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition.x - 40, 0.3f);
-        //}
+    }
+
+    public void NexButton()
+    {
+        StartCoroutine(Next());
     }
     public IEnumerator Last()
     {
@@ -45,7 +37,7 @@ public class ButtonCollection : MonoBehaviour
             transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPosX(transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition.x - 40f, 0.2f);
         }
         yield return new WaitForSeconds(0.3f);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             if ((transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition.x * -1f) > 130f)
             {
@@ -54,6 +46,24 @@ public class ButtonCollection : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         LastButton.GetComponent<Button>().enabled = true;
+    }
+    public IEnumerator Next()
+    {
+        NextButton.GetComponent<Button>().enabled = false;
+        for (int i = 0; i < 6; i++)
+        {
+            transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPosX(transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition.x + 40f, 0.2f);
+        }
+        yield return new WaitForSeconds(0.3f);
+        for (int i = 0; i < 6; i++)
+        {
+            if (transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition.x > 130f)
+            {
+                transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPosX(-100f, 0f);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        NextButton .GetComponent<Button>().enabled = true;
     }
 
 }

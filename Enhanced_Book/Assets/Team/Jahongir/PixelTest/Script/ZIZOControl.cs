@@ -92,11 +92,7 @@ public class ZIZOControl : MonoBehaviour, IPointerClickHandler
         Book.GetComponent<RectTransform>().DOAnchorPosX(0, 0.5f);
         Book.GetComponent<RectTransform>().DOAnchorPosY(_bookLastPosy, 0.5f);
         Select = false;
-        yield return new WaitForSeconds(0);
-        for (int i = 0; i < transform.parent.transform.childCount; i++)
-        {
-            transform.parent.transform.GetChild(i).GetComponent<BoxCollider2D>().enabled = true;
-        }
+        yield return new WaitForSeconds(0.4f);
         MediaPanel.SetActive(true);
         Account.SetActive(true);
         TopMenu.SetActive(true);
@@ -104,6 +100,11 @@ public class ZIZOControl : MonoBehaviour, IPointerClickHandler
         Mark.SetActive(true);
         RightCorner.SetActive(true);
         Help.SetActive(true);
+        for (int i = 0; i < transform.parent.transform.childCount; i++)
+        {
+            transform.parent.transform.GetChild(i).GetComponent<BoxCollider2D>().enabled = true;
+        }
+        
     }
 
     public IEnumerator ZoomInMark()
@@ -136,10 +137,6 @@ public class ZIZOControl : MonoBehaviour, IPointerClickHandler
 
     public IEnumerator ZoomOutMark()
     {
-        MediaPanel.SetActive(true);
-        LeftMenu.SetActive(true);
-        Mark.SetActive(true);
-        RightCorner.SetActive(true);
         GetComponent<RectTransform>().DOAnchorPosX(_lastPosx, 0.5f);
         GetComponent<RectTransform>().DOAnchorPosY(_lastPosy, 0.5f);
         Book.GetComponent<RectTransform>().DOScale(1f, 0.5f);
@@ -150,7 +147,11 @@ public class ZIZOControl : MonoBehaviour, IPointerClickHandler
         transform.parent.GetComponent<RectTransform>().DOScale(1.09f, 0);
         transform.parent.GetComponent<RectTransform>().DOAnchorPosY(24, 0);
         Select = false;
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(0.4f);
+        MediaPanel.SetActive(true);
+        LeftMenu.SetActive(true);
+        Mark.SetActive(true);
+        RightCorner.SetActive(true);
         for (int i = 0; i < transform.parent.transform.childCount; i++)
         {
             transform.parent.transform.GetChild(i).GetComponent<BoxCollider2D>().enabled = true;

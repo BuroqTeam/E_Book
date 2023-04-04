@@ -13,6 +13,7 @@ namespace FathullohMundarijaTable
         public TableType CurrentChapter;
 
         public MundarijaManager MunManager;
+        public GameObject ZoomInZoomOut;
         //public GameObject MainObject;
         public Table MyTable;
         public string TopicStr;
@@ -90,6 +91,7 @@ namespace FathullohMundarijaTable
                 {
                     //Debug.Log(datum.uid.ToString().Contains(TopicStr + "0"));
                     ChangePage(0);
+                    ZoomInZoomOut.gameObject.SetActive(true);
                 }
                 else if (datum.uid.ToString().Equals(TopicStr + "1"))
                 {
