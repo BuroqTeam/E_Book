@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class ChangePos : MonoBehaviour
 {
-
+    public GameObject Page;
     public bool Big;
     public void ChangePosition()
     {
@@ -18,4 +19,17 @@ public class ChangePos : MonoBehaviour
         GetComponent<RectTransform>().DOScale(1, 0);
         GetComponent<RectTransform>().DOAnchorPosY(0, 0);
     }
+
+    public void ActiveOrNonactiveGameObj()
+    {
+        if (Page.GetComponent<Image>().sprite.name == "9-10")
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
 }
