@@ -9,8 +9,8 @@ public class BarChartAnim : MonoBehaviour
     public GameObject BarChart;
     public TMP_Text Days;
 
-    // Update is called once per frame
-    private void Start()
+    
+    private void OnEnable()
     {
         StartCoroutine(AnimBarChart());
         StartCoroutine(AnimPageNumber());
@@ -32,8 +32,8 @@ public class BarChartAnim : MonoBehaviour
         Days.GetComponent<TMP_Text>().text = "0";
         for (int i = 0; i < 188; i++)
         {
-            Days.GetComponent<TMP_Text>().text = i.ToString() + "kun";
-            yield return new WaitForSeconds(0.0007f);
+            Days.GetComponent<TMP_Text>().text = i.ToString() + " kun";
+            yield return new WaitForSeconds(0.003f);
         }
     }
 }

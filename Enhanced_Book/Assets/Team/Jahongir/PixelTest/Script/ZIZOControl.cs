@@ -84,7 +84,6 @@ public class ZIZOControl : MonoBehaviour, IPointerClickHandler
 
     public IEnumerator ZoomOut()
     {
-        Debug.Log("Man ishladim");
         GetComponent<RectTransform>().DOAnchorPosX(_lastPosx, 0.5f);
         GetComponent<RectTransform>().DOAnchorPosY(_lastPosy, 0.5f);
         Book.GetComponent<RectTransform>().DOScale(1f, 0.5f);

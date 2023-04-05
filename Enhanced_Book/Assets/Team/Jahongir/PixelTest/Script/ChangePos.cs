@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ChangePos : MonoBehaviour
 {
     public GameObject Page;
+    public GameObject TableOfContentMain;
     public bool Big;
     public void ChangePosition()
     {
@@ -22,7 +23,7 @@ public class ChangePos : MonoBehaviour
 
     public void ActiveOrNonactiveGameObj()
     {
-        if (Page.GetComponent<Image>().sprite.name == "9-10")
+        if (Page.GetComponent<Image>().sprite.name == "9-10" && !TableOfContentMain.gameObject.activeSelf)
         {
             gameObject.SetActive(true);
         }
@@ -31,5 +32,6 @@ public class ChangePos : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
 
 }
