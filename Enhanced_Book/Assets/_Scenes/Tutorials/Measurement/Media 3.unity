@@ -9216,6 +9216,7 @@ MonoBehaviour:
   AllTriangle: {fileID: 0}
   PosActive: {fileID: 0}
   BackgroundMusic: {fileID: 0}
+  CircleFeedback: {fileID: 0}
   SoundClips:
   - {fileID: 8300000, guid: 20cb868c26bf8e249adf332877093772, type: 3}
   - {fileID: 8300000, guid: 902e0fc011fa44741838313c6347eb79, type: 3}
@@ -14975,6 +14976,10 @@ PrefabInstance:
     - target: {fileID: 7732493606839176554, guid: c7a305a1e393a1b4aba7840d7bab2fea, type: 3}
       propertyPath: m_Name
       value: Home
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732493606839176554, guid: c7a305a1e393a1b4aba7840d7bab2fea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7732493606839176555, guid: c7a305a1e393a1b4aba7840d7bab2fea, type: 3}
       propertyPath: m_Pivot.x

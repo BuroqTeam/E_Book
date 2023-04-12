@@ -10,6 +10,10 @@ using Extension;
 
 public class Game3Controller : MonoBehaviour
 {
+    [Header("User Controls")]
+    public GameObject OneUserCamera;
+    public GameObject TwoUserCamera;
+
 
     [Header("Str Collections")]
     public StrCollection Str1;

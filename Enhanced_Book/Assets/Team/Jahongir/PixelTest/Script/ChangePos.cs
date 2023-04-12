@@ -8,6 +8,8 @@ public class ChangePos : MonoBehaviour
 {
     public GameObject Page;
     public GameObject TableOfContentMain;
+    public GameObject Vedio1;
+    public GameObject Vedio2;
     public bool Big;
     public void ChangePosition()
     {
@@ -32,6 +34,18 @@ public class ChangePos : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    public void ActiveVedio()
+    {
+        if (Page.GetComponent<Image>().sprite.name == "15-16")
+        {
+            Vedio1.gameObject.SetActive(true);
+        }
+        if (Page.GetComponent<Image>().sprite.name == "19-20")
+        {
+            Vedio2.gameObject.SetActive(true);
+        }
+    }
+
 
 
 }

@@ -67,7 +67,7 @@ namespace FathullohMundarijaTable
         {
             for (int i = 0; i < MediaButtons.Count; i++)
             {
-                MediaButtons[i].GetComponent<MediaButton>().ChangeMediaSceneName();
+                MediaButtons[i].GetComponent<MediaButton>().SaveDataForYoutubePlayerScene();
             }
         }
 

@@ -26,7 +26,8 @@ public class MediaButton : MonoBehaviour
     {
         _button = GetComponent<Button>();
         _button.onClick.AddListener(Onlclick);
-        ChangeMediaSceneName();
+        SaveDataForYoutubePlayerScene();
+        //ChangeMediaSceneName();
 
 
         if (gameObject.name == "Tutor") //F++
