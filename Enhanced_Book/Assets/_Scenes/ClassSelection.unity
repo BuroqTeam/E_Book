@@ -1835,7 +1835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: CurrentAxis
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
@@ -3372,7 +3372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: CurrentAxis
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
@@ -3494,7 +3494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: CurrentAxis
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y
@@ -3870,7 +3870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: CurrentAxis
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7172338154344013691, guid: f8620115c75acc34a91ae5b89392e4da, type: 3}
       propertyPath: _rotation.y

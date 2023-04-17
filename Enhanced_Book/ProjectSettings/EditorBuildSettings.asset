@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Book.unity
     guid: 259de1813740cdd4f9b2fa33efcba771
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Tutorials/Big Numbers/Media 1.unity
     guid: d5dd3185c5eb8d841ab2af797fadb377
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Tutorials/Triangles/Scene/Media 2.unity
     guid: d4c62d61ef83cb64e9ccf5fc6711cbc1
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Tutorials/Measurement/Media 3.unity
     guid: d5eaf5773685c7440b6e6d95bbf1e65e
   - enabled: 1
@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Team/Fathulloh/Game 2.unity
     guid: a1d6f1c88ce5c2149b7ea031a1498e21
-  - enabled: 1
+  - enabled: 0
     path: Assets/Team/Fathulloh/FromOnat_2/Game 3.unity
     guid: 2482d00db163cbe4eb3c3ddf12801c61
   - enabled: 1
@@ -42,24 +42,21 @@ EditorBuildSettings:
     path: Assets/_Scenes/Dashboard.unity
     guid: 4fb7aadb2d3a6e4478d199f2e42b9fdb
   - enabled: 1
-    path: Assets/_Scenes/Video 1.unity
-    guid: 66a61301c6154d84d977a7af586dbb0d
-  - enabled: 1
-    path: Assets/_Scenes/Video 2.unity
-    guid: 5b9101f541628dd408221765603c9d19
-  - enabled: 1
     path: Assets/Team/Jahongir/Scenes/Game 3 Update_Profiles/Game3Update.unity
     guid: b9bcf174550b6d640b478a6d8e5e820e
-  - enabled: 1
+  - enabled: 0
+    path: Assets/_Scenes/Video 1.unity
+    guid: 66a61301c6154d84d977a7af586dbb0d
+  - enabled: 0
+    path: Assets/_Scenes/Video 2.unity
+    guid: 5b9101f541628dd408221765603c9d19
+  - enabled: 0
     path: Assets/_Scenes/ClassSelection.unity
     guid: fe27547ce7173b543b2cb4bf580bf521
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/SubjectSelection.unity
     guid: b8e7cf3fdc73834438084bfcb9712a50
   - enabled: 1
     path: Assets/Team/Fathulloh/VideoPlayer/ForYoutubeVideos.unity
     guid: 0f2b547a8fa457a40a25aa4606440e74
-  - enabled: 0
-    path: Assets/Team/Fathulloh/VideoPlayer/Scene/ForYoutubeVideosOld.unity
-    guid: a613ea085c382eb4d8224bf689fa36c5
   m_configObjects: {}

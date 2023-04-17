@@ -1,8 +1,6 @@
 ﻿using SLS.Widgets.Table;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace FathullohMundarijaTable
@@ -13,8 +11,7 @@ namespace FathullohMundarijaTable
         public TableType CurrentChapter;
 
         public MundarijaManager MunManager;
-        public GameObject ZoomInZoomOut;
-        //public GameObject MainObject;
+        public GameObject ZoomInZoomOut;        
         public Table MyTable;
         public string TopicStr;
         public List<string> NumberOfTopics;
@@ -24,8 +21,7 @@ namespace FathullohMundarijaTable
         public List<Sprite> Sprites;
         bool _IsFirstTime = true;
         string strHeader;
-
-        //public UnityEvent SoundEvent;
+                
 
         void Start()
         {
@@ -51,6 +47,7 @@ namespace FathullohMundarijaTable
 
         void DrawTable()
         {
+            Debug.Log("DrawTable()");
             this.MyTable.ResetTable();
 
             this.MyTable.AddTextColumn("", null, -1, 18);
@@ -67,16 +64,16 @@ namespace FathullohMundarijaTable
                 dat.elements.Add(AllTemas[i]);
                 dat.elements.Add(PageOfTemas[i]);
 
-                if (i == 14 - 1)
-                {
-                    dat.elements[0].color = new Color(1, 1, 1, 1);
-                    dat.elements[1].color = new Color(1, 1, 1, 1);
-                    dat.elements[2].color = new Color(1, 1, 1, 1);
+                //if (i == 14 - 1)
+                //{
+                //    dat.elements[0].color = new Color(1, 1, 1, 1);
+                //    dat.elements[1].color = new Color(1, 1, 1, 1);
+                //    dat.elements[2].color = new Color(1, 1, 1, 1);
 
-                    dat.elements[0].backgroundColor = new Color(0.26f, 0.43f, 0.71f);
-                    dat.elements[1].backgroundColor = new Color(0.26f, 0.43f, 0.71f);
-                    dat.elements[2].backgroundColor = new Color(0.26f, 0.43f, 0.71f);                    
-                }
+                //    dat.elements[0].backgroundColor = new Color(0.26f, 0.43f, 0.71f);
+                //    dat.elements[1].backgroundColor = new Color(0.26f, 0.43f, 0.71f);
+                //    dat.elements[2].backgroundColor = new Color(0.26f, 0.43f, 0.71f);                    
+                //}
                 this.MyTable.data.Add(dat);
             }
             this.MyTable.StartRenderEngine();
@@ -93,11 +90,8 @@ namespace FathullohMundarijaTable
                     ChangePage(0);
                     ZoomInZoomOut.gameObject.SetActive(true);
                 }
-                else if (datum.uid.ToString().Equals(TopicStr + "1"))
-                {
-                    //Debug.Log(datum.uid.ToString().Contains(TopicStr + "1"));
-                    ChangePage(1);
-                }
+                else if (datum.uid.ToString().Equals(TopicStr + "1"))                
+                    ChangePage(1);                
                 else if (datum.uid.ToString().Equals(TopicStr + "2"))                
                     ChangePage(2);                
                 else if (datum.uid.ToString().Equals(TopicStr + "3"))                                   
@@ -133,11 +127,12 @@ namespace FathullohMundarijaTable
         /// </summary>
         public void DrawTableAgain()
         {
+            Debug.Log("DrawTableAgain()");
             this.MyTable.ResetTable();
 
-            this.MyTable.AddTextColumn("", null, -1, 20);
+            this.MyTable.AddTextColumn("", null, -1, 18);
             this.MyTable.AddTextColumn(strHeader, null);
-            Column c = this.MyTable.AddTextColumn("", null, -1, 18);
+            Column c = this.MyTable.AddTextColumn("", null, -1, 16);
             c.horAlignment = Column.HorAlignment.CENTER;
 
             this.MyTable.Initialize(this.OnRowSelected);
