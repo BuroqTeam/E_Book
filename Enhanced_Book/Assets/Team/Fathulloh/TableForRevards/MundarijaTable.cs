@@ -47,7 +47,6 @@ namespace FathullohMundarijaTable
 
         void DrawTable()
         {
-            Debug.Log("DrawTable()");
             this.MyTable.ResetTable();
 
             this.MyTable.AddTextColumn("", null, -1, 18);
@@ -127,7 +126,6 @@ namespace FathullohMundarijaTable
         /// </summary>
         public void DrawTableAgain()
         {
-            Debug.Log("DrawTableAgain()");
             this.MyTable.ResetTable();
 
             this.MyTable.AddTextColumn("", null, -1, 18);
