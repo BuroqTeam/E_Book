@@ -129,7 +129,7 @@ public class Game3Controller1User : MonoBehaviour
     {
         for (int i = 0; i < Collection.Count; i++)
         {
-            Collection[i].transform.GetChild(4).GetComponent<TaskTime>().PresentTime = Collection[i].transform.GetChild(4).GetComponent<TaskTime>().StartTime;
+            Collection[i].transform.GetChild(4).GetComponent<TaskTime1User>().PresentTime = Collection[i].transform.GetChild(4).GetComponent<TaskTime1User>().StartTime;
             Collection[i].GetComponent<CardController1User>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         }
 
@@ -149,8 +149,8 @@ public class Game3Controller1User : MonoBehaviour
                 Collection[c].transform.GetChild(4).gameObject.SetActive(true);
                 Collection[c].GetComponent<CardController1User>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(130, 210, 230, 255);
                 Collection[c].transform.GetChild(4).GetComponent<MMFeedbacks>().PlayFeedbacks();
-                StartCoroutine(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().ChangeTime());
-                yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().StartTime - 0.5f);
+                StartCoroutine(Collection[c].transform.GetChild(4).GetComponent<TaskTime1User>().ChangeTime());
+                yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime1User>().StartTime - 0.5f);
                 yield return new WaitForSeconds(0.5f);
             }
             else
@@ -254,7 +254,7 @@ public class Game3Controller1User : MonoBehaviour
             StartCoroutine(obj.transform.GetComponent<CardController1User>().AddCardFeedback());
             GameObject _particle = Instantiate(AddCardParticle, ParticleLocations.transform);
             _particle.transform.DOScale(0.38f, 0);
-            _particle.transform.DOMove(Collection[Collection.Count - 1].GetComponent<CardController2User>().LocationObj.transform.position, 0);
+            _particle.transform.DOMove(Collection[Collection.Count - 1].GetComponent<CardController1User>().LocationObj.transform.position, 0);
 
             GameObject obj1 = Instantiate(Card2, Cards.transform);
             obj1.transform.DOMoveZ(-1, 0);
@@ -377,13 +377,13 @@ public class Game3Controller1User : MonoBehaviour
             Card1Collection[i].GetComponent<CardController1User>().Index = Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController1User>().Index;
             Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController1User>().Str = _newStr;
             Card1Collection[Card1Collection.Count - (i + 1)].transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController1User>().Str;
-            Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController2User>().Index = _newIndex;
+            Card1Collection[Card1Collection.Count - (i + 1)].GetComponent<CardController1User>().Index = _newIndex;
 
             //Card2 uchun shufle
             string _newStr1 = Card2Collection[i].GetComponent<CardController1User>().Str;
             int _newIndex1 = Card2Collection[i].GetComponent<CardController1User>().Index;
             Card2Collection[i].GetComponent<CardController1User>().Str = Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController1User>().Str;
-            Card2Collection[i].transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Card2Collection[i].GetComponent<CardController2User>().Str;
+            Card2Collection[i].transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Card2Collection[i].GetComponent<CardController1User>().Str;
             Card2Collection[i].GetComponent<CardController1User>().Index = Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController1User>().Index;
             Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController1User>().Str = _newStr1;
             Card2Collection[Card2Collection.Count - (i + 1)].transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = Card2Collection[Card2Collection.Count - (i + 1)].GetComponent<CardController1User>().Str;
@@ -441,7 +441,7 @@ public class Game3Controller1User : MonoBehaviour
                     }
                     if (SelectObjects[i].transform.GetChild(4).gameObject.activeSelf)
                     {
-                        SelectObjects[i].transform.GetChild(4).GetComponent<TaskTime>().CircleTime = 0;
+                        SelectObjects[i].transform.GetChild(4).GetComponent<TaskTime1User>().CircleTime = 0;
                         SelectObjects[i].GetComponent<CardController1User>().ActiveCard = false;
                         Task = false;
                     }

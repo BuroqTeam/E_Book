@@ -5291,6 +5291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b0e7ad13b8fc243825754692e2caf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OneUserCamera: {fileID: 0}
+  TwoUserCamera: {fileID: 0}
   Str1: {fileID: 11400000, guid: 75174a740ea18e845929e199abb500ee, type: 2}
   Str2: {fileID: 11400000, guid: e993e8bd2f7877d4e846d89351cd77aa, type: 2}
   Card1: {fileID: 5542551787202459446}

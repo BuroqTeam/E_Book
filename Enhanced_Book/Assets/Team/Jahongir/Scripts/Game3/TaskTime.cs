@@ -18,6 +18,10 @@ public class TaskTime : MonoBehaviour
 
     public MMFeedbacks StartFeedback;
 
+    private void Awake()
+    {
+        
+    }
     private void Start()
     {
         PresentTime = StartTime;

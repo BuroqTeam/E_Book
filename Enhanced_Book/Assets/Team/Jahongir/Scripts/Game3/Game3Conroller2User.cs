@@ -128,7 +128,7 @@ public class Game3Conroller2User : MonoBehaviour
     {
         for (int i = 0; i < Collection.Count; i++)
         {
-            Collection[i].transform.GetChild(4).GetComponent<TaskTime>().PresentTime = Collection[i].transform.GetChild(4).GetComponent<TaskTime>().StartTime;
+            Collection[i].transform.GetChild(4).GetComponent<TaskTime2User>().PresentTime = Collection[i].transform.GetChild(4).GetComponent<TaskTime2User>().StartTime;
             Collection[i].GetComponent<CardController2User>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         }
 
@@ -148,8 +148,8 @@ public class Game3Conroller2User : MonoBehaviour
                 Collection[c].transform.GetChild(4).gameObject.SetActive(true);
                 Collection[c].GetComponent<CardController2User>().TaskTimeShader.GetComponent<SpriteRenderer>().color = new Color(130, 210, 230, 255);
                 Collection[c].transform.GetChild(4).GetComponent<MMFeedbacks>().PlayFeedbacks();
-                StartCoroutine(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().ChangeTime());
-                yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime>().StartTime - 0.5f);
+                StartCoroutine(Collection[c].transform.GetChild(4).GetComponent<TaskTime2User>().ChangeTime());
+                yield return new WaitForSeconds(Collection[c].transform.GetChild(4).GetComponent<TaskTime2User>().StartTime - 0.5f);
                 yield return new WaitForSeconds(0.5f);
             }
             else
@@ -443,7 +443,7 @@ public class Game3Conroller2User : MonoBehaviour
                     }
                     if (SelectObjects[i].transform.GetChild(4).gameObject.activeSelf)
                     {
-                        SelectObjects[i].transform.GetChild(4).GetComponent<TaskTime>().CircleTime = 0;
+                        SelectObjects[i].transform.GetChild(4).GetComponent<TaskTime2User>().CircleTime = 0;
                         SelectObjects[i].GetComponent<CardController2User>().ActiveCard = false;
                         Task = false;
                     }
