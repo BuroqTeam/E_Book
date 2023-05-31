@@ -10,11 +10,11 @@ namespace Game2_Fathulloh
         public enum FigureType {RightTriangle, Square, IsoscelesRightTriangle, Rhombus, ObtuseScaleneTriangle, Pentagon, Rectangle, Paralellogram }
         public FigureType CurrentFigure;
         bool _IsWorking = true;
+
         /// <summary>
         /// Uchburchakning boshlang'ich paytdagi nuqtalari.
         /// </summary>
         public List<GameObject> InitialDots;
-
         public List<GameObject> Childs;
 
         public int PerimetrOrSurface;
@@ -32,7 +32,7 @@ namespace Game2_Fathulloh
         {
             if (_IsWorking)
             {
-                if ( gameObject.GetComponent<Lr_Testing>()._IsFinished && (InitialDots.Any()) )
+                if (gameObject.GetComponent<Lr_Testing>()._IsFinished && (InitialDots.Any()))
                 {                    
                     //Debug.Log(" Is Empty = " + !InitialDots.Any());
                     _IsWorking = false;
