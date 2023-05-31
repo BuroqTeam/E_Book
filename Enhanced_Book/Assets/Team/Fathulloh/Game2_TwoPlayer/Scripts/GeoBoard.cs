@@ -6,6 +6,8 @@ namespace Game2_TwoPlayer
 {
     public class GeoBoard : MonoBehaviour
     {
+        public enum BoardOrder {First, Second };
+        public BoardOrder CurrentOrder;
         public GameObject ParentForDots;
         public GameObject HookPrefab;
 
@@ -13,7 +15,7 @@ namespace Game2_TwoPlayer
         public float Xdistance, Ydistance;
 
         public List<GameObject> Hooks;
-        public List<GameObject> Lines;
+        public List<GameObject> Lines;  // kerak emas bo‘lishi mumkin.
 
 
         void Start()
