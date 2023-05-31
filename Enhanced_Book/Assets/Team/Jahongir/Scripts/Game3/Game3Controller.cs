@@ -7,6 +7,7 @@ using MoreMountains.Feedbacks;
 using TMPro;
 using System.Linq;
 using Extension;
+using UnityEngine.Events;
 
 public class Game3Controller : MonoBehaviour
 {
@@ -51,6 +52,14 @@ public class Game3Controller : MonoBehaviour
     [Header("Particles")]
     public GameObject AddCardParticle;
     public GameObject CorrectParticle;
+
+    [Header("Result Objects")]
+    public GameObject Result1User;
+    public GameObject LoseResult;
+
+
+    public UnityEvent FinishEvent;
+    public UnityEvent LoseEvent;
 
 
     private void Start()
@@ -460,6 +469,11 @@ public class Game3Controller : MonoBehaviour
                 {
                     Task = false;
                 }
+                if (Collection.Count == 0)
+                {
+                    FinishEvent.Invoke();
+                    Result1User.SetActive(true);
+                }
 
 
                 //Bo'sh joylarni aniqlash
@@ -551,6 +565,8 @@ public class Game3Controller : MonoBehaviour
 
     public void Lose()
     {
+        LoseEvent.Invoke();
+        LoseResult.SetActive(true);
         for (int i = 0; i < Collection.Count; i++)
         {
             Collection[i].GetComponent<BoxCollider2D>().enabled = false;

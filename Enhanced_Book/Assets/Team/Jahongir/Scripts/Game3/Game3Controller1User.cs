@@ -7,6 +7,7 @@ using MoreMountains.Feedbacks;
 using TMPro;
 using System.Linq;
 using Extension;
+using UnityEngine.Events;
 
 public class Game3Controller1User : MonoBehaviour
 {
@@ -48,6 +49,15 @@ public class Game3Controller1User : MonoBehaviour
     public GameObject AddCardParticle;
     public GameObject CorrectParticle;
 
+    [Header("Result Objects")]
+    public GameObject Result2User1;
+    public GameObject Result2User2;
+    public GameObject LoseResult;
+    public GameObject CardsSecondUser;
+
+
+    public UnityEvent FinishEvent;
+    public UnityEvent LoseEvent;
 
     private void Start()
     {
@@ -242,7 +252,7 @@ public class Game3Controller1User : MonoBehaviour
             obj.transform.GetComponent<CardController1User>().Index = StrId;
             obj.transform.GetComponent<CardController1User>().CardIndex = 1;
             obj.transform.GetComponent<CardController1User>().Str = Str1.StrGroup[StrId / 2];
-            //obj.transform.GetComponent<CardController2User>().Game3Controller = this;
+            obj.transform.GetComponent<CardController1User>().Game3Controller = this;
             Collection.Add(Cards.transform.GetChild(Cards.transform.childCount - 1).gameObject);
             int r1 = Random.Range(0, AdditionEmptyLocation.Count);
             Collection[Collection.Count - 1].transform.DOMove(AdditionEmptyLocation[r1].transform.position, 0);
@@ -452,6 +462,13 @@ public class Game3Controller1User : MonoBehaviour
                 {
                     Task = false;
                 }
+                if (Collection.Count == 0)
+                {
+                    FinishEvent.Invoke();
+                    Result2User1.SetActive(true);
+                    Cards.SetActive(false);
+                    CardsSecondUser.SetActive(false);
+                }
 
 
                 //Bo'sh joylarni aniqlash
@@ -538,11 +555,20 @@ public class Game3Controller1User : MonoBehaviour
                 }
             }
         }
+        //if (EmptyLocation.Count == 0)
+        //{
+        //    Cards.transform.DOScale(1, 0.5f);
+        //    Cards.transform.DOMoveX(1, 0.5f);
+        //    AddCardLocLeft.transform.parent.transform.DOScale(1, 0.5f);
+        //    AddCardLocLeft.transform.parent.transform.DOMoveY(0.1f, 0.5f);
+        //}
     }
 
 
     public void Lose()
     {
+        LoseEvent.Invoke();
+        LoseResult.SetActive(true);
         for (int i = 0; i < Collection.Count; i++)
         {
             Collection[i].GetComponent<BoxCollider2D>().enabled = false;

@@ -55,6 +55,7 @@ public class TaskTime1User : MonoBehaviour
             yield return new WaitForSeconds(StartTime / 360);
         }
         PresentTime = StartTime;
+        Slider.GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", 0);
     }
 }
 
