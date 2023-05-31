@@ -40,11 +40,6 @@ namespace Game2_Fathulloh
         bool _IsChanged = false;
 
 
-        void Start()
-        {
-
-        }
-
 
         void Update()
         {

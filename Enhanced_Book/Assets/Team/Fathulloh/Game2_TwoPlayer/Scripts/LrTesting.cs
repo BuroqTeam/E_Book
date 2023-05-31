@@ -4,7 +4,7 @@ namespace Game2_TwoPlayer
 {
     public class LrTesting : MonoBehaviour
     {
-        public bool _IsFinished = false;
+        [HideInInspector] public bool _IsFinished = false;
         [SerializeField] private Transform[] points;
         [SerializeField] private LineController lineControl;
 

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -54,10 +53,9 @@ namespace Game2_TwoPlayer
         }
 
 
-
         public void CheckFigure()
         {
-            Debug.Log("CheckFigure() = "); 
+            //Debug.Log("CheckFigure() = "); 
         }
 
     }
