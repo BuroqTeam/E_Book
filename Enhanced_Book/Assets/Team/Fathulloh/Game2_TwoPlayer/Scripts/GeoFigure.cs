@@ -4,8 +4,15 @@ using UnityEngine;
 
 namespace Game2_TwoPlayer
 {
+    public enum TaskType
+    {
+        RightTriangle,
+        Square
+    }
     public class GeoFigure : MonoBehaviour
     {
+        public TaskType CurrentPageType;
+
         /// <summary>
         /// Uchburchakning boshlang'ich paytdagi nuqtalari.
         /// </summary>
@@ -19,9 +26,7 @@ namespace Game2_TwoPlayer
         public bool _IsCorrect;
 
         bool _IsWorking = true;
-
-
-        
+                
 
         
         void Update()

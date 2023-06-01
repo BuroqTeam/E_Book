@@ -18,7 +18,9 @@ namespace Game2_TwoPlayer
         public Sprite GreenSprite, RedSprite;
         private Sprite InitialSprite;
 
-        
+        int numGreen = 0;  // Point birorta hookga yaqin kelgan bo‘lsa 1 dan katta bo‘ladi bu.
+
+
         void Start()
         {
             TakeList();
@@ -28,7 +30,7 @@ namespace Game2_TwoPlayer
         void TakeList()
         {
             ListHooks = BoardObj.GetComponent<GeoBoard>().Hooks;
-            //CurrentPos = gameObject.transform.position;
+            
             InitialSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         }
 
@@ -47,10 +49,7 @@ namespace Game2_TwoPlayer
             SpriteChanger();
         }
 
-
-        int numGreen = 0;
-
-
+        
         void SpriteChanger()
         {
             for (int i = 0; i < ListHooks.Count; i++)
@@ -60,13 +59,11 @@ namespace Game2_TwoPlayer
             }
 
             if (numGreen > 0)
-            {
-                Debug.Log("Yashil ");
+            {                
                 gameObject.GetComponent<SpriteRenderer>().sprite = GreenSprite;
             }
             else if (numGreen == 0)
             {
-                Debug.Log("Qizil ");
                 gameObject.GetComponent<SpriteRenderer>().sprite = RedSprite;
             }
 
@@ -76,8 +73,7 @@ namespace Game2_TwoPlayer
 
         public void OnEndDrag(PointerEventData eventData)
         {            
-            CheckOnHook();
-            
+            CheckOnHook();            
         }
         
         
@@ -98,13 +94,11 @@ namespace Game2_TwoPlayer
             if (nearHookNums >= 1) 
             {
                 nearHookNums = 0;
-                Debug.Log("yaqin  nearHookNums = " + nearHookNums);
                 transform.position = CurrentPos;
                 DropEvent.Raise();                
             }
             else if (nearHookNums == 0)
             {
-                Debug.Log("uzoq nearHookNums = " + nearHookNums);
                 transform.position = InitialPos;
                 FallEvent.Raise();
             }

@@ -7,6 +7,8 @@ namespace Game2_TwoPlayer
 {
     public class GameManage : MonoBehaviour
     {
+        public enum PlayerOrder { FirstPlayer, SecondPlayer };
+        public PlayerOrder CurrentPlayer;
         public bool _IsCheck = true;
         private int CountGeoboardFigures = 0;
 
@@ -26,6 +28,8 @@ namespace Game2_TwoPlayer
         bool _IsChanged = false;
 
 
+        public List<string> Questions = new();
+        int q0, q1, q2, q3, q4;
         List<string> Questions_1 = new()
         {
             $"To'g'ri burchakli uchburchak yasang.",
@@ -34,6 +38,7 @@ namespace Game2_TwoPlayer
             $"Perimetri {n3} cm ga teng bo'lgan to'rtburchakni yasang.",
             $"Turli tomonli uchburchakni yasang."
         };
+
         const int n0 = 12, n1 = 16, n2 = 8, n3 = 14, n4 = 5;
 
 
@@ -41,12 +46,43 @@ namespace Game2_TwoPlayer
         {
             $"Asosi {n5} bo‘lgan teng yonli uchburchak yasang.",
             $"Perimetri {n6} cm ga teng bo'lgan kvadrat yasang.",
-            $"Teng yonli to'g'ri burchakli uchburchak yasang.",
+            $"Turli tomonli uchburchakni yasang.",
             $"Perimetri {n8} cm ga teng bo'lgan to'rtburchakni yasang.",
-            $"Turli tomonli uchburchakni yasang."
+            $"Asosi {n9} bo‘lgan turli tomonli uchburchak yasang."
         };
-        const int n5 = 4, n6 = 12, n7 = 0, n8 = 10, n9 = 0;
 
+        const int n5 = 4, n6 = 12, n7 = 0, n8 = 10, n9 = 3;
+
+
+        private void Start()
+        {
+            CheckPlayerOrder();
+        }
+
+
+        public void CheckPlayerOrder()
+        {
+            if (CurrentPlayer == PlayerOrder.FirstPlayer)
+            {
+                Questions = new(Questions_1);
+                //Debug.Log("First");
+                q0 = n0;
+                q1 = n1;
+                q2 = n2;
+                q3 = n3;
+                q4 = n4;
+            }
+            else if (CurrentPlayer == PlayerOrder.SecondPlayer)
+            {
+                Questions = new(Questions_2);
+                //Debug.Log("Second");
+                q0 = n5;
+                q1 = n6;
+                q2 = n7;
+                q3 = n8;
+                q4 = n9;
+            }
+        }
 
 
         void Update()
@@ -65,8 +101,8 @@ namespace Game2_TwoPlayer
                     _IsCheck = false;
                     SwitchOffFigures();
                 }
-
             }
+
         }
 
 
@@ -95,7 +131,8 @@ namespace Game2_TwoPlayer
 
                     GeoBoardFigures[i].SetActive(true);
                     LineManagers[i].SetActive(true);
-                    QuestionText.text = Questions_1[i];
+
+                    QuestionText.text = Questions[i];
 
                     CurrentLineManager = LineManagers[i];
                     CurrentFigure = GeoBoardFigures[i];
@@ -121,7 +158,15 @@ namespace Game2_TwoPlayer
             GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
             GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[7]);
 
-            GeoBoardFigures[0].GetComponent<GeoFigure>().PerimetrOrSurface = n0;
+            GeoBoardFigures[0].GetComponent<GeoFigure>().PerimetrOrSurface = q0;
+
+            //  GeoBoardFigures[1] Make Square
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[0]);
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[1]);
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[7]);
+
+            GeoBoardFigures[1].GetComponent<GeoFigure>().PerimetrOrSurface = q1;
         }
 
 
