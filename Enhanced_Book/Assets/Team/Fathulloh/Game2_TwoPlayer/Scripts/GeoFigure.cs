@@ -6,11 +6,14 @@ namespace Game2_TwoPlayer
 {
     public enum FigureType
     {
-        RightTriangle,
-        SquareWithPerimetr,
-        IsoscelesTriangle,
-        RightRectangle,
-        ScalenTriangle
+        NoFigure,              // Hechqaysi shakl tanlanmagan
+        RightTriangle,         // To‘g‘ri burchakli uchburchak
+        SquareWithPerimetr,    // Kvadrat Parametr bilan
+        IsoscelesTriangle,     // Teng yonli uchburchak
+        RightRectangle,        // To‘g‘ri to‘rtburchak perimetr bilan.
+        ScalenTriangle,        // Turli tomonli uchburchak
+        IsoscelesTriangleBasis,   // Teng yonli uchburchak asos bilan birga
+        ScalenTriangleBasis    // Turli tomonli uchburchak asos bilan birga
     }
 
     public class GeoFigure : MonoBehaviour
@@ -68,6 +71,9 @@ namespace Game2_TwoPlayer
         {
             switch (CurrentFigure)
             {
+                case FigureType.NoFigure:
+                    Debug.Log("No figure");
+                    break;
                 case FigureType.RightTriangle:
                     CheckRightTriangle();
                     break;
@@ -83,8 +89,14 @@ namespace Game2_TwoPlayer
                 case FigureType.ScalenTriangle:
                     CheckScalenTriangles();
                     break;
-                default:
+                case FigureType.IsoscelesTriangleBasis:
+                    CheckIsoscelesTriangleBasis();
                     break;
+                case FigureType.ScalenTriangleBasis:
+                    CheckScalenTriangleBasis();
+                    break;
+                default:
+                    break;                    
             }
         }
 
@@ -143,11 +155,7 @@ namespace Game2_TwoPlayer
             distance1 = Vector3.Distance(Childs[0].transform.position, Childs[1].transform.position);
             distance2 = Vector3.Distance(Childs[1].transform.position, Childs[2].transform.position);
             distance3 = Vector3.Distance(Childs[2].transform.position, Childs[0].transform.position);
-            //if ((distance1 == distance2) || (distance2 == distance3))            
-            //    _IsCorrect = true;            
-            //else
-            //    _IsCorrect = false;
-
+            
             //               condition ? true_expression : false_expression;
             _IsCorrect = ((distance1 == distance2) || (distance2 == distance3)) ? true : false;
         }
@@ -180,6 +188,36 @@ namespace Game2_TwoPlayer
             bool triangleCondition = ((distance1 + distance2 > distance3) && (distance2 + distance3 > distance1) && (distance1 + distance3 > distance2));
 
             _IsCorrect = (littleCondition && triangleCondition);
+        }
+
+        /// <summary>
+        /// Teng yonli uchburchakni berilgan asosga ko‘ra chizilganligini tekshiradi.
+        /// </summary>
+        void CheckIsoscelesTriangleBasis()
+        {
+            float distance1, distance2, distance3;
+            distance1 = Vector3.Distance(Childs[0].transform.position, Childs[1].transform.position);
+            distance2 = Vector3.Distance(Childs[1].transform.position, Childs[2].transform.position);
+            distance3 = Vector3.Distance(Childs[2].transform.position, Childs[0].transform.position);
+
+            bool condition1 = ((distance1 == distance2) && (distance3 == PerimetrOrSurface));
+            bool condition2 = ((distance2 == distance3) && (distance1 == PerimetrOrSurface));
+            bool condition3 = ((distance1 == distance3) && (distance2 == PerimetrOrSurface));
+
+            _IsCorrect = (condition1 || condition2 || condition3);
+        }
+
+
+        void CheckScalenTriangleBasis()
+        {
+            float distance1 = Vector3.Distance(Childs[0].transform.position, Childs[1].transform.position);
+            float distance2 = Vector3.Distance(Childs[1].transform.position, Childs[2].transform.position);
+            float distance3 = Vector3.Distance(Childs[2].transform.position, Childs[0].transform.position);
+
+            bool cond1 = ((distance1 != distance2) && (distance2 != distance3));
+            bool cond2 = ((distance1 == PerimetrOrSurface) || (distance2 == PerimetrOrSurface) || (distance3 == PerimetrOrSurface));
+
+            _IsCorrect = (cond1 && cond2);
         }
 
 

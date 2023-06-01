@@ -39,7 +39,7 @@ namespace Game2_TwoPlayer
             $"Turli tomonli uchburchakni yasang."
         };
 
-        const int n0 = 0, n1 = 12, n2 = 8, n3 = 14, n4 = 5;
+        const int n0 = 0, n1 = 12, n2 = 0, n3 = 14, n4 = 0;
 
 
         List<string> Questions_2 = new()
@@ -51,7 +51,7 @@ namespace Game2_TwoPlayer
             $"Asosi {n9} bo‘lgan turli tomonli uchburchak yasang."
         };
 
-        const int n5 = 4, n6 = 12, n7 = 0, n8 = 10, n9 = 3;
+        const int n5 = 2, n6 = 8, n7 = 0, n8 = 10, n9 = 3;
 
 
         private void Start()
@@ -136,7 +136,12 @@ namespace Game2_TwoPlayer
 
                     CurrentLineManager = LineManagers[i];
                     CurrentFigure = GeoBoardFigures[i];
-                    GCalculate.CurrentFigure = CurrentFigure;
+
+                    if (CurrentPlayer == PlayerOrder.FirstPlayer)                    
+                        GCalculate.CurrentFigure_First = CurrentFigure;                    
+                    else if (CurrentPlayer == PlayerOrder.SecondPlayer)                    
+                        GCalculate.CurrentFigure_Second = CurrentFigure;                    
+                    
                     break;
                 }
             }
@@ -155,8 +160,8 @@ namespace Game2_TwoPlayer
 
             //  GeoBoardFigures[0] Make Right Triangle
             GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[0]);
-            GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[1]);
-            GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[8]);
+            GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[7]);
+            GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[18]);
 
             GeoBoardFigures[0].GetComponent<GeoFigure>().PerimetrOrSurface = q0;
 

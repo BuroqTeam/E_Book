@@ -60,6 +60,6 @@ EditorBuildSettings:
     path: Assets/Team/Fathulloh/VideoPlayer/ForYoutubeVideos.unity
     guid: 0f2b547a8fa457a40a25aa4606440e74
   - enabled: 1
-    path: Assets/_Scenes/Math5Book.unity
+    path: Assets/Team/Fathulloh/Math5Book.unity
     guid: f2fa8ec138e3ef34bb506d77b99759fb
   m_configObjects: {}
