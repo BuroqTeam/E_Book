@@ -9,6 +9,9 @@ namespace Game2_TwoPlayer
         [SerializeField] private LineController lineControl;
 
 
+        /// <summary>
+        /// Agar SetUpLine(points)ni chaqirmasak nuqtalar orasiga chiziqlarni chizib bermaydi.
+        /// </summary>
         void Start()
         {
             lineControl.SetUpLine(points);
@@ -16,6 +19,13 @@ namespace Game2_TwoPlayer
         }
 
 
+        //private void OnEnable()
+        //{
+        //    lineControl.SetUpLine(points);
+        //    _IsFinished = true;
+        //}
+
         
+
     }
 }

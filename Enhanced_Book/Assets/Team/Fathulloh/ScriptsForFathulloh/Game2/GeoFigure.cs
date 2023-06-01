@@ -21,13 +21,6 @@ namespace Game2_Fathulloh
         public bool _IsCorrect;
 
 
-
-        void Start()
-        {
-
-        }
-
-
         void Update()
         {
             if (_IsWorking)

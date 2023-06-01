@@ -34,12 +34,12 @@ namespace Game2_TwoPlayer
         {
             $"To'g'ri burchakli uchburchak yasang.",
             $"Perimetri {n1} cm ga teng bo'lgan kvadrat yasang.",
-            $"Teng yonli to'g'ri burchakli uchburchak yasang.",
+            $"Teng yonli uchburchak yasang.",
             $"Perimetri {n3} cm ga teng bo'lgan to'rtburchakni yasang.",
             $"Turli tomonli uchburchakni yasang."
         };
 
-        const int n0 = 12, n1 = 16, n2 = 8, n3 = 14, n4 = 5;
+        const int n0 = 0, n1 = 12, n2 = 8, n3 = 14, n4 = 5;
 
 
         List<string> Questions_2 = new()
@@ -155,18 +155,40 @@ namespace Game2_TwoPlayer
 
             //  GeoBoardFigures[0] Make Right Triangle
             GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[0]);
-            GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
-            GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[7]);
+            GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[1]);
+            GeoBoardFigures[0].GetComponent<GeoFigure>().InitialDots.Add(Hooks[8]);
 
             GeoBoardFigures[0].GetComponent<GeoFigure>().PerimetrOrSurface = q0;
 
-            //  GeoBoardFigures[1] Make Square
+            //  GeoBoardFigures[1] Make Square with perimetr
             GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[0]);
             GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[1]);
-            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
             GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[7]);
+            GeoBoardFigures[1].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
 
             GeoBoardFigures[1].GetComponent<GeoFigure>().PerimetrOrSurface = q1;
+
+            //  GeoBoardFigures[2] Make Isoscales Triangle
+            GeoBoardFigures[2].GetComponent<GeoFigure>().InitialDots.Add(Hooks[0]);
+            GeoBoardFigures[2].GetComponent<GeoFigure>().InitialDots.Add(Hooks[2]);
+            GeoBoardFigures[2].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
+
+            GeoBoardFigures[2].GetComponent<GeoFigure>().PerimetrOrSurface = q2;
+
+            //  GeoBoardFigures[3] Make Right Triangle with perimetr
+            GeoBoardFigures[3].GetComponent<GeoFigure>().InitialDots.Add(Hooks[0]);
+            GeoBoardFigures[3].GetComponent<GeoFigure>().InitialDots.Add(Hooks[1]);
+            GeoBoardFigures[3].GetComponent<GeoFigure>().InitialDots.Add(Hooks[7]);
+            GeoBoardFigures[3].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
+
+            GeoBoardFigures[3].GetComponent<GeoFigure>().PerimetrOrSurface = q3;
+
+            //  GeoBoardFigures[4] Make Right Triangle with perimetr
+            GeoBoardFigures[4].GetComponent<GeoFigure>().InitialDots.Add(Hooks[0]);
+            GeoBoardFigures[4].GetComponent<GeoFigure>().InitialDots.Add(Hooks[1]);
+            GeoBoardFigures[4].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
+
+            GeoBoardFigures[4].GetComponent<GeoFigure>().PerimetrOrSurface = q4;
         }
 
 
