@@ -44,12 +44,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Team/Jahongir/Scenes/Game 3 Update_Profiles/Game3Update.unity
     guid: b9bcf174550b6d640b478a6d8e5e820e
+  - enabled: 1
+    path: Assets/Team/Fathulloh/VideoPlayer/ForYoutubeVideos.unity
+    guid: 0f2b547a8fa457a40a25aa4606440e74
   - enabled: 0
     path: Assets/_Scenes/Video 1.unity
     guid: 66a61301c6154d84d977a7af586dbb0d
   - enabled: 0
     path: Assets/_Scenes/Video 2.unity
     guid: 5b9101f541628dd408221765603c9d19
+  - enabled: 1
+    path: Assets/Team/Fathulloh/Math5Book.unity
+    guid: f2fa8ec138e3ef34bb506d77b99759fb
   - enabled: 0
     path: Assets/Team/Fathulloh/OtherScenes/ClassSelection.unity
     guid: fe27547ce7173b543b2cb4bf580bf521
@@ -57,9 +63,9 @@ EditorBuildSettings:
     path: Assets/Team/Fathulloh/OtherScenes/SubjectSelection.unity
     guid: b8e7cf3fdc73834438084bfcb9712a50
   - enabled: 1
-    path: Assets/Team/Fathulloh/VideoPlayer/ForYoutubeVideos.unity
-    guid: 0f2b547a8fa457a40a25aa4606440e74
+    path: Assets/Team/Fathulloh/Game 2 ChosenScene.unity
+    guid: 469a9454ff11f684c9882742c585ff33
   - enabled: 1
-    path: Assets/Team/Fathulloh/Math5Book.unity
-    guid: f2fa8ec138e3ef34bb506d77b99759fb
+    path: Assets/Team/Fathulloh/Game2_TwoPlayer/Game 2 Copy.unity
+    guid: 28c93727309f5714d8952bea49f6b723
   m_configObjects: {}

@@ -189,5 +189,17 @@ namespace Game2_Fathulloh
         }
 
 
+        public void SwitchOffLinesTimeFinish()
+        {
+            int countObj = GeoBoardFigures.Count;
+
+            for (int i = 0; i < countObj; i++)
+            {
+                GeoBoardFigures[i].SetActive(false);
+                LineManagers[i].SetActive(false);
+            }
+        }
+
+
     }
 }
