@@ -8,8 +8,6 @@ namespace Game2_TwoPlayer
 {
     public class Calculate : MonoBehaviour
     {
-
-
         //public GameManage GManage;
         public GameObject CurrentFigure_First;
         public GameObject CurrentFigure_Second;

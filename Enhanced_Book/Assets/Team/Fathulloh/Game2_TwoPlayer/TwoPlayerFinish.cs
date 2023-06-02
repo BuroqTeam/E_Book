@@ -1,5 +1,5 @@
+using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +18,9 @@ namespace Game2_TwoPlayer
         public GameObject Badge1;
         public GameObject Badge2;
 
+
+        public float durration;
+        public float LongTime;
 
         void Start()
         {
@@ -51,6 +54,32 @@ namespace Game2_TwoPlayer
                 gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.SetActive(true);
             }
         }
+
+
+        public void SwitchPanel()
+        {
+            gameObject.transform.GetChild(0).transform.localScale = new Vector3(0, 0, 0);
+            gameObject.SetActive(true);
+            StartCoroutine(SwitchingPanel());
+
+        }
+
+
+        IEnumerator SwitchingPanel()
+        {
+            yield return new WaitForSeconds(0.05f);
+            if (LongTime == 0)
+            {
+                yield return new WaitForSeconds((float)durration / 4);
+                gameObject.transform.GetChild(0).transform.DOScale(1, 3 * (float)durration / 4);
+            }
+            else if (LongTime != 0)
+            {
+                yield return new WaitForSeconds((float)durration / 2);
+                gameObject.transform.GetChild(0).transform.DOScale(1, 3 * (float)durration / 3);
+            }
+        }
+
 
     }
 }

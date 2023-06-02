@@ -37,7 +37,7 @@ public class ChoosePlayerNumber : MonoBehaviour
         bool isNull = String.IsNullOrEmpty(NextSceneName);
         if (isNull)
         {
-            Debug.Log("Null");
+            //Debug.Log("Null");
         }
         else if (!isNull)
         {

@@ -41,7 +41,7 @@ public class GameResultPanel : MonoBehaviour
     {
         float spendingTime = TimerObject.GetComponent<Timer>().currentTime;
 
-        if (spendingTime > 200)        {
+        if (spendingTime > 140)        {
             BadgeObj.GetComponent<Image>().sprite = GoldSprite;
             BadgeText.GetComponent<TMP_Text>().text = GoldStr;
         }

@@ -46,7 +46,7 @@ namespace Game2_TwoPlayer
         {
             $"Asosi {n5} bo‘lgan teng yonli uchburchak yasang.",
             $"Perimetri {n6} cm ga teng bo'lgan kvadrat yasang.",
-            $"Turli tomonli uchburchakni yasang.",
+            $"To'g'ri burchakli uchburchak yasang.",
             $"Perimetri {n8} cm ga teng bo'lgan to'rtburchakni yasang.",
             $"Asosi {n9} bo‘lgan turli tomonli uchburchak yasang."
         };
@@ -174,9 +174,9 @@ namespace Game2_TwoPlayer
             GeoBoardFigures[1].GetComponent<GeoFigure>().PerimetrOrSurface = q1;
 
             //  GeoBoardFigures[2] Make Isoscales Triangle
-            GeoBoardFigures[2].GetComponent<GeoFigure>().InitialDots.Add(Hooks[0]);
-            GeoBoardFigures[2].GetComponent<GeoFigure>().InitialDots.Add(Hooks[2]);
             GeoBoardFigures[2].GetComponent<GeoFigure>().InitialDots.Add(Hooks[6]);
+            GeoBoardFigures[2].GetComponent<GeoFigure>().InitialDots.Add(Hooks[13]);
+            GeoBoardFigures[2].GetComponent<GeoFigure>().InitialDots.Add(Hooks[24]);
 
             GeoBoardFigures[2].GetComponent<GeoFigure>().PerimetrOrSurface = q2;
 
