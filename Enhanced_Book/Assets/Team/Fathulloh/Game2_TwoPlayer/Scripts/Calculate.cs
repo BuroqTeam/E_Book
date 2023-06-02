@@ -8,6 +8,8 @@ namespace Game2_TwoPlayer
 {
     public class Calculate : MonoBehaviour
     {
+
+
         //public GameManage GManage;
         public GameObject CurrentFigure_First;
         public GameObject CurrentFigure_Second;
@@ -40,6 +42,15 @@ namespace Game2_TwoPlayer
                 else
                     WrongEvent.Invoke();
             }
+        }
+
+
+        /// <summary>
+        /// Vaqt tugaganda sshu metod chaqiriladi.
+        /// </summary>
+        public void TimeIsFinished()
+        {
+            FinishEvent.Invoke();            
         }
 
 

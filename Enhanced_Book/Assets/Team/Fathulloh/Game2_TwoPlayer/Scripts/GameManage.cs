@@ -16,7 +16,7 @@ namespace Game2_TwoPlayer
         public TMP_Text QuestionText;
         public GameObject TaskTablo;
 
-        [HideInInspector] public int CurrentTask = 5;
+        [HideInInspector] public int CurrentTask;
         public int TotalTask;
 
         public List<GameObject> GeoBoardFigures;
