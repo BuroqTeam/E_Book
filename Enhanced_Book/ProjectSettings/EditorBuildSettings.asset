@@ -32,9 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Team/Fathulloh/Game2_TwoPlayer/Game 2 TwoPlayer.unity
     guid: 28c93727309f5714d8952bea49f6b723
-  - enabled: 0
-    path: Assets/Team/Fathulloh/FromOnat_2/Game 3.unity
-    guid: 2482d00db163cbe4eb3c3ddf12801c61
   - enabled: 1
     path: Assets/Team/Jahongir/Scenes/Quiz 1.unity
     guid: 72d922d99bad78a41a502663b399fe4a
@@ -49,6 +46,9 @@ EditorBuildSettings:
     guid: 4fb7aadb2d3a6e4478d199f2e42b9fdb
   - enabled: 1
     path: Assets/Team/Jahongir/Scenes/Game 3 Update_Profiles/Game3Update.unity
+    guid: fdb78b94a2d42ab4eac972eb0fd64011
+  - enabled: 1
+    path: Assets/Team/Jahongir/Scenes/Game 3 Update_Profiles/Game3Upd.unity
     guid: b9bcf174550b6d640b478a6d8e5e820e
   - enabled: 1
     path: Assets/Team/Fathulloh/VideoPlayer/ForYoutubeVideos.unity
@@ -59,12 +59,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Video 2.unity
     guid: 5b9101f541628dd408221765603c9d19
-  - enabled: 0
-    path: Assets/Team/Fathulloh/OtherScenes/ClassSelection.unity
-    guid: fe27547ce7173b543b2cb4bf580bf521
-  - enabled: 0
-    path: Assets/Team/Fathulloh/OtherScenes/SubjectSelection.unity
-    guid: b8e7cf3fdc73834438084bfcb9712a50
   - enabled: 1
     path: Assets/Team/Fathulloh/Math5Book.unity
     guid: f2fa8ec138e3ef34bb506d77b99759fb
