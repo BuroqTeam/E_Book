@@ -20,12 +20,7 @@ namespace Game2_Fathulloh
 
         public bool _IsCheckWorking = true;
 
-        void Start()
-        {
-
-        }
-
-
+        
         public void Check()
         {
             if (_IsCheckWorking)
@@ -44,9 +39,10 @@ namespace Game2_Fathulloh
         }
 
 
-        public void Finished()
+        public void TimeIsFinished()
         {
-            
+            FinishEvent.Invoke();
+            GControl.SwitchOffLinesTimeFinish();
         }
 
 
@@ -65,7 +61,6 @@ namespace Game2_Fathulloh
             NextTaskEvent.Invoke();
             //Debug.Log(" 1 2 ");
             _IsCheckWorking = true;
-            //Debug.Log(" 2 3 4");
         }
 
 

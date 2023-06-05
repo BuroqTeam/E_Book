@@ -40,11 +40,6 @@ namespace Game2_Fathulloh
         bool _IsChanged = false;
 
 
-        void Start()
-        {
-
-        }
-
 
         void Update()
         {
@@ -190,6 +185,18 @@ namespace Game2_Fathulloh
             for (int i = 0; i < CurrentFigure.transform.childCount; i++)
             {
                 CurrentFigure.transform.GetChild(i).GetComponent<SpriteRenderer>().color = InitialColorCorner;
+            }
+        }
+
+
+        public void SwitchOffLinesTimeFinish()
+        {
+            int countObj = GeoBoardFigures.Count;
+
+            for (int i = 0; i < countObj; i++)
+            {
+                GeoBoardFigures[i].SetActive(false);
+                LineManagers[i].SetActive(false);
             }
         }
 

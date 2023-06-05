@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6193048804851709040}
   - component: {fileID: 6193048804851709043}
   - component: {fileID: 3589053056811946375}
-  - component: {fileID: 6193048804851709041}
   - component: {fileID: 7933095035825965877}
   m_Layer: 0
   m_Name: Point_0
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6193048804851709047}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -10.91, y: -0.98, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,27 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.225
---- !u!114 &6193048804851709041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6193048804851709047}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a457e3704fd15774dace5d171da29c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitialDots: []
-  BoardObj: {fileID: 0}
-  InitialPos: {x: 0, y: 0, z: 0}
-  CurrentPos: {x: 0, y: 0, z: 0}
-  ListHooks: []
-  HookNumbers: 0
-  DragEvent: {fileID: 11400000, guid: a41a985d5d4c2324589d0f10380a1377, type: 2}
-  DropEvent: {fileID: 11400000, guid: 037707924ced9514482f033089eb197c, type: 2}
-  FallEvent: {fileID: 11400000, guid: 0277edb8d3e97cf40ab3e7ef187379eb, type: 2}
 --- !u!114 &7933095035825965877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +122,5 @@ MonoBehaviour:
   DragEvent: {fileID: 11400000, guid: a41a985d5d4c2324589d0f10380a1377, type: 2}
   DropEvent: {fileID: 11400000, guid: 037707924ced9514482f033089eb197c, type: 2}
   FallEvent: {fileID: 11400000, guid: 0277edb8d3e97cf40ab3e7ef187379eb, type: 2}
+  GreenSprite: {fileID: 21300000, guid: dbec1a5ea71200e439018e10bcb8da37, type: 3}
+  RedSprite: {fileID: 21300000, guid: 45b8a323915629347bc58844b317425a, type: 3}
