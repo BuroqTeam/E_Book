@@ -61,17 +61,26 @@ public class SelectUser : MonoBehaviour
         StartButton.GetComponent<RectTransform>().DOScale(1f, 0.1f);
         yield return new WaitForSeconds(0.25f);
         Canvas.GetComponent<Canvas>().sortingOrder = 11;
-        Canvas.transform.GetChild(0).gameObject.SetActive(true);
-        Canvas.transform.GetChild(1).gameObject.SetActive(true);
+        
         if (OneUser)
         {
+            Canvas.transform.GetChild(0).gameObject.SetActive(true);
+            Canvas.transform.GetChild(1).gameObject.SetActive(true);
             User1Manager.SetActive(true);
+            gameObject.SetActive(false);
         }
         else if (TwoUser)
         {
+            Canvas.transform.GetChild(0).gameObject.SetActive(true);
+            Canvas.transform.GetChild(1).gameObject.SetActive(true);
             User1.SetActive(false);
             User2.SetActive(true);
+            gameObject.SetActive(false);
         }
-        gameObject.SetActive(false);
+        else
+        {
+            gameObject.SetActive(true);
+        }
+        
     }
 }
