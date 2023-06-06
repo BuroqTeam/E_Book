@@ -59,7 +59,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Video 2.unity
     guid: 5b9101f541628dd408221765603c9d19
-  - enabled: 1
+  - enabled: 0
     path: Assets/Team/Fathulloh/Math5Book.unity
     guid: f2fa8ec138e3ef34bb506d77b99759fb
   m_configObjects: {}
